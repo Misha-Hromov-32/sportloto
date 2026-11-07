@@ -1,0 +1,492 @@
+/* ---------- Шапка ---------- */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  max-width: var(--container);
+  padding-bottom: var(--s-7);
+}
+
+.board {
+  display: grid;
+  gap: var(--s-5);
+  padding: var(--s-5);
+  border: 1px solid var(--line-soft);
+  border-radius: 24px;
+  background: var(--surface);
+}
+
+@media (min-width: 768px) {
+  .board {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    padding: var(--s-6);
+  }
+}
+
+.boardMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  min-width: 0;
+}
+
+.stateLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+}
+
+.mode {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.boardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+@media (min-width: 768px) {
+  .boardActions {
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 220px;
+  }
+}
+
+.actionsNote {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  max-width: 28ch;
+}
+
+@media (max-width: 479px) {
+  .appeal > * {
+    width: 100%;
+  }
+}
+
+.appealSent {
+  display: flex;
+  gap: var(--s-2);
+  max-width: 64ch;
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--wait-bg);
+  color: var(--ink);
+}
+
+.appealSent svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--wait);
+}
+
+/* ---------- Списки людей ---------- */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.person {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--s-2) var(--s-3);
+  align-items: center;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+@media (min-width: 768px) {
+  .person {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+}
+
+.personBody {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.personName {
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+@media (hover: hover) {
+  .personName:hover {
+    text-decoration: underline;
+  }
+}
+
+.personMeta {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.personAside {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+@media (min-width: 768px) {
+  .personAside {
+    grid-column: auto;
+    justify-content: flex-end;
+  }
+}
+
+.position {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-text);
+  font-size: var(--fs-24);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.subhead {
+  margin-top: var(--s-4);
+  font-size: var(--fs-17);
+  font-weight: 700;
+}
+
+.note {
+  max-width: 64ch;
+  color: var(--ink-2);
+}
+
+.hintBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg-alt);
+}
+
+.hintBox p {
+  flex: 1 1 280px;
+}
+
+/* ---------- Карточка заявки ---------- */
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-4) 1.25rem;
+  border-radius: var(--radius, 1.5rem);
+  background: var(--bg-alt);
+  transition: box-shadow var(--t-ui) var(--ease);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: var(--s-5);
+  }
+}
+
+.cardFresh {
+  box-shadow: none;
+  border: 1px solid var(--line-soft);
+  --flash-color: var(--wait-bg);
+}
+
+.cardHead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--s-3);
+  align-items: start;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-4);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quote {
+  max-width: 64ch;
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg);
+  overflow-wrap: anywhere;
+}
+
+.quoteEmpty {
+  color: var(--ink-2);
+}
+
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+}
+
+.fullHint {
+  display: flex;
+  gap: var(--s-2);
+  color: var(--wait);
+  font-weight: 600;
+}
+
+.fullHint svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+.reject {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line-soft);
+}
+
+.rejectLabel {
+  font-weight: 700;
+}
+
+.templates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+/* ---------- Обсуждение и «Кто в курсе» ---------- */
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.unanswered {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-3);
+  border-radius: var(--radius, 1.5rem);
+  background: var(--wait-bg);
+}
+
+.unansweredHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.change {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-5);
+  border-radius: var(--radius, 1.5rem);
+  background: var(--bg-alt);
+}
+
+.changeItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.changeItems li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-1) var(--s-2);
+}
+
+.from {
+  color: var(--ink-2);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+.to {
+  font-weight: 700;
+}
+
+.ackColumns {
+  display: grid;
+  gap: var(--s-4);
+}
+
+@media (min-width: 768px) {
+  .ackColumns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ackTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-weight: 700;
+}
+
+.ok {
+  color: var(--ok);
+}
+
+.wait {
+  color: var(--wait);
+}
+
+.names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+
+.name {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 2px var(--s-3) 2px 2px;
+  border-radius: var(--r-pill);
+  background: var(--bg);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+/* ---------- Диалоги ---------- */
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.dialogNote {
+  color: var(--ink-2);
+}
+
+.dialogError {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.dialogActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+}
+
+.dateRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--s-3);
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.board {
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+.mode,
+.actionsNote {
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+.boardActions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  min-width: 0;
+  gap: 0.5rem;
+}
+.boardActions > button,
+.boardActions > a {
+  min-height: 2.75rem;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.8125rem;
+  white-space: normal;
+  text-align: center;
+}
+.personName {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.person {
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+}
+@media (min-width: 900px) {
+  .board {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+  }
+}
+@media (max-width: 899px) {
+  .board {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 639px) {
+  .board {
+    padding: 1.25rem;
+  }
+}
+
+/* ---------- D-16: убрать из участников, стоп-лист ---------- */
+
+.checkLabel {
+  font-size: var(--fs-16);
+  font-weight: 600;
+}
+
+.personBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-1);
+}

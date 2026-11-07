@@ -1,0 +1,388 @@
+/* Обсуждение «пузырями» по вёрстке владельца (блок m-chat). */
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  font-size: calc(19rem / 17);
+  font-weight: 700;
+}
+
+.count {
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.note {
+  display: flex;
+  gap: var(--s-2);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.note svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 900px) {
+  .list {
+    max-height: 34rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 4px;
+  }
+}
+
+.thread {
+  display: grid;
+  gap: 8px;
+}
+
+.replies {
+  display: grid;
+  gap: 8px;
+  padding-left: var(--s-5);
+}
+
+.msg {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: 0.3rem 1rem 1rem 1rem;
+  background: var(--bg-alt);
+}
+
+.msgOrg {
+  background: var(--accent-soft);
+}
+
+.msgMine {
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1.5px var(--line-soft);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: calc(14rem / 17);
+}
+
+.head b {
+  color: var(--ink);
+}
+
+.roleTag {
+  padding: 1px 8px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: var(--fs-13);
+  font-weight: 700;
+}
+
+.meTag {
+  padding: 1px 8px;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: var(--fs-13);
+  font-weight: 700;
+}
+
+.quote {
+  display: flex;
+  gap: 6px;
+  padding: 4px 10px;
+  border-left: 3px solid var(--line-soft);
+  color: var(--ink-2);
+  font-size: calc(14rem / 17);
+}
+
+.quote svg {
+  flex: none;
+  margin-top: 4px;
+}
+
+.text {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.hiddenNote {
+  color: var(--off);
+  font-size: calc(14rem / 17);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 2px -6px -4px;
+}
+
+.reaction,
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 44px;
+  min-height: var(--tap);
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-2);
+  font-size: calc(14rem / 17);
+  font-weight: 600;
+  justify-content: center;
+  transition:
+    background-color 200ms var(--ease),
+    color 200ms var(--ease);
+}
+
+@media (hover: hover) {
+  .reaction:hover:not(:disabled),
+  .action:hover {
+    background: color-mix(in srgb, var(--ink) 8%, transparent);
+    color: var(--ink);
+  }
+}
+
+.reactionOn {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+@media (hover: hover) {
+  .reactionOn:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--bg);
+  }
+}
+
+.reactionLabel {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .reactionLabel {
+    display: inline;
+  }
+}
+
+.reaction:disabled {
+  cursor: default;
+}
+
+.system {
+  display: flex;
+  gap: var(--s-2);
+  padding: 10px 14px;
+  border: 1px dashed var(--line-soft);
+  border-radius: var(--radius-s, 1rem);
+  font-size: var(--fs-15);
+}
+
+.system svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--ink-2);
+}
+
+.system time {
+  color: var(--ink-2);
+}
+
+.removed {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 10px 14px;
+  border-radius: 0.3rem 1rem 1rem 1rem;
+  background: var(--off-bg);
+  color: var(--off);
+  font-size: var(--fs-15);
+}
+
+.empty {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.skeleton {
+  display: block;
+  height: 72px;
+  border-radius: 0.3rem 1rem 1rem 1rem;
+  background: var(--bg-alt);
+}
+
+/* ---------- Форма ---------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.inputRow {
+  align-items: flex-end;
+  display: flex;
+  gap: var(--s-2);
+}
+
+.inputRow :global(.ant-input) {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 16px;
+  line-height: 1.5;
+  border: var(--line-w) solid var(--line-soft);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--fs-17);
+  outline: none;
+}
+
+.inputRow :global(.ant-input):focus {
+  border-color: var(--ink);
+}
+
+.inputRow :global(.ant-input)::placeholder {
+  color: var(--ink-2);
+}
+
+.inputRow :global(.ant-input)[aria-invalid] {
+  border-color: var(--danger);
+}
+
+.send {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  transition: background-color 200ms var(--ease);
+}
+
+@media (hover: hover) {
+  .send:hover:not(:disabled) {
+    background: var(--accent-strong);
+  }
+}
+
+.send:disabled {
+  background: var(--off-bg);
+  color: var(--off);
+  cursor: default;
+}
+
+.replyTo {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 4px 4px 4px 12px;
+  border-radius: var(--r-pill);
+  background: var(--bg-alt);
+  color: var(--ink-2);
+  font-size: calc(14rem / 17);
+}
+
+.replyTo span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.replyTo button {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+}
+
+.error {
+  color: var(--danger);
+  font-size: var(--fs-15);
+}
+
+.retry {
+  min-height: var(--tap);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.closed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+  padding: 14px 16px;
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg-alt);
+  font-size: var(--fs-15);
+}
+
+.closed svg {
+  flex: none;
+  color: var(--ink-2);
+}
+
+.closed p {
+  flex: 1 1 200px;
+}
+
+.hideQuote {
+  margin-bottom: var(--s-3);
+  color: var(--ink-2);
+}
+
+.hideLabel {
+  display: block;
+  margin-bottom: var(--s-2);
+  font-weight: 600;
+}
+
+.hideHint {
+  margin-top: var(--s-3);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.hideRules {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-weight: 600;
+}

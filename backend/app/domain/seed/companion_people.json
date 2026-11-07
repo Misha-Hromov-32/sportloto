@@ -1,0 +1,142 @@
+{
+  "version": 2,
+  "portraits": {
+    "u-anna": "https://i.pravatar.cc/800?img=47",
+    "u-petr": "https://i.pravatar.cc/800?img=17",
+    "u-dmitry": "https://i.pravatar.cc/800?img=12",
+    "u-olga": "https://i.pravatar.cc/800?img=45",
+    "u-sergey": "https://i.pravatar.cc/800?img=13",
+    "u-igor": "https://i.pravatar.cc/800?img=59",
+    "u-maria": "https://i.pravatar.cc/800?img=5",
+    "u-galina": "https://images.pexels.com/photos/6874146/pexels-photo-6874146.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "u-maxim": "https://i.pravatar.cc/800?img=14",
+    "u-nikita": "https://i.pravatar.cc/800?img=52",
+    "u-ksenia": "https://i.pravatar.cc/800?img=26",
+    "u-timur": "https://i.pravatar.cc/800?img=60",
+    "u-oleg": "https://i.pravatar.cc/800?img=53",
+    "u-valentina": "https://images.pexels.com/photos/12644996/pexels-photo-12644996.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "u-elena": "https://i.pravatar.cc/800?img=23",
+    "u-artem": "https://i.pravatar.cc/800?img=54",
+    "u-vasily": "https://images.pexels.com/photos/6667746/pexels-photo-6667746.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "u-irina": "https://i.pravatar.cc/800?img=40",
+    "u-ruslan": "https://i.pravatar.cc/800?img=56",
+    "u-alina": "https://i.pravatar.cc/800?img=44",
+    "u-konstantin": "https://i.pravatar.cc/800?img=55",
+    "u-sofia": "https://i.pravatar.cc/800?img=16",
+    "u-roman": "https://i.pravatar.cc/800?img=11",
+    "u-natalia": "https://i.pravatar.cc/800?img=30",
+    "u-egor": "https://i.pravatar.cc/800?img=57",
+    "u-pavel": "https://i.pravatar.cc/800?img=18",
+    "u-lyudmila": "https://images.pexels.com/photos/7937532/pexels-photo-7937532.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "u-andrey": "https://i.pravatar.cc/800?img=68",
+    "u-irina-p": "https://i.pravatar.cc/800?img=32",
+    "u-elena-k": "https://i.pravatar.cc/800?img=36",
+    "u-vladimir": "https://images.pexels.com/photos/7322315/pexels-photo-7322315.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "u-irina-l": "https://i.pravatar.cc/800?img=28"
+  },
+  "bios": {
+    "u-galina": "Люблю утреннюю зарядку и прогулки с палками в Академгородке. Прихожу за движением и общением, поддерживаю тех, кто начинает с нуля.",
+    "u-maxim": "Играю в баскетбол и бадминтон, иногда собираю друзей на футбол. Люблю дружеские матчи, где новичку объясняют, а не кричат.",
+    "u-nikita": "Осваиваю баскетбол, а в волейбол играю со школы. Ищу компанию на выходные: потренироваться, познакомиться и постепенно войти в ритм.",
+    "u-ksenia": "Плавание помогает переключиться после работы, волейбол — пообщаться с друзьями. За регулярные тренировки и бережное отношение к новичкам.",
+    "u-timur": "Люблю футбол на площадке и на экране. Хочу познакомить больше людей с фиджиталом: получается весело, даже если раньше не пробовал.",
+    "u-oleg": "Возвращаюсь к футболу после перерыва. Зимой катаюсь на коньках и играю в любительский хоккей. Ценю команду, в которой поддерживают друг друга.",
+    "u-artem": "Теннис и настольный теннис — мой способ отдохнуть от экрана. Ищу партнёров для регулярной игры, после можно выпить кофе и обсудить матч.",
+    "u-vasily": "Играю в шахматы и городки, люблю прогулки с палками. С удовольствием объясню правила и сыграю спокойную партию без часов.",
+    "u-irina": "Практикую йогу, плаваю и пробую тайцзи. Нравятся занятия без спешки и сравнения результатов. Буду рада компании на вечерние тренировки.",
+    "u-alina": "Играю в теннис, пробую падел, восстанавливаюсь на йоге. Ищу партнёров для любительских игр и компанию на новые занятия.",
+    "u-sofia": "Обожаю велопрогулки с остановками у воды. Начинаю бегать и осваиваю турники. За активные выходные, новые маршруты и кофе после.",
+    "u-egor": "Днём пишу код, вечером переключаюсь на настольный теннис и прогулки. Ищу компанию для регулярных игр без гонки за результатом.",
+    "u-pavel": "Играю в бадминтон по выходным. Люблю длинные розыгрыши, могу одолжить запасную ракетку и подсказать новичку.",
+    "u-lyudmila": "Начинаю утро с мягкой зарядки. Люблю неспешные прогулки по Академгородку и новые знакомства — вместе проще не пропускать занятия."
+  },
+  "interests": {
+    "u-maria": ["s-running"],
+    "u-egor": ["s-tabletennis", "s-hiking"],
+    "u-elena-k": ["s-swimming", "s-tennis"],
+    "u-vladimir": ["s-football", "s-volleyball"],
+    "u-irina-l": ["s-swimming", "s-yoga"]
+  },
+  "requests": [
+    {
+      "id": "c-people-sofia-cycling", "authorId": "u-sofia", "sportId": "s-cycling", "districtId": "d-center", "level": "amateur", "readiness": "join",
+      "text": "Ищу компанию для велопрогулок по Татышеву. Без гонки: 15–20 км, остановки у воды и кофе после. Шлем беру, хорошее настроение тоже!",
+      "when": "В выходные днём, с 12:00", "minutesAgo": 35, "metoo": ["u-anna", "u-maxim"]
+    },
+    {
+      "id": "c-people-maxim-badminton", "authorId": "u-maxim", "sportId": "s-badminton", "districtId": "d-oct", "level": "amateur", "readiness": "organize",
+      "text": "Собираю четвёрку на бадминтон после работы. Зал найду, запасная ракетка есть. Можно новичкам: сначала разомнёмся, потом сыграем пары.",
+      "when": "Вторник и четверг вечером, после 19:00", "minutesAgo": 80, "metoo": ["u-pavel", "u-alina"]
+    },
+    {
+      "id": "c-people-ksenia-swimming", "authorId": "u-ksenia", "sportId": "s-swimming", "districtId": "d-vzlet", "level": "experienced", "readiness": "join",
+      "text": "Плаваю кролем, хочу ходить в бассейн регулярно. Ищу напарника на соседнюю дорожку — у каждого свой темп, зато вместе легче собраться.",
+      "when": "В будни утром, 7:00–8:00", "minutesAgo": 140, "metoo": ["u-irina"]
+    },
+    {
+      "id": "c-people-dmitry-volleyball", "authorId": "u-dmitry", "sportId": "s-volleyball", "districtId": "d-oct", "level": "experienced", "readiness": "organize",
+      "text": "Хочу собрать постоянную компанию на волейбол. Спокойно объясняем правила, меняем составы и поддерживаем друг друга. Зал и мяч организую.",
+      "when": "Среда вечером, после 19:00", "minutesAgo": 210, "metoo": ["u-anna", "u-nikita", "u-ksenia"]
+    },
+    {
+      "id": "c-people-elena-yoga", "authorId": "u-elena", "sportId": "s-yoga", "districtId": "d-kirov", "level": "amateur", "readiness": "organize",
+      "text": "Мягкая йога и растяжка после рабочего дня. Без сложных асан: спина, дыхание и час для себя. Соберу маленькую группу, коврики можно взять на месте.",
+      "when": "Понедельник и пятница вечером, 18:30", "minutesAgo": 300, "metoo": ["u-irina", "u-alina"]
+    },
+    {
+      "id": "c-people-sergey-running", "authorId": "u-sergey", "sportId": "s-running", "districtId": "d-sov", "level": "amateur", "readiness": "organize",
+      "text": "Лёгкие 5 км по набережной в разговорном темпе. Можно чередовать бег с шагом. Покажу разминку, никого не оставляем позади.",
+      "when": "В будни утром, 7:30", "minutesAgo": 420, "metoo": ["u-anna", "u-sofia"]
+    },
+    {
+      "id": "c-people-olga-chess", "authorId": "u-olga", "sportId": "s-chess", "districtId": "d-center", "level": "experienced", "readiness": "organize",
+      "text": "Шахматы за чашкой чая: рапид 15+10 или партия без часов. Люблю обсуждать позиции после игры, а не только считать победы. Доску принесу.",
+      "when": "В субботу днём, 14:00–17:00", "minutesAgo": 510, "metoo": ["u-vasily", "u-petr"]
+    },
+    {
+      "id": "c-people-artem-tabletennis", "authorId": "u-artem", "sportId": "s-tabletennis", "districtId": "d-pokrovka", "level": "amateur", "readiness": "join",
+      "text": "Ищу партнёра на настольный теннис. Хочу выбираться из дома и играть час-другой без турнирного напряжения. Могу захватить вторую ракетку.",
+      "when": "В будни вечером, после 18:00", "minutesAgo": 660, "metoo": ["u-egor"]
+    },
+    {
+      "id": "c-people-valentina-nordic", "authorId": "u-valentina", "sportId": "s-nordic", "districtId": "d-center", "level": "amateur", "readiness": "organize",
+      "text": "Приглашаю на северную ходьбу в Центральный парк. Делаем перерывы, общаемся и не торопимся. Если впервые с палками — помогу с техникой.",
+      "when": "В будни утром, с 10:00", "minutesAgo": 780, "metoo": ["u-galina", "u-lyudmila"]
+    },
+    {
+      "id": "c-people-konstantin-hiking", "authorId": "u-konstantin", "sportId": "s-hiking", "districtId": "d-sverd", "level": "beginner", "readiness": "organize",
+      "text": "Выберемся на Столбы по простому маршруту, около 8 км. Термос, удобная обувь и время на красивые виды. Подойдёт тем, кто давно хотел, но не с кем.",
+      "when": "В воскресенье утром, старт в 9:00", "minutesAgo": 900, "metoo": ["u-sofia", "u-sergey"]
+    },
+    {
+      "id": "c-people-ruslan-boxing", "authorId": "u-ruslan", "sportId": "s-boxing", "districtId": "d-lenin", "level": "beginner", "readiness": "organize",
+      "text": "Ищу компанию на вводную тренировку по боксу: работа ног, лапы и общая подготовка. Без спаррингов и ударов по голове. С перчатками помогу.",
+      "when": "Вторник и четверг вечером, 19:30", "minutesAgo": 1080, "metoo": ["u-timur"]
+    },
+    {
+      "id": "c-people-oleg-football", "authorId": "u-oleg", "sportId": "s-football", "districtId": "d-sov", "level": "amateur", "readiness": "join",
+      "text": "Вернулся к футболу после перерыва. Ищу любительскую команду на мини-футбол: побегать, сыграться и пообщаться. Вратарём тоже могу постоять.",
+      "when": "В пятницу вечером или в выходные днём", "minutesAgo": 1200, "metoo": ["u-roman", "u-igor"]
+    },
+    {
+      "id": "c-people-lyudmila-workout", "authorId": "u-lyudmila", "sportId": "s-workout", "districtId": "d-akadem", "level": "beginner", "readiness": "join",
+      "text": "Ищу соседей для утренней зарядки в Академгородке. Лёгкая разминка и прогулка, без прыжков и сложных упражнений. Начнём с 20 минут!",
+      "when": "В будни утром, 9:00–10:00", "minutesAgo": 1500, "metoo": ["u-galina", "u-petr"]
+    },
+    {
+      "id": "c-people-pavel-badminton", "authorId": "u-pavel", "sportId": "s-badminton", "districtId": "d-solnech", "level": "experienced", "readiness": "join",
+      "text": "Ищу партнёра на бадминтон в Солнечном. Люблю длинные розыгрыши и парную игру. Готов подстроиться под уровень, лишнюю ракетку одолжу.",
+      "when": "В субботу днём, после 13:00", "minutesAgo": 1800, "metoo": ["u-maxim"]
+    },
+    {
+      "id": "c-people-igor-phygital", "authorId": "u-igor", "sportId": "s-phygital-football", "districtId": "d-sov", "level": "amateur", "readiness": "organize",
+      "text": "Собираем компанию на фиджитал: сначала футбольный симулятор, потом короткий матч на площадке. Можно хорошо играть только в одну часть — научим другой.",
+      "when": "В воскресенье днём, с 15:00", "minutesAgo": 2100, "metoo": ["u-timur", "u-roman"]
+    },
+    {
+      "id": "c-people-anna-running", "authorId": "u-anna", "sportId": "s-running", "districtId": "d-center", "level": "beginner", "readiness": "join",
+      "text": "Хочу сделать бег привычкой. Начнём с 3 км по Татышеву, можно переходить на шаг. Ищу человека, с которым не стыдно бежать медленно и приятно поболтать.",
+      "when": "В будни вечером, после 18:30", "minutesAgo": 2400, "metoo": ["u-sofia"]
+    }
+  ]
+}

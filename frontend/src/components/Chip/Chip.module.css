@@ -1,0 +1,76 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--tap);
+  padding: 0 var(--s-4);
+  border: var(--line-w) solid var(--line-soft);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background-color var(--t-hover) var(--ease),
+    border-color var(--t-hover) var(--ease),
+    color var(--t-hover) var(--ease);
+}
+
+@media (hover: hover) {
+  button.chip:hover:not(:disabled) {
+    border-color: var(--ink);
+  }
+}
+
+.selected {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+.removable {
+  padding-right: var(--s-1);
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+.assistant {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+  color: var(--ink);
+}
+
+.remove {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: inherit;
+}
+
+@media (hover: hover) {
+  .remove:hover {
+    background: var(--line-soft);
+    color: var(--ink);
+  }
+}
+
+.count {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+}
+
+.selected .count {
+  color: inherit;
+}
+
+.chip:disabled {
+  color: var(--off);
+  cursor: not-allowed;
+}

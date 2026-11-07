@@ -1,0 +1,66 @@
+/* С15: «Встреча состоялась?» и надёжность организатора. */
+
+.muted {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+/* ---------- Надёжность ---------- */
+
+.reliability {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--s-1);
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.reliability svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.held {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: 20px;
+  border-radius: 1.25rem;
+  background: var(--wait-bg);
+}
+
+.heldCompact {
+  padding: var(--s-3);
+  border-radius: var(--r-card);
+}
+
+.heldTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  color: var(--wait);
+  font-weight: 800;
+}
+
+.heldActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.heldDone {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-pill);
+  background: var(--bg-alt);
+  font-weight: 600;
+}
+.muted {
+  font-size: 0.75rem;
+  line-height: 1.7;
+}

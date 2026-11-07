@@ -1,0 +1,23 @@
+name: Предложение
+description: Изменение или новая возможность сервиса.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Какую задачу нужно решить
+      description: Кто сталкивается с проблемой и в какой ситуации?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Предлагаемое поведение
+      description: Что должен сделать пользователь и какой результат получить?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Другие варианты
+      description: Как задача решается сейчас? Какие варианты уже рассматривали?

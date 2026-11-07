@@ -1,0 +1,438 @@
+/* Площадки: карточка, условия, расписание окон, карта. Цвета — только токены тем. */
+
+/* ---------- Условия ---------- */
+
+.featureTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.featureTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 2px 10px;
+  border-radius: var(--r-pill);
+  background: var(--ok-bg);
+  color: var(--ok);
+  font-size: var(--fs-13);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.featureMore {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 2px 10px;
+  border-radius: var(--r-pill);
+  background: var(--bg-alt);
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+
+.featureList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--s-5);
+}
+
+@media (max-width: 640px) {
+  .featureList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.featureRow {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: var(--tap);
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--ink);
+}
+
+.featureNo {
+  color: var(--ink-2);
+}
+
+.featureMark {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.featureRow:not(.featureNo) .featureMark {
+  color: var(--ok);
+}
+
+/* ---------- Карточка ---------- */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color var(--t-ui) var(--ease);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    color: var(--ink);
+    border-color: var(--line);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.cardMedia {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-alt);
+  overflow: hidden;
+}
+
+.cardMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardFallback {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--ink-2);
+}
+
+.cardKind {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-4);
+}
+
+.cardTitle {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cardPlace {
+  display: flex;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.cardPlace svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+.cardSports {
+  font-size: var(--fs-15);
+}
+
+.cardPrice {
+  font-weight: 700;
+}
+
+.cardWindows {
+  display: flex;
+  gap: var(--s-2);
+  margin-top: auto;
+  padding-top: var(--s-2);
+  border-top: 1px solid var(--line-soft);
+  font-size: var(--fs-15);
+}
+
+.cardWindows svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--ok);
+}
+
+.cardUpdated {
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+}
+
+/* ---------- Карта ---------- */
+
+.map {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-media);
+  isolation: isolate;
+}
+
+.mapInner {
+  width: 100%;
+  height: 100%;
+}
+
+.pin {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--surface);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.pinLabel {
+  transform: rotate(45deg);
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-text);
+  font-size: var(--fs-15);
+  color: var(--ink);
+}
+
+.popupTitle {
+  font-weight: 700;
+  font-size: var(--fs-17);
+  color: var(--ink);
+}
+
+.popupMuted {
+  color: var(--ink-2);
+}
+
+.map :global(.leaflet-popup-content-wrapper),
+.map :global(.leaflet-popup-tip) {
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-pop);
+}
+
+.map :global(.leaflet-control-attribution) {
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 12px;
+}
+
+.map :global(.leaflet-control-attribution a) {
+  color: var(--ink);
+}
+
+.map :global(.leaflet-bar a) {
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--line-soft);
+}
+
+/* ---------- Расписание ---------- */
+
+.days {
+  display: flex;
+  gap: var(--s-2);
+  overflow-x: auto;
+  padding: 2px 2px var(--s-2);
+  scrollbar-width: thin;
+}
+
+.day {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 88px;
+  min-height: 72px;
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-s);
+  background: var(--surface);
+  color: var(--ink);
+  text-align: left;
+  transition: background var(--t-hover) var(--ease);
+}
+
+@media (hover: hover) {
+  .day:hover {
+    background: var(--bg-alt);
+  }
+}
+
+.dayActive,
+.dayActive:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.dayName {
+  font-weight: 700;
+}
+
+.dayDate {
+  font-size: var(--fs-15);
+}
+
+.dayFree {
+  font-size: var(--fs-13);
+  opacity: 0.85;
+}
+
+.slots {
+  display: flex;
+  flex-direction: column;
+}
+
+.slot {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 56px;
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+@media (max-width: 640px) {
+  .slot {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'time'
+      'info'
+      'action';
+    gap: var(--s-2);
+    padding: var(--s-3) 0;
+  }
+
+  .slot .slotAction {
+    justify-content: flex-start;
+  }
+
+  .slot .slotAction:empty {
+    display: none;
+  }
+
+  .slotTime {
+    grid-area: time;
+  }
+
+  .slotInfo {
+    grid-area: info;
+  }
+
+  .slotAction {
+    grid-area: action;
+  }
+}
+
+.slotTime {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.slotInfo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+  min-width: 0;
+}
+
+.slotStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.slot-free {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+.slot-busy {
+  background: var(--off-bg);
+  color: var(--off);
+}
+
+.slot-event {
+  background: var(--wait-bg);
+  color: var(--wait);
+}
+
+.slotPrice {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-variant-numeric: tabular-nums;
+}
+
+.slotEvent {
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--fs-15);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slotAction {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-2);
+}
+
+.slotsEmpty {
+  padding: var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+  color: var(--ink-2);
+}

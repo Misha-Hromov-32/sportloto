@@ -1,0 +1,10 @@
+**/node_modules/
+**/dist/
+**/__pycache__/
+**/.*
+!**/.env.example
+*.md
+docs/
+eval/
+social/
+inbox/

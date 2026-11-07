@@ -1,0 +1,180 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.grid2,
+.grid2wide {
+  display: grid;
+  gap: var(--s-5);
+}
+
+@media (min-width: 768px) {
+  .grid2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid2wide {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.withMark {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.titleMark {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.picker,
+.number {
+  width: 100%;
+  max-width: 320px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.note {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.hint {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.intro {
+  max-width: 64ch;
+  color: var(--ink-2);
+}
+
+.mapBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-2);
+}
+
+.mapBlock > :first-child {
+  max-width: 100%;
+}
+
+.calc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  padding: var(--s-3) var(--s-4);
+  background: var(--bg-alt);
+  border-radius: var(--radius-s, 1rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Оплата на сайте ---------- */
+
+.payExplain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-top: var(--s-1);
+  padding: var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--surface);
+  font-size: var(--fs-15);
+  line-height: 1.5;
+}
+
+.payLead {
+  color: var(--ink);
+  font-size: var(--fs-16);
+  font-weight: 600;
+}
+
+.payExample {
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg-alt);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.payMin {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+}
+
+.payMinLabel {
+  font-weight: 600;
+}
+
+.payMin :global(.ant-input-number) {
+  width: 120px;
+}
+
+.payMinHint {
+  flex-basis: 100%;
+  color: var(--ink-2);
+}
+
+.payFacts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--ink-2);
+}
+
+/* Адрес и кнопка карты в одну строку; на узком экране кнопка уходит под поле. */
+.addressRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  width: 100%;
+}
+
+.addressInput {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+
+.mapBlock > .addressRow,
+.mapBlock > :global(.ant-form-item),
+.mapBlock > div {
+  width: 100%;
+}
+
+.placeOption {
+  display: flex;
+  flex-direction: column;
+  white-space: normal;
+}
+
+.placeDetail {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.geoStatus {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}

@@ -1,0 +1,90 @@
+.root {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: var(--r-pill);
+  background: var(--bg-alt);
+}
+
+.compact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.control {
+  position: relative;
+  display: inline-flex;
+}
+
+.trigger {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.trigger:hover {
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.popup {
+  /* Меню в портале: раскрывается и за границами мобильной навигации. */
+  width: 320px;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 88px);
+  overflow-y: auto;
+}
+
+.popup :global(.ant-dropdown-menu-item) {
+  min-height: 44px;
+}
+
+.popup :global(.ant-dropdown-menu-title-content) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-width: var(--tap);
+  height: var(--tap);
+  padding: 0 var(--s-2);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink);
+  font-weight: 600;
+  transition: background-color var(--t-hover) var(--ease);
+}
+
+.labelled .option {
+  padding: 0 var(--s-4);
+}
+
+@media (hover: hover) {
+  .option:hover:not(.active) {
+    background: var(--line-soft);
+  }
+}
+
+.active {
+  background: var(--ink);
+  color: var(--bg);
+}

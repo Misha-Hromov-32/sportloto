@@ -1,0 +1,40 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-block: 2rem 4rem;
+}
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 48rem;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent-text);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.lead {
+  max-width: 62ch;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+@media (max-width: 639px) {
+  .page {
+    gap: 1.5rem;
+    padding-block: 1.25rem 3rem;
+  }
+  .foot > * {
+    width: 100%;
+  }
+}

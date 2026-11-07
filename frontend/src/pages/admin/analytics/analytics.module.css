@@ -1,0 +1,366 @@
+.note {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-s);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.note svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--ink-2);
+}
+
+/* Показатели — один контейнер с разделителями */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin: 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.kpi {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: var(--s-1);
+  padding: var(--s-4) var(--s-5);
+  border-right: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
+.kpi dt {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.35;
+}
+
+.kpi dd {
+  margin: 0;
+  font-size: var(--fs-32);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  min-width: 0;
+}
+
+.sub {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.ramp {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.ramp .swatch {
+  width: 22px;
+  border-radius: 3px;
+}
+
+/* ---------- Спрос по дням ---------- */
+
+.daily {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 180px;
+  padding-top: var(--s-2);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.day {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  height: 100%;
+  min-width: 0;
+  cursor: default;
+}
+
+@media (hover: hover) {
+  .day:hover .bar {
+    filter: brightness(1.12);
+  }
+}
+
+.bar {
+  width: 100%;
+  max-width: 24px;
+}
+
+.barDemo {
+  background: var(--line);
+  border-radius: 0;
+}
+
+.barLive {
+  background: var(--accent);
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 2px;
+}
+
+.barTop {
+  border-radius: 4px 4px 0 0;
+}
+
+.axis {
+  display: flex;
+  justify-content: space-between;
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Тепловая сетка ---------- */
+
+.heatWrap {
+  overflow-x: auto;
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  background: var(--surface);
+}
+
+.heat {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: separate;
+  border-spacing: 2px;
+  padding: var(--s-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.heat th {
+  padding: var(--s-2);
+  font-size: var(--fs-15);
+  font-weight: 600;
+  color: var(--ink-2);
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.heat thead th {
+  text-align: center;
+  line-height: 1.2;
+}
+
+.heat tbody th {
+  position: sticky;
+  left: 0;
+  background: var(--surface);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.cell {
+  height: 48px;
+  min-width: 64px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: var(--fs-15);
+  line-height: 1.2;
+}
+
+.cell:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 1px;
+}
+
+.cellEmpty {
+  color: var(--ink-2);
+  background: var(--bg-alt);
+}
+
+.cellNum {
+  display: block;
+  font-weight: 700;
+}
+
+.cellSub {
+  display: block;
+  font-size: var(--fs-13);
+  opacity: 0.85;
+}
+
+.s0 {
+  background: color-mix(in oklab, var(--accent) 10%, var(--surface));
+  color: var(--ink);
+}
+
+.s1 {
+  background: color-mix(in oklab, var(--accent) 26%, var(--surface));
+  color: var(--ink);
+}
+
+.s2 {
+  background: color-mix(in oklab, var(--accent) 45%, var(--surface));
+  color: var(--ink);
+}
+
+.s3 {
+  background: color-mix(in oklab, var(--accent) 70%, var(--surface));
+  color: var(--accent-ink);
+}
+
+.s4 {
+  background: color-mix(in oklab, var(--accent) 92%, var(--surface));
+  color: var(--accent-ink);
+}
+
+/* ---------- Полосы: фразы и фильтры ---------- */
+
+.twoCols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-5);
+}
+
+@media (max-width: 900px) {
+  .twoCols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px var(--s-3);
+  align-items: center;
+}
+
+.barLabel {
+  overflow-wrap: anywhere;
+}
+
+.barValue {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.barTrack {
+  grid-column: 1 / -1;
+  height: 12px;
+}
+
+.barFill {
+  height: 100%;
+  min-width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: var(--ink-soft);
+}
+
+/* Оценка района — шкала 0–100 */
+.meter {
+  display: grid;
+  grid-template-columns: 36px minmax(48px, 1fr);
+  gap: var(--s-2);
+  align-items: center;
+  min-width: min(110px, 100%);
+}
+
+.meterNum {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.meterTrack {
+  height: 10px;
+  border-radius: 4px;
+  background: var(--bg-deep);
+  overflow: hidden;
+}
+
+.meterFill {
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  background: var(--ink-soft);
+}
+
+.method {
+  color: var(--ink-2);
+}
+
+.method summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.method ul {
+  margin: 0;
+  padding-left: 1.2em;
+  line-height: 1.5;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.dataTable th,
+.dataTable td {
+  padding: 6px var(--s-2);
+  border-bottom: 1px solid var(--line-soft);
+  text-align: left;
+}
+
+.tableScroll {
+  overflow-x: auto;
+}

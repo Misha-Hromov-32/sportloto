@@ -1,0 +1,369 @@
+{
+ "city": "Брянск",
+ "importedAt": "2026-10-20",
+ "source": "Открытые посты сообществ ВКонтакте, загружены через админку импорта (/admin/imports)",
+ "snapshotBefore": "/srv/sport-backups/before-bryansk-import-20261020T112908Z/database.dump",
+ "howToRemove": "Снять все встречи города: для каждого id из events — POST /api/events/{id}/moderate {\"action\":\"remove\",\"ruleId\":\"rule-1\",\"comment\":\"Снято при чистке импорта\"} от администратора (скрипт /tmp/bry/remove_city.py на сервере). Страницы сообществ (organizations) остаются служебными, их можно передать сообществу или оставить.",
+ "counts": {
+  "events": 30,
+  "organizations": 11,
+  "bySport": {
+   "s-running": 5,
+   "s-workout": 10,
+   "s-7vh": 2,
+   "s-cycling": 2,
+   "s-dance": 11
+  }
+ },
+ "organizations": [
+  {
+   "id": "o-7ut",
+   "sourceId": "src-7tt",
+   "name": "Брянский молодёжный центр",
+   "url": "https://vk.com/molcentr32",
+   "logo": true
+  },
+  {
+   "id": "o-7vp",
+   "sourceId": "src-7tv",
+   "name": "ВелоМагия Брянск",
+   "url": "https://vk.com/magicvelo_bryansk",
+   "logo": true
+  },
+  {
+   "id": "o-7wf",
+   "sourceId": "src-7tx",
+   "name": "Школа танцев «Воздух» | Танцы Брянск",
+   "url": "https://vk.com/tpvozduh",
+   "logo": false
+  },
+  {
+   "id": "o-7vl",
+   "sourceId": "src-7u0",
+   "name": "Лазертаг Брянск «BARBUDOS»",
+   "url": "https://vk.com/barbudos_br",
+   "logo": true
+  },
+  {
+   "id": "o-7vf",
+   "sourceId": "src-7u2",
+   "name": "Пейнтбол, Лазертаг Брянск | Клуб \"Чистое небо\"",
+   "url": "https://vk.com/lasertag_bryansk",
+   "logo": true
+  },
+  {
+   "id": "o-7vt",
+   "sourceId": "src-7u4",
+   "name": "Велодрайв Брянск велосипеды",
+   "url": "https://vk.com/velodrive32",
+   "logo": true
+  },
+  {
+   "id": "o-7ux",
+   "sourceId": "src-7u6",
+   "name": "Парки Брянска",
+   "url": "https://vk.com/parki32",
+   "logo": true
+  },
+  {
+   "id": "o-7vx",
+   "sourceId": "src-7ua",
+   "name": "Танцы Брянск | Бачата Вайб - больше, чем школа",
+   "url": "https://vk.com/bachatavibe",
+   "logo": true
+  },
+  {
+   "id": "o-7w5",
+   "sourceId": "src-7ue",
+   "name": "Бачата Брянска | Парные и сольные танцы | Брянск",
+   "url": "https://vk.com/bachatabryanska",
+   "logo": true
+  },
+  {
+   "id": "o-7w9",
+   "sourceId": "src-7ug",
+   "name": "Dance To Go | Школа танцев | Брянск",
+   "url": "https://vk.com/dancetogo32",
+   "logo": true
+  },
+  {
+   "id": "o-7ul",
+   "sourceId": "src-7uj",
+   "name": "5 вёрст Роща Соловьи | Брянск",
+   "url": "https://vk.com/5verstsolovi",
+   "logo": true
+  }
+ ],
+ "events": [
+  {
+   "id": "e-7uo",
+   "title": "Забег 5 вёрст в роще Соловьи",
+   "startsAt": "2026-10-24T06:00:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-7ul",
+   "series": "series-7un",
+   "source": "https://vk.com/wall-237911817_361"
+  },
+  {
+   "id": "e-7up",
+   "title": "Забег 5 вёрст в роще Соловьи",
+   "startsAt": "2026-10-31T06:00:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-7ul",
+   "series": "series-7un",
+   "source": "https://vk.com/wall-237911817_361"
+  },
+  {
+   "id": "e-7uq",
+   "title": "Забег 5 вёрст в роще Соловьи",
+   "startsAt": "2026-11-07T06:00:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-7ul",
+   "series": "series-7un",
+   "source": "https://vk.com/wall-237911817_361"
+  },
+  {
+   "id": "e-7ur",
+   "title": "Забег 5 вёрст в роще Соловьи",
+   "startsAt": "2026-11-14T06:00:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-7ul",
+   "series": "series-7un",
+   "source": "https://vk.com/wall-237911817_361"
+  },
+  {
+   "id": "e-7uv",
+   "title": "Молодёжный трейл «Соловьи кросс» на 1,7 км",
+   "startsAt": "2026-10-25T09:00:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-7ut",
+   "series": null,
+   "source": "https://vk.com/wall-4496670_19464"
+  },
+  {
+   "id": "e-7v0",
+   "title": "«Час здоровья»: зарядка в парке 1000-летия Брянска",
+   "startsAt": "2026-10-25T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7uz",
+   "source": "https://vk.com/wall-202607158_5238"
+  },
+  {
+   "id": "e-7v1",
+   "title": "«Час здоровья»: зарядка в парке 1000-летия Брянска",
+   "startsAt": "2026-11-01T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7uz",
+   "source": "https://vk.com/wall-202607158_5238"
+  },
+  {
+   "id": "e-7v2",
+   "title": "«Час здоровья»: зарядка в парке 1000-летия Брянска",
+   "startsAt": "2026-11-08T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7uz",
+   "source": "https://vk.com/wall-202607158_5238"
+  },
+  {
+   "id": "e-7v3",
+   "title": "«Час здоровья»: зарядка в парке 1000-летия Брянска",
+   "startsAt": "2026-11-15T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7uz",
+   "source": "https://vk.com/wall-202607158_5238"
+  },
+  {
+   "id": "e-7v6",
+   "title": "«Час здоровья»: зарядка в Майском парке",
+   "startsAt": "2026-10-25T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7v5",
+   "source": "https://vk.com/wall-202607158_5235"
+  },
+  {
+   "id": "e-7v7",
+   "title": "«Час здоровья»: зарядка в Майском парке",
+   "startsAt": "2026-11-01T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7v5",
+   "source": "https://vk.com/wall-202607158_5235"
+  },
+  {
+   "id": "e-7v8",
+   "title": "«Час здоровья»: зарядка в Майском парке",
+   "startsAt": "2026-11-08T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7v5",
+   "source": "https://vk.com/wall-202607158_5235"
+  },
+  {
+   "id": "e-7vb",
+   "title": "«Час здоровья»: зарядка в парке «Юность»",
+   "startsAt": "2026-10-25T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7va",
+   "source": "https://vk.com/wall-202607158_5223"
+  },
+  {
+   "id": "e-7vc",
+   "title": "«Час здоровья»: зарядка в парке «Юность»",
+   "startsAt": "2026-11-01T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7va",
+   "source": "https://vk.com/wall-202607158_5223"
+  },
+  {
+   "id": "e-7vd",
+   "title": "«Час здоровья»: зарядка в парке «Юность»",
+   "startsAt": "2026-11-08T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7ux",
+   "series": "series-7va",
+   "source": "https://vk.com/wall-202607158_5223"
+  },
+  {
+   "id": "e-7vj",
+   "title": "Открытая игра в лазертаг в «Тактик-Арене»",
+   "startsAt": "2026-10-21T16:30:00.000Z",
+   "sportId": "s-7vh",
+   "orgId": "o-7vf",
+   "series": null,
+   "source": "https://vk.com/wall-70767364_13531"
+  },
+  {
+   "id": "e-7vn",
+   "title": "Сборная игра в лазертаг на полигоне «Остров свободы»",
+   "startsAt": "2026-10-25T13:00:00.000Z",
+   "sportId": "s-7vh",
+   "orgId": "o-7vl",
+   "series": null,
+   "source": "https://vk.com/wall-67239774_26006"
+  },
+  {
+   "id": "e-7vr",
+   "title": "Велозаезд и гонка «Молот Тора» по осеннему лесу",
+   "startsAt": "2026-10-31T08:00:00.000Z",
+   "sportId": "s-cycling",
+   "orgId": "o-7vp",
+   "series": null,
+   "source": "https://vk.com/wall-34155236_1650"
+  },
+  {
+   "id": "e-7vv",
+   "title": "Закрытие велосезона: неспешная покатушка к месту пикника",
+   "startsAt": "2026-10-24T07:30:00.000Z",
+   "sportId": "s-cycling",
+   "orgId": "o-7vt",
+   "series": null,
+   "source": "https://vk.com/wall-91985321_54486"
+  },
+  {
+   "id": "e-7vz",
+   "title": "Пробный урок парной бачаты с нуля",
+   "startsAt": "2026-10-22T17:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7vx",
+   "series": null,
+   "source": "https://vk.com/wall-212823874_6142"
+  },
+  {
+   "id": "e-7w1",
+   "title": "Интенсив по бачате «Про фишки»",
+   "startsAt": "2026-10-24T12:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7vx",
+   "series": null,
+   "source": "https://vk.com/wall-212823874_6098"
+  },
+  {
+   "id": "e-7w3",
+   "title": "Бачата-вечеринка в баре «Тепло»",
+   "startsAt": "2026-10-25T16:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7vx",
+   "series": null,
+   "source": "https://vk.com/wall-212823874_6144"
+  },
+  {
+   "id": "e-7w7",
+   "title": "Вечеринка бачаты и сальсы в ретро караоке-баре",
+   "startsAt": "2026-10-24T17:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7w5",
+   "series": null,
+   "source": "https://vk.com/wall-233691454_336"
+  },
+  {
+   "id": "e-7wb",
+   "title": "Бесплатный детский мастер-класс по танцам на открытии школы",
+   "startsAt": "2026-10-21T14:30:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7w9",
+   "series": null,
+   "source": "https://vk.com/wall-236051191_134"
+  },
+  {
+   "id": "e-7wd",
+   "title": "Хэллоуин для взрослых с танцевальным мастер-классом",
+   "startsAt": "2026-11-01T09:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7w9",
+   "series": null,
+   "source": "https://vk.com/wall-236051191_137"
+  },
+  {
+   "id": "e-7wi",
+   "title": "Хай хилс в школе танцев «Воздух»",
+   "startsAt": "2026-10-27T16:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7wf",
+   "series": "series-7wh",
+   "source": "https://vk.com/wall-49466614_23298"
+  },
+  {
+   "id": "e-7wj",
+   "title": "Хай хилс в школе танцев «Воздух»",
+   "startsAt": "2026-11-03T16:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7wf",
+   "series": "series-7wh",
+   "source": "https://vk.com/wall-49466614_23298"
+  },
+  {
+   "id": "e-7wl",
+   "title": "Хай хилс в школе танцев «Воздух»",
+   "startsAt": "2026-10-29T16:30:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7wf",
+   "series": "series-7wk",
+   "source": "https://vk.com/wall-49466614_23298"
+  },
+  {
+   "id": "e-7wm",
+   "title": "Хай хилс в школе танцев «Воздух»",
+   "startsAt": "2026-11-05T16:30:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7wf",
+   "series": "series-7wk",
+   "source": "https://vk.com/wall-49466614_23298"
+  },
+  {
+   "id": "e-7wo",
+   "title": "Детский танцевальный Хэллоуин",
+   "startsAt": "2026-11-01T09:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-7wf",
+   "series": null,
+   "source": "https://vk.com/wall-49466614_23334"
+  }
+ ]
+}

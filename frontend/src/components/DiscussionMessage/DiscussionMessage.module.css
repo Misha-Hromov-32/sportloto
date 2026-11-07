@@ -1,0 +1,174 @@
+.message {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: var(--s-3);
+  padding: var(--s-4) 0;
+}
+
+/* Ответ организатора — на подложке и с меткой, чтобы его было видно в ленте вопросов. */
+.organizer {
+  padding: var(--s-4);
+  border-radius: var(--r-card);
+  background: var(--bg-alt);
+}
+
+.hiddenForAdmin {
+  opacity: 0.72;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-1) var(--s-2);
+}
+
+.name {
+  font-weight: 700;
+}
+
+.badge {
+  padding: 2px var(--s-2);
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: var(--fs-13);
+  font-weight: 700;
+}
+
+.mine {
+  padding: 2px var(--s-2);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-soft);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+
+.time {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.quote {
+  display: flex;
+  gap: var(--s-2);
+  align-items: flex-start;
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.quote svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+.text {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  max-width: 70ch;
+}
+
+.hiddenNote {
+  color: var(--off);
+  font-size: var(--fs-15);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-1);
+}
+
+.reaction,
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding: 0 var(--s-3);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink);
+  font-size: var(--fs-15);
+  font-weight: 600;
+  transition:
+    border-color var(--t-hover) var(--ease),
+    background-color var(--t-hover) var(--ease);
+}
+
+.action {
+  border-color: transparent;
+}
+
+@media (hover: hover) {
+  .reaction:hover:not(:disabled),
+  .action:hover {
+    border-color: var(--ink);
+  }
+}
+
+.reaction:disabled {
+  cursor: default;
+}
+
+.reactionOn {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+.reactionLabel {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .reactionLabel {
+    display: inline;
+  }
+}
+
+.reactionCount {
+  font-variant-numeric: tabular-nums;
+}
+
+.system {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: var(--s-1) var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border: 1px dashed var(--line-soft);
+  border-radius: var(--r-card);
+  color: var(--ink);
+  font-size: var(--fs-15);
+}
+
+.system svg {
+  margin-top: 2px;
+  color: var(--ink-2);
+}
+
+.system .time {
+  grid-column: 2;
+}
+
+.removed {
+  display: flex;
+  gap: var(--s-2);
+  align-items: center;
+  padding: var(--s-3) 0;
+  color: var(--off);
+  font-size: var(--fs-15);
+}

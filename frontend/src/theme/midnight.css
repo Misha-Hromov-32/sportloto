@@ -1,0 +1,64 @@
+/* Дополнительная тема. Исходные светлая, тёмная и розовая темы сохраняют свои токены. */
+@media screen {
+  [data-theme='midnight'] {
+    color-scheme: dark;
+    --ink: #edf1f3;
+    --ink-soft: #c6d0d7;
+    --paper: #080d11;
+    --muted: #a4afb8;
+    --bg: #080d11;
+    --landing-bg: #080d11;
+    --bg-alt: #111b23;
+    --bg-deep: #202e38;
+    --surface: #0d151b;
+    --ink-2: #a4afb8;
+    --line: #60717e;
+    --line-soft: #293842;
+    --accent: #e0e9ef;
+    --accent-strong: #bfcfda;
+    --accent-ink: #10171c;
+    --accent-text: #d5e4ef;
+    --accent-soft: #23313d;
+    --ok: #a8d7b9;
+    --ok-bg: #142b22;
+    --wait: #e4c58b;
+    --wait-bg: #2d2619;
+    --off: #a4afb8;
+    --off-bg: #1d2932;
+    --danger: #ff9aa5;
+    --danger-bg: #361c25;
+    --danger-ink: #25080e;
+    --focus-ring: #b3d9f3;
+    --overlay: rgb(0 5 10 / 0.8);
+    --photo-scrim: rgb(2 8 13 / 0.6);
+    --shadow: 0 18px 50px -30px #000b;
+    --shadow-pop: 0 16px 50px #0009;
+    --shadow-header: 0 1px 0 var(--line-soft);
+    --font-display: var(--sans);
+    --radius: 0.375rem;
+    --radius-s: 0.25rem;
+    --r-card: 0.25rem;
+    --r-media: 0.25rem;
+  }
+
+  html[data-theme='midnight'] .h1,
+  html[data-theme='midnight'] .display {
+    font-family: var(--font-text);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 1.08;
+    text-transform: none;
+  }
+
+  html[data-theme='midnight'] .ant-btn-primary {
+    color: var(--accent-ink);
+  }
+  html[data-theme='midnight'] h1 {
+    font-weight: 400;
+    text-transform: none;
+  }
+  html[data-theme='midnight'] .ant-btn {
+    border-radius: 0.625rem;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,170 @@
+[
+ {
+  "as": "u-dmitry",
+  "op": "create",
+  "resource": "events",
+  "note": "Свободная встреча с обложкой из файла и закрытым обсуждением в форме",
+  "body": {
+   "title": "Проверка фото — футбол на школьном поле",
+   "description": "Играем шесть на шесть, мяч есть, после игры сделаем общее фото.",
+   "sportId": "s-football",
+   "startsAt": "2026-10-19T06:00:00.000Z",
+   "durationMin": 90,
+   "place": {
+    "address": "Стадион школы № 10, ул. Ленина, 114",
+    "landmark": "У главного входа",
+    "districtId": "d-center"
+   },
+   "level": "any",
+   "beginnersWelcome": true,
+   "joinMode": "open",
+   "price": {
+    "kind": "free"
+   },
+   "capacity": 12,
+   "minParticipants": null,
+   "cancelPolicy": {
+    "kind": "anytime"
+   },
+   "firstStep": {
+    "intensity": "medium",
+    "bring": "Удобная обувь",
+    "preparation": "",
+    "age": "",
+    "howToFind": "Вход со двора",
+    "amenities": [],
+    "firstTimeNote": ""
+   },
+   "discussion": "participants",
+   "privateInfo": "",
+   "visibility": "public",
+   "coverUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aGUsAAAAASUVORK5CYII="
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "one",
+  "resource": "events",
+  "id": "{{0.ok.id}}",
+  "note": "Открытое обсуждение: вопрос до записи"
+ },
+ {
+  "as": "u-anna",
+  "op": "create",
+  "resource": "messages",
+  "body": {
+   "eventId": "{{0.ok.id}}",
+   "text": "Можно прийти без формы?"
+  },
+  "note": "Вопрос незаписавшейся участницы"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "update",
+  "resource": "events",
+  "id": "{{0.ok.id}}",
+  "body": {
+   "coverUrl": "javascript:alert(1)"
+  },
+  "note": "Небезопасная обложка"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "update",
+  "resource": "events",
+  "id": "{{0.ok.id}}",
+  "body": {
+   "discussion": "participants"
+  },
+  "note": "Закрыть обсуждение у свободной встречи нельзя"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "custom",
+  "method": "put",
+  "url": "/events/{{0.ok.id}}/photos",
+  "body": {
+   "photos": [
+    {
+     "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aGUsAAAAASUVORK5CYII=",
+     "caption": "Рано"
+    }
+   ]
+  },
+  "note": "До начала фото нельзя"
+ },
+ {
+  "op": "advance",
+  "minutes": 240
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "put",
+  "url": "/events/{{0.ok.id}}/photos",
+  "body": {
+   "photos": []
+  },
+  "note": "Фото добавляет только организатор"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "custom",
+  "method": "put",
+  "url": "/events/{{0.ok.id}}/photos",
+  "body": {
+   "photos": [
+    {
+     "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aGUsAAAAASUVORK5CYII="
+    },
+    {
+     "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aGUsAAAAASUVORK5CYII="
+    },
+    {
+     "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aGUsAAAAASUVORK5CYII="
+    },
+    {
+     "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aGUsAAAAASUVORK5CYII="
+    },
+    {
+     "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aGUsAAAAASUVORK5CYII="
+    }
+   ]
+  },
+  "note": "Больше четырёх фото"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "custom",
+  "method": "put",
+  "url": "/events/{{0.ok.id}}/photos",
+  "body": {
+   "photos": [
+    {
+     "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aGUsAAAAASUVORK5CYII=",
+     "caption": "  Наша команда после игры  "
+    }
+   ]
+  },
+  "note": "Альбом сохранён"
+ },
+ {
+  "as": "u-anna",
+  "op": "one",
+  "resource": "events",
+  "id": "{{0.ok.id}}",
+  "note": "Участница видит альбом"
+ },
+ {
+  "as": "u-maria",
+  "op": "custom",
+  "method": "post",
+  "url": "/assistant/match",
+  "body": {
+   "text": "футбол в выходные",
+   "steps": [],
+   "cityId": "krasnoyarsk"
+  },
+  "note": "Администратор видит подбор без права записи"
+ }
+]

@@ -1,0 +1,97 @@
+/* Н5: сохранённые карточки ближайших записей. */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  margin-bottom: var(--s-6);
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-card);
+  background: var(--wait-bg);
+  color: var(--wait);
+  font-weight: 700;
+}
+
+.notice svg {
+  flex: none;
+  margin-top: 1px;
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: var(--fs-24);
+  font-weight: 800;
+}
+
+.cards {
+  display: grid;
+  gap: var(--s-3);
+}
+
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-width: 0;
+  padding: var(--s-5);
+  border: 1px solid var(--line-soft);
+  border-radius: 1.25rem;
+  background: var(--surface);
+}
+
+.when {
+  margin: 0;
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.list {
+  display: grid;
+  gap: var(--s-3);
+  margin: var(--s-2) 0 0;
+}
+
+.list dt {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.list dd {
+  margin: 2px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.list a {
+  font-weight: 700;
+}
+
+.empty,
+.hint {
+  margin: 0;
+  color: var(--ink-2);
+}

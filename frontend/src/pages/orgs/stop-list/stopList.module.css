@@ -1,0 +1,38 @@
+/* D-16: стоп-лист в кабинете клуба. */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+  padding: var(--s-5);
+  border: 1px solid var(--line-soft);
+  border-radius: 24px;
+  background: var(--surface);
+}
+
+@media (max-width: 639px) {
+  .panel {
+    padding: var(--s-4);
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 800;
+}
+
+.title svg {
+  flex: none;
+  color: var(--accent-text);
+}
+
+.muted {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}

@@ -1,0 +1,329 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  align-items: start;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+.panel {
+  padding: 1.75rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+}
+.sectionHead {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.sectionHead h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+.sectionIcon {
+  display: flex;
+  flex: none;
+  color: var(--ink-2);
+}
+.sectionIntro {
+  margin: -0.5rem 0 1.25rem;
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+.themes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.theme {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  min-width: 0;
+  padding: 0.5rem 0.5rem 0.9rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1rem;
+  background: var(--surface);
+  color: var(--ink);
+  text-align: left;
+  transition: border-color 160ms;
+}
+.themeActive {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.themeText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-inline: 0.25rem;
+}
+.themeName {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.themeName svg {
+  color: var(--accent-text);
+}
+.themeHint {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+.preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  aspect-ratio: 1.35;
+  padding: 1rem 0.7rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 0.65rem;
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+.previewCard {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 0.6rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.previewDate {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.75rem;
+  height: 2rem;
+  border-radius: 0.4rem;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.previewLines {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.4rem;
+}
+.previewLine,
+.previewLineShort {
+  height: 4px;
+  border-radius: 1rem;
+  background: var(--ink);
+}
+.previewLineShort {
+  width: 65%;
+  background: var(--line);
+}
+.previewButton {
+  align-self: flex-start;
+  padding: 0.35rem 0.7rem;
+  border-radius: 10rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 0.5625rem;
+  font-weight: 600;
+}
+.toggles {
+  display: flex;
+  flex-direction: column;
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.toggle:first-child {
+  padding-top: 0.25rem;
+}
+.toggle:last-child {
+  border-bottom: 0;
+  padding-bottom: 0.25rem;
+}
+.toggle > :last-child {
+  flex-shrink: 0;
+}
+.toggleText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+  max-width: 48ch;
+}
+.toggleTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.toggleHint {
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+.note {
+  max-width: 64ch;
+  margin-block: 1rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+.note:last-child {
+  margin: 1.25rem 0 0;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--bg-alt);
+  font-size: 0.75rem;
+}
+.side {
+  position: sticky;
+  top: calc(var(--header-h) + 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background: var(--bg-alt);
+}
+.eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--ink-2);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.contents a {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 3rem;
+  color: var(--ink);
+  font-size: 0.8125rem;
+  text-decoration: none;
+}
+.contents a > svg {
+  flex-shrink: 0;
+  color: var(--ink-2);
+}
+.reset {
+  padding: 1.25rem 0.5rem;
+  border-top: 1px solid var(--line-soft);
+}
+.reset > p {
+  margin-bottom: 0.5rem;
+  color: var(--ink-2);
+  font-size: 0.75rem;
+}
+.reset > button {
+  padding-inline: 0;
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  white-space: normal;
+}
+@media (hover: hover) {
+  .theme:hover {
+    border-color: var(--accent);
+  }
+  .contents a:hover,
+  .contents a:hover > svg {
+    color: var(--accent-text);
+  }
+}
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .side {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .contents {
+    grid-row: span 2;
+  }
+}
+@media (max-width: 639px) {
+  .panel {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+  .sectionHead {
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .sectionHead h2 {
+    font-size: 1.125rem;
+  }
+  .themes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+  .theme {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+  .preview {
+    padding: 0.7rem 0.5rem;
+    aspect-ratio: 1.2;
+  }
+  .previewCard {
+    gap: 0.3rem;
+    padding: 0.35rem;
+  }
+  .previewDate {
+    width: 1.4rem;
+    height: 1.7rem;
+    font-size: 1.1rem;
+  }
+  .previewButton {
+    font-size: 0.5rem;
+  }
+  .themeHint {
+    font-size: 0.75rem;
+  }
+  .toggle {
+    gap: 1rem;
+  }
+  .toggleHint {
+    font-size: 0.75rem;
+  }
+  .side {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .contents {
+    padding: 1.25rem;
+  }
+  .sectionIntro {
+    font-size: 0.8125rem;
+  }
+}

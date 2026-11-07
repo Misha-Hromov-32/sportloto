@@ -1,0 +1,385 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 100rem;
+  padding: 1.5rem clamp(1.25rem, 6.2vw, 7rem) 4rem;
+  background: var(--landing-bg);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  min-height: 2.75rem;
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .back:hover {
+    color: var(--accent-text);
+  }
+}
+
+.owner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.owner p {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.head {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-4);
+  }
+}
+
+.photo {
+  grid-column: 2;
+  grid-row: 1;
+  height: clamp(24rem, 40vw, 35rem);
+  overflow: hidden;
+  padding: 0.5rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.75rem;
+  background: var(--surface);
+  transform: rotate(1.5deg);
+}
+
+@media (max-width: 640px) {
+  .photo {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.25rem;
+}
+
+.photoFallback {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--ink-2);
+}
+
+.info {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.kind {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.4vw, 5rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: var(--fs-24);
+  }
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.muted {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.sports {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+}
+
+.sport {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 10rem;
+  background: var(--bg-alt);
+  font-size: 0.75rem;
+}
+
+.price {
+  padding-top: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10rem;
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .contact:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+}
+
+.org {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.updated {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: var(--s-4);
+  }
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.description {
+  max-width: 60ch;
+  color: var(--ink-2);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts a {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: var(--tap);
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--ink);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+@media (hover: hover) {
+  .contacts a:hover {
+    color: var(--accent-text);
+  }
+}
+
+.mapBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.mapLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  min-height: var(--tap);
+  font-weight: 600;
+}
+
+.events {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.events > li {
+  display: flex;
+}
+
+.events > li > * {
+  flex: 1;
+}
+
+@media (max-width: 1100px) {
+  .events {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .events {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.empty {
+  padding: var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+  color: var(--ink-2);
+}
+
+.title > span {
+  color: var(--accent);
+}
+.kind::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.actions > a {
+  font-size: 0.75rem;
+}
+@media (max-width: 900px) {
+  .photo {
+    grid-column: 1;
+    grid-row: 2;
+    height: 22rem;
+    transform: none;
+  }
+  .info {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .title {
+    font-size: clamp(2.75rem, 7vw, 4rem);
+  }
+}
+@media (max-width: 639px) {
+  .page {
+    gap: 1.5rem;
+  }
+  .head {
+    padding-bottom: 0;
+  }
+  .photo {
+    height: 17rem;
+  }
+  .title {
+    font-size: clamp(2.5rem, 10.5vw, 3.5rem);
+  }
+  .section {
+    padding: 1.25rem;
+  }
+  .actions > a {
+    width: 100%;
+  }
+}

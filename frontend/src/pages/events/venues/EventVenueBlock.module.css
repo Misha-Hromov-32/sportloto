@@ -1,0 +1,48 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.title {
+  font-size: var(--fs-20);
+  font-weight: 700;
+}
+
+.venue {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 64px;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .venue:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+}
+
+.venueText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.muted {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.access {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}

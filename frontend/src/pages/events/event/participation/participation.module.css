@@ -1,0 +1,328 @@
+/* Запись на событие: состав, место из листа ожидания, план Б, серия, пересечения. */
+
+.note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: 14px 16px;
+  border-radius: 0.875rem;
+}
+
+.note-accent {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  --flash-color: var(--accent);
+}
+
+.note-wait {
+  background: var(--wait-bg);
+  color: var(--wait);
+}
+
+.note-off {
+  background: var(--off-bg);
+  color: var(--off);
+}
+
+.noteTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: calc(18rem / 17);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.noteTitle svg {
+  flex: none;
+}
+
+.noteText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--ink);
+  font-size: var(--fs-16);
+  font-weight: 500;
+}
+
+.noteText a {
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--ink-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-1);
+}
+
+.actions > * {
+  flex: 1 1 9rem;
+  min-width: 0;
+  max-width: 100%;
+  padding-block: var(--s-2);
+  white-space: normal;
+  text-align: center;
+}
+
+.actions > * > span {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+}
+
+.countdown {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- План Б ---------- */
+
+.planB {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  margin-bottom: var(--s-5);
+  padding: var(--s-5);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-media);
+  background: var(--surface);
+  scroll-margin-top: calc(var(--header-h) + var(--s-4));
+}
+
+@media (max-width: 640px) {
+  .planB {
+    padding: var(--s-4);
+    border-radius: var(--radius);
+  }
+}
+
+.planBHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.planBTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-24);
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.planBText {
+  color: var(--ink-2);
+  font-size: var(--fs-16);
+}
+
+.altList {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .altList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.alt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.altWhen {
+  color: var(--accent-text);
+  font-size: var(--fs-15);
+  font-weight: 700;
+}
+
+.altTitle {
+  font-size: var(--fs-17);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.altTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.altTitle a:hover {
+  text-decoration: underline;
+}
+
+.altMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.altAction {
+  margin-top: auto;
+  padding-top: var(--s-1);
+}
+
+/* ---------- Серия ---------- */
+
+.series {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: 20px;
+  border-radius: 1.25rem;
+  background: var(--bg-alt);
+}
+
+.seriesTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: calc(19rem / 17);
+  font-weight: 700;
+}
+
+.seriesText {
+  color: var(--ink);
+  font-size: var(--fs-16);
+}
+
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 2.25rem;
+  padding: 4px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.dateMine {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.result {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 2px var(--s-2);
+  align-items: start;
+  font-size: var(--fs-16);
+}
+
+.result svg {
+  margin-top: 3px;
+}
+
+.resultOk {
+  color: var(--ok);
+}
+
+.resultWait {
+  color: var(--wait);
+}
+
+.resultOff {
+  color: var(--off);
+}
+
+.resultReason {
+  grid-column: 2;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.hint {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+/* ---------- Пересечения ---------- */
+
+.conflicts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.conflict {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  font-size: var(--fs-16);
+}
+
+.conflict svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--wait);
+}
+
+.dialogText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  font-size: var(--fs-16);
+}
+
+.block {
+  display: block;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+/* Длинная подпись кнопки переносится, а не обрезается: важно при крупном тексте */
+.wrapBtn {
+  padding-block: var(--s-2);
+  white-space: normal;
+  text-align: center;
+}
+
+.wrapBtn > span {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+}

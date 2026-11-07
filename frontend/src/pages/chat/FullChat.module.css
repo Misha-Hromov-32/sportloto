@@ -1,0 +1,711 @@
+.fullPage[data-assistant-page] {
+  --chat-paper: color-mix(in srgb, var(--surface) 45%, var(--bg-alt));
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--chat-paper);
+}
+.fullPage[data-assistant-page] .workspace {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+}
+.fullPage[data-assistant-page] .sidebar {
+  padding: 26px 24px 18px;
+  color: #f5f5f2;
+  background: #242523;
+  border: 0;
+  overflow: hidden;
+}
+.fullPage[data-assistant-page] .backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: start;
+  color: #bcbdb8;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 0 8px;
+  margin-bottom: 30px;
+}
+.fullPage[data-assistant-page] .sideBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+}
+.fullPage[data-assistant-page] .sideBrand > span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  background: none;
+  color: #f5f5f2;
+  box-shadow: none;
+  transform: none;
+}
+.fullPage[data-assistant-page] .sideBrand strong {
+  font-family: var(--font-text);
+  text-transform: none;
+  letter-spacing: -0.03em;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.fullPage[data-assistant-page] .newChat {
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  min-height: 43px;
+  margin: 25px 0 32px;
+  padding: 11px 14px;
+  border: 1px solid #50514b;
+  color: #f5f5f2;
+  background: #32332f;
+  border-radius: 10px;
+  font-size: 15px;
+  box-shadow: none;
+}
+.fullPage[data-assistant-page] .historyCaption {
+  color: #a4a69e;
+  font-size: 15px;
+  margin: 0 8px 12px;
+}
+.fullPage[data-assistant-page] .historyCaption svg {
+  display: none;
+}
+.fullPage[data-assistant-page] .history {
+  flex: 1;
+  min-height: 80px;
+  max-height: none;
+  overflow-y: auto;
+  align-content: start;
+  gap: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #65665d transparent;
+}
+.fullPage[data-assistant-page] .history::-webkit-scrollbar {
+  width: 3px;
+}
+.fullPage[data-assistant-page] .history::-webkit-scrollbar-track {
+  background: transparent;
+}
+.fullPage[data-assistant-page] .history::-webkit-scrollbar-thumb {
+  background: #65665d;
+  border: 0;
+}
+.fullPage[data-assistant-page] .history::-webkit-scrollbar-button {
+  display: none;
+}
+.fullPage[data-assistant-page] .history button {
+  color: #bcbdb8;
+  font-size: 15px;
+  min-height: 39px;
+  padding: 10px;
+  border-radius: 8px;
+  background: none;
+  border: 1px solid transparent;
+}
+.fullPage[data-assistant-page] .history button[aria-current] {
+  color: #fff;
+  background: #393a35;
+  border-color: #45463f;
+}
+.fullPage[data-assistant-page] .history button[aria-current] svg {
+  color: #ff7b83;
+}
+.fullPage[data-assistant-page] .sideFoot {
+  padding: 16px 8px 0;
+  margin-top: 0;
+}
+.fullPage[data-assistant-page] .sideFoot p {
+  color: #a4a69e;
+  font-size: 15px;
+  margin: 0 0 4px;
+}
+.fullPage[data-assistant-page] .sideFoot button {
+  color: #bcbdb8;
+  font-size: 15px;
+}
+.fullPage[data-assistant-page] .chat {
+  height: 100%;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--chat-paper);
+}
+.fullPage[data-assistant-page] .chatHead {
+  min-height: 70px;
+  flex: 0 0 auto;
+  padding: 14px 34px;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+}
+.headTitle {
+  min-width: 0;
+}
+.headTitle h2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.windowControls {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+}
+.windowControls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.windowControls button:hover {
+  background: var(--bg-alt);
+}
+.windowControls button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.loading {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+.loading .windowControls {
+  align-self: flex-end;
+}
+.fullPage[data-assistant-page] .avatar {
+  display: none;
+}
+.fullPage[data-assistant-page] .chatHead h2 {
+  color: var(--ink);
+  font-size: 15px;
+  margin: 0 0 5px;
+  font-weight: 550;
+}
+.fullPage[data-assistant-page] .chatHead p {
+  font-size: 15px;
+}
+.fullPage[data-assistant-page] .city {
+  color: var(--ink-2);
+  font-size: 15px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.fullPage[data-assistant-page] .conversation {
+  flex: 1;
+  min-height: 0;
+  padding: 28px 40px;
+  background: none;
+  overscroll-behavior: contain;
+}
+.fullPage[data-assistant-page][data-empty] .conversation {
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px 60px;
+}
+.fullPage[data-assistant-page] .welcome {
+  display: block;
+  width: min(100%, 660px);
+  max-width: 660px;
+  margin: auto;
+}
+.fullPage[data-assistant-page] .welcomeHero {
+  display: block;
+  padding: 0;
+  margin: 0 0 28px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  text-align: center;
+  overflow: visible;
+}
+.fullPage[data-assistant-page] .welcome h2 {
+  font-family: var(--font-text);
+  font-size: clamp(30px, 3.1vw, 42px);
+  font-weight: 550;
+  text-transform: none;
+  line-height: 1.16;
+  letter-spacing: -0.055em;
+  margin: 0 0 16px;
+}
+.fullPage[data-assistant-page] .welcomeHero > p:last-child {
+  max-width: 34rem;
+  margin: 0 auto;
+  color: var(--ink-2);
+  font-size: 17px;
+  line-height: 1.6;
+}
+.fullPage[data-assistant-page] .examplesCaption {
+  display: none;
+}
+.fullPage[data-assistant-page] .examples {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+.fullPage[data-assistant-page] .examples button {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 6px;
+  padding: 8px 11px;
+  border: 1px solid var(--line-soft);
+  border-radius: 24px;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.fullPage[data-assistant-page] .exampleTop {
+  display: contents;
+}
+.fullPage[data-assistant-page] .exampleIcon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  border-radius: 0;
+  background: none;
+  color: var(--ink-2);
+}
+.fullPage[data-assistant-page] .exampleIcon svg {
+  width: 17px;
+  height: 17px;
+}
+.fullPage[data-assistant-page] .examples button strong {
+  font-size: 15px;
+  font-weight: 450;
+  margin: 0;
+  white-space: nowrap;
+}
+.fullPage[data-assistant-page] .exampleDetail {
+  display: none;
+}
+.fullPage[data-assistant-page] .messages {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  gap: 30px;
+  padding-bottom: 10px;
+}
+.fullPage[data-assistant-page] .message {
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 1.85;
+}
+.fullPage[data-assistant-page] .assistant {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.fullPage[data-assistant-page] .messageMark {
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+.fullPage[data-assistant-page] .user {
+  width: fit-content;
+  max-width: 85%;
+  padding: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  color: var(--ink);
+  border-radius: 18px 18px 4px 18px;
+  box-shadow: none;
+}
+.fullPage[data-assistant-page] .eventCard {
+  gap: 8px;
+  padding: 18px 20px;
+  border: 1px solid var(--line-soft);
+  border-radius: 15px;
+  margin-top: 12px;
+  background: var(--surface);
+}
+.fullPage[data-assistant-page] .eventCard > strong {
+  font-size: 17px;
+}
+.fullPage[data-assistant-page] .cardAddress {
+  font-size: 15px;
+}
+.fullPage[data-assistant-page] .understood {
+  margin: 16px 0;
+}
+.fullPage[data-assistant-page] .understood span {
+  font-size: 15px;
+  background: var(--surface);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+.fullPage[data-assistant-page] .links {
+  gap: 10px 20px;
+}
+.fullPage[data-assistant-page] .links a {
+  font-size: 15px;
+}
+.fullPage[data-assistant-page] .composer {
+  flex: 0 0 auto;
+  padding: 12px 40px 18px;
+  border: 0;
+  background: transparent;
+}
+.fullPage[data-assistant-page][data-empty] .composer {
+  padding: 0;
+}
+.fullPage[data-assistant-page] .inputWrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 12px 12px 12px 20px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--ink) 17%, var(--surface));
+  box-shadow:
+    0 5px 6px -5px rgb(0 0 0 / 0.06),
+    0 15px 35px -18px rgb(0 0 0 / 0.12);
+  gap: 8px 12px;
+}
+.fullPage[data-assistant-page] .inputWrap:focus-within {
+  border-color: var(--ink-2);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--ink) 5%, transparent),
+    0 15px 35px -18px rgb(0 0 0 / 0.12);
+}
+.fullPage[data-assistant-page] .composerMark {
+  display: none;
+}
+.fullPage[data-assistant-page] .inputWrap :global(.ant-input) {
+  grid-column: 1 / -1;
+  font-size: 18px;
+  line-height: 1.7;
+  padding: 7px 4px 4px 0;
+}
+.fullPage[data-assistant-page] .inputWrap :global(.ant-input)::placeholder {
+  color: var(--ink-2);
+  opacity: 0.85;
+}
+.inputNote {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  align-self: center;
+  color: var(--ink-2);
+  font-size: 15px;
+}
+.inputNote svg {
+  color: var(--accent-text);
+}
+.fullPage[data-assistant-page] .send {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  box-shadow: none;
+}
+.fullPage[data-assistant-page] .send:disabled {
+  color: #fff;
+  background: #333430;
+  opacity: 1;
+}
+.fullPage[data-assistant-page] .send svg {
+  width: 19px;
+  height: 19px;
+}
+.fullPage[data-assistant-page]:not([data-empty]) .inputWrap {
+  display: flex;
+  align-items: end;
+}
+.fullPage[data-assistant-page]:not([data-empty]) .inputNote {
+  display: none;
+}
+.fullPage[data-assistant-page] .composerFoot {
+  max-width: 740px;
+  margin: 10px auto 0;
+  font-size: 15px;
+  opacity: 0.8;
+}
+.fullPage[data-assistant-page][data-empty] .composerFoot > span:first-child {
+  margin: 0 auto;
+}
+.fullPage[data-assistant-page][data-empty] .composerFoot > span:last-child {
+  display: none;
+}
+.mobileHistory {
+  display: none;
+}
+@media (hover: hover) {
+  .fullPage[data-assistant-page] .backLink:hover {
+    color: #fff;
+  }
+  .fullPage[data-assistant-page] .newChat:hover {
+    background: #45463f;
+  }
+  .fullPage[data-assistant-page] .history button:hover {
+    background: #393a35;
+    color: #fff;
+  }
+  .fullPage[data-assistant-page] .examples button:hover {
+    background: var(--surface);
+    border-color: var(--ink-2);
+  }
+}
+@media (max-height: 760px) and (min-width: 768px) {
+  .fullPage[data-assistant-page][data-empty] .conversation {
+    padding-bottom: 30px;
+  }
+}
+@media (max-width: 1000px) and (min-width: 768px) {
+  .fullPage[data-assistant-page] .workspace {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+  .fullPage[data-assistant-page][data-empty] .conversation {
+    padding-inline: 28px;
+  }
+}
+@media (max-width: 767px) {
+  .fullPage[data-assistant-page] .workspace {
+    display: block;
+  }
+  .fullPage[data-assistant-page] .sidebar {
+    display: none;
+  }
+  .fullPage[data-assistant-page] .chatHead {
+    min-height: 62px;
+    padding: 10px 16px;
+    gap: 9px;
+  }
+  .fullPage[data-assistant-page] .headTitle {
+    flex: 1;
+  }
+  .fullPage[data-assistant-page] .chatHead .city {
+    display: none;
+  }
+  .windowControls {
+    gap: 4px;
+  }
+  .windowControls button {
+    padding-inline: 10px;
+  }
+  .windowControls button > span {
+    display: none;
+  }
+  .fullPage[data-assistant-page] .chatHead h2 {
+    font-size: 15px;
+  }
+  .fullPage[data-assistant-page] .chatHead p {
+    font-size: 15px;
+  }
+  .fullPage[data-assistant-page] .city {
+    display: flex;
+    font-size: 15px;
+  }
+  .fullPage[data-assistant-page] .city svg {
+    display: none;
+  }
+  .fullPage[data-assistant-page] .mobileNew {
+    display: grid;
+    margin-left: 2px;
+  }
+  .fullPage[data-assistant-page] .conversation {
+    padding: 20px 18px;
+  }
+  .fullPage[data-assistant-page][data-empty] .conversation {
+    padding: 0 20px 48px;
+  }
+  .fullPage[data-assistant-page] .welcomeHero {
+    margin-bottom: 24px;
+  }
+  .fullPage[data-assistant-page] .welcome h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+  .fullPage[data-assistant-page] .welcomeHero > p:last-child {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .fullPage[data-assistant-page] .examples {
+    gap: 7px;
+    margin-top: 18px;
+    justify-content: flex-start;
+    padding-right: 52px;
+  }
+  .fullPage[data-assistant-page] .examples button {
+    padding: 7px 8px;
+  }
+  .fullPage[data-assistant-page] .examples button strong {
+    font-size: 15px;
+  }
+  .fullPage[data-assistant-page] .messages {
+    gap: 25px;
+  }
+  .fullPage[data-assistant-page] .message {
+    font-size: 15px;
+  }
+  .fullPage[data-assistant-page] .eventCard {
+    padding: 14px;
+  }
+  .fullPage[data-assistant-page] .eventCard > strong {
+    font-size: 17px;
+  }
+  .fullPage[data-assistant-page] .composer {
+    padding: 10px 82px 12px 12px;
+  }
+  .fullPage[data-assistant-page][data-empty] .composer {
+    padding: 0;
+  }
+  .fullPage[data-assistant-page] .inputWrap {
+    padding: 12px;
+    gap: 8px;
+    border-radius: 17px;
+  }
+  .fullPage[data-assistant-page] .inputWrap :global(.ant-input) {
+    font-size: 18px;
+    padding: 4px 0;
+  }
+  .inputNote {
+    font-size: 15px;
+  }
+  .fullPage[data-assistant-page] .composerFoot {
+    font-size: 15px;
+  }
+  .fullPage[data-assistant-page] .composerFoot > span:first-child {
+    max-width: 240px;
+  }
+  .fullPage[data-assistant-page] .mobileHistory {
+    display: block;
+    flex: none;
+  }
+  .mobileHistory summary {
+    list-style: none;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 32px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--ink-2);
+  }
+  .mobileHistory summary::-webkit-details-marker {
+    display: none;
+  }
+  .mobileHistory > div {
+    position: absolute;
+    top: 58px;
+    left: 12px;
+    width: min(310px, calc(100vw - 24px));
+    max-height: min(440px, 65dvh);
+    overflow-y: auto;
+    z-index: 80;
+    padding: 14px;
+    background: var(--surface);
+    border: 1px solid var(--line-soft);
+    border-radius: 16px;
+    box-shadow: var(--shadow-pop);
+  }
+  .mobileHistory > div > strong {
+    display: block;
+    margin: 2px 8px 12px;
+    font-size: 15px;
+  }
+  .mobileHistory button {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    text-align: left;
+    background: none;
+    border: 0;
+    border-radius: 9px;
+    color: var(--ink-2);
+    padding: 11px 8px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .mobileHistory button span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mobileHistory button svg {
+    flex: none;
+  }
+  .mobileHistory button[aria-current] {
+    background: var(--bg-alt);
+    color: var(--ink);
+  }
+}
+@media (max-height: 740px) and (max-width: 767px) {
+  .fullPage[data-assistant-page][data-empty] .conversation {
+    padding-top: 12px;
+    padding-bottom: 26px;
+  }
+  .fullPage[data-assistant-page] .welcomeHero {
+    margin-bottom: 18px;
+  }
+  .fullPage[data-assistant-page] .welcome h2 {
+    font-size: 27px;
+    margin-bottom: 12px;
+  }
+  .fullPage[data-assistant-page] .welcomeHero > p:last-child {
+    font-size: 17px;
+  }
+  .fullPage[data-assistant-page] .examples {
+    margin-top: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fullPage[data-assistant-page] .inputWrap {
+    transition: none;
+  }
+}
+
+/* Тема «Графит» (data-theme="midnight"): только переопределения, остальные темы не меняются. */
+@media screen {
+  :global(html[data-theme='midnight']) .fullPage[data-assistant-page] .sidebar {
+    background: var(--surface);
+    border-right: 1px solid var(--line-soft);
+  }
+  :global(html[data-theme='midnight']) .fullPage[data-assistant-page] .newChat,
+  :global(html[data-theme='midnight']) .fullPage[data-assistant-page] .history button[aria-current] {
+    background: var(--bg-deep);
+    border-color: var(--line);
+    color: var(--ink);
+  }
+  :global(html[data-theme='midnight']) .fullPage[data-assistant-page] .history button[aria-current] svg {
+    color: var(--ink-2);
+  }
+  :global(html[data-theme='midnight']) .fullPage[data-assistant-page] .send:disabled {
+    background: var(--off-bg);
+    color: var(--off);
+  }
+}

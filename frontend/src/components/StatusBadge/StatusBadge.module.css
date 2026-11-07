@@ -1,0 +1,62 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-pill);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+.badge > svg {
+  flex: none;
+}
+.badge > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.lg {
+  min-height: 44px;
+  padding: var(--s-2) var(--s-4);
+  font-size: var(--fs-17);
+}
+
+.ok {
+  background: var(--ok-bg);
+  color: var(--ok);
+  --flash-color: var(--ok);
+}
+
+.wait {
+  background: var(--wait-bg);
+  color: var(--wait);
+  --flash-color: var(--wait);
+}
+
+.off {
+  background: var(--off-bg);
+  color: var(--off);
+  --flash-color: var(--off);
+}
+
+.danger {
+  background: var(--danger-bg);
+  color: var(--danger);
+  --flash-color: var(--danger);
+}
+
+.neutral {
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+.accent {
+  background: var(--accent);
+  color: var(--accent-ink);
+}

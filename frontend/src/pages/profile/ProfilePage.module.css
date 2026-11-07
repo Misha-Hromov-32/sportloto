@@ -1,0 +1,836 @@
+.page {
+  padding-bottom: 5rem;
+  background: var(--landing-bg);
+}
+
+.container {
+  width: 100%;
+  max-width: 100rem;
+  padding-inline: clamp(1.25rem, 6.2vw, 7rem);
+  margin-inline: auto;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding-top: 2rem;
+  overflow: hidden;
+}
+
+.heroTop,
+.identity,
+.meta,
+.heroActions,
+.sectionHead,
+.textLink,
+.settingsLink,
+.editLink,
+.eventDate,
+.eventPlace,
+.eventFoot,
+.eventFoot > span,
+.eventSport,
+.sportTag {
+  display: flex;
+  align-items: center;
+}
+
+.heroTop {
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.eyebrow {
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.settingsLink {
+  gap: 0.4rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  text-decoration: none;
+  min-height: 2.75rem;
+}
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding-bottom: 3rem;
+}
+.heroText {
+  min-width: 0;
+}
+.identity {
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+.identity > :first-child {
+  flex-shrink: 0;
+}
+.meta {
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+.meta svg {
+  flex-shrink: 0;
+}
+.name {
+  max-width: 11ch;
+  font-family: var(--font-display);
+  font-size: clamp(3.75rem, 7.2vw, 7rem);
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  text-wrap: initial;
+}
+.name > span {
+  color: var(--accent);
+}
+.about,
+.intro {
+  max-width: 36rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+.about p {
+  white-space: pre-line;
+}
+.aboutLabel {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+.heroActions {
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.heroActions > a,
+.heroActions > button {
+  font-size: 0.875rem;
+}
+.textLink {
+  gap: 0.5rem;
+  width: fit-content;
+  min-height: 2.75rem;
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.heroText > .textLink {
+  margin-top: 1rem;
+}
+.textLink svg {
+  flex-shrink: 0;
+}
+
+.sportCard {
+  min-width: 0;
+  padding: 0.625rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.75rem;
+  background: var(--surface);
+}
+.sportVisual {
+  position: relative;
+  isolation: isolate;
+  height: clamp(13rem, 22vw, 20rem);
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--bg-deep);
+}
+.sportVisual > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sportPlaceholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--ink-2);
+}
+.sportTag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  gap: 0.4rem;
+  max-width: calc(100% - 2rem);
+  padding: 0.4rem 0.75rem;
+  border-radius: 10rem;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.readiness {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.125rem 0.5rem 0.65rem;
+}
+.readinessIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--ink-2);
+}
+.readiness strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.readiness p {
+  margin-top: 0.2rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 1.6rem 0 1.75rem;
+  border-top: 1px solid var(--line-soft);
+}
+.stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding-inline: 1.75rem;
+}
+.stats > div:first-child {
+  padding-left: 0;
+}
+.stats > div + div {
+  border-left: 1px solid var(--line-soft);
+}
+.stats dt {
+  max-width: 13rem;
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+.stats dd {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  min-height: 4.75rem;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.navigation > a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.navigation > a:first-child {
+  color: var(--ink);
+}
+.navigation > a > span {
+  display: grid;
+  place-items: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.3rem;
+  border-radius: 50%;
+  color: var(--ink-2);
+  background: var(--bg-alt);
+  font-size: 0.75rem;
+}
+.navigation > .cabinetLink {
+  margin-left: auto;
+  color: var(--ink);
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 19rem;
+  align-items: start;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  min-width: 0;
+}
+.sectionHead {
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.sectionHead h2 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+.headingCount {
+  color: var(--ink-2);
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.editLink {
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 2.75rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+.interests {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.interest {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: var(--bg-alt);
+}
+.interestIcon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-text);
+}
+.interestName {
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.level {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+}
+.levelHint {
+  margin-top: 0.15rem;
+  color: var(--ink-2);
+  font-size: 0.75rem;
+}
+.muted {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+.emptyPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px dashed var(--line);
+  border-radius: 1.25rem;
+}
+.emptyPanel > :only-child {
+  width: 100%;
+}
+
+.events {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.showEvents {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+}
+.eventCard {
+  min-width: 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color 180ms;
+}
+.eventLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+.eventMedia {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 10.5rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--bg-alt);
+  color: var(--ink-2);
+}
+.eventMedia > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.eventSport,
+.liveBadge {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 10rem;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.liveBadge {
+  top: auto;
+  bottom: 0.65rem;
+  color: var(--ok);
+  background: var(--ok-bg);
+}
+.eventBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0.9rem 0.6rem 0.3rem;
+}
+.eventDate {
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.eventDate svg {
+  color: var(--accent-text);
+  flex-shrink: 0;
+}
+.eventDate > span {
+  margin-left: auto;
+}
+.eventBody h3 {
+  margin: 0.7rem 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+.eventPlace {
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  color: var(--ink-2);
+  font-size: 0.75rem;
+}
+.eventPlace svg {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.eventFoot {
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+
+.eventDetails {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  margin-top: auto;
+  padding-bottom: 0.8rem;
+  font-size: 0.75rem;
+}
+
+.eventDetails > :last-child {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+}
+.eventFoot > span {
+  gap: 0.35rem;
+}
+.eventAction {
+  color: var(--ink);
+  font-weight: 600;
+}
+.triedSection {
+  padding: 1.75rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+.invite {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.75rem;
+  border-radius: 1.5rem;
+  background: var(--bg-alt);
+}
+.invite h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.invite p {
+  margin: 0.75rem 0 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.invite > a {
+  width: 100%;
+  padding-inline: 0.75rem;
+  font-size: 0.8125rem;
+}
+.facts,
+.orgs {
+  padding: 1.5rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+}
+.facts h2,
+.orgs h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.factsList {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+}
+.factsList > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.factsList dt {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+.factsList dd {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.factsList dt > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.statusDot {
+  background: var(--ok);
+}
+.upcomingDot {
+  background: var(--accent);
+}
+.cancelledDot {
+  background: var(--line);
+}
+.factsNote {
+  margin-top: 1.25rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line-soft);
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+}
+.orgs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.orgs > svg {
+  color: var(--ink-2);
+}
+.orgs .muted {
+  font-size: 0.8125rem;
+}
+.orgs .textLink {
+  font-size: 0.75rem;
+}
+.orgList {
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+}
+.orgLink {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding-block: 0.5rem;
+  text-decoration: none;
+}
+.orgName {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.editPanel {
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+}
+.editPanel .sectionHead {
+  margin-bottom: 0.75rem;
+}
+.sectionIntro {
+  margin-bottom: 2rem;
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+
+@media (hover: hover) {
+  .settingsLink:hover,
+  .textLink:hover,
+  .editLink:hover,
+  .navigation > a:hover,
+  .orgLink:hover {
+    color: var(--accent-text);
+  }
+  .eventCard:hover {
+    border-color: var(--line);
+  }
+}
+
+@media (min-width: 1600px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+  }
+  .layout {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .container {
+    padding-inline: 2rem;
+  }
+  .heroGrid {
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  }
+  .name {
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+  }
+  .sportVisual {
+    height: 16rem;
+  }
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .side {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  .invite {
+    grid-row: span 2;
+  }
+  .interests {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .container {
+    padding-inline: 1.25rem;
+  }
+  .hero {
+    padding-top: 1rem;
+  }
+  .heroTop {
+    margin-bottom: 1.25rem;
+  }
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    padding-bottom: 2rem;
+  }
+  .identity {
+    margin-bottom: 1.1rem;
+  }
+  .meta {
+    font-size: 0.875rem;
+  }
+  .name {
+    font-size: clamp(3.75rem, 15vw, 6rem);
+  }
+  .about,
+  .intro {
+    margin-top: 1.1rem;
+    font-size: 0.9375rem;
+  }
+  .heroActions {
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .heroActions > a,
+  .heroActions > button {
+    padding-inline: 1rem;
+    font-size: 0.8125rem;
+  }
+  .sportVisual {
+    height: 12rem;
+  }
+  .readiness {
+    padding-block: 0.8rem 0.4rem;
+  }
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 0;
+    padding-block: 1.5rem;
+  }
+  .stats > div {
+    padding-inline: 1.25rem;
+  }
+  .stats > div:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .stats dd {
+    font-size: 2.75rem;
+  }
+  .stats dt {
+    font-size: 0.75rem;
+  }
+  .navigation {
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    padding-block: 0.6rem;
+    margin-bottom: 2rem;
+  }
+  .navigation > a {
+    font-size: 0.75rem;
+    min-height: 2.75rem;
+  }
+  .navigation > .cabinetLink {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+  .main {
+    gap: 2.25rem;
+  }
+  .sectionHead {
+    margin-bottom: 1.1rem;
+    gap: 0.5rem;
+  }
+  .sectionHead h2 {
+    font-size: 1.5rem;
+  }
+  .interests {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .interest {
+    padding: 1rem;
+  }
+  .interestIcon {
+    margin-bottom: 1rem;
+  }
+  .events {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .eventMedia {
+    height: 12rem;
+  }
+  .eventDate {
+    font-size: 0.75rem;
+  }
+  .eventBody {
+    padding: 1rem 0.75rem 0.5rem;
+  }
+  .eventBody h3 {
+    font-size: 1.125rem;
+  }
+  .eventFoot {
+    font-size: 0.75rem;
+  }
+  .side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .triedSection,
+  .facts,
+  .orgs,
+  .invite {
+    padding: 1.5rem;
+  }
+  .invite {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 359px) {
+  .interests {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

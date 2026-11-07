@@ -1,0 +1,339 @@
+/* Документы: тот же ритм, что у страницы «Правила» (rules/parts/Rules.module.css). */
+
+.layout {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 17rem minmax(0, 1fr);
+  }
+}
+
+/* ---------- Оглавление ---------- */
+
+.toc {
+  padding: 1.25rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--bg-alt);
+}
+
+@media (min-width: 1024px) {
+  .toc {
+    position: sticky;
+    top: calc(var(--header-h) + var(--s-5));
+    max-height: calc(100dvh - var(--header-h) - 2 * var(--s-5));
+    overflow-y: auto;
+  }
+}
+
+.tocTitle {
+  margin-bottom: var(--s-3);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.tocList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tocList a {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background-color var(--t-hover) var(--ease);
+}
+
+@media (hover: hover) {
+  .tocList a:hover {
+    background: var(--surface);
+  }
+}
+
+.tocList a[aria-current] {
+  background: var(--surface);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  margin-top: var(--s-3);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ---------- Текст ---------- */
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  min-width: 0;
+}
+
+.summary {
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.summaryTitle {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.summaryList {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+  padding-left: 1.25rem;
+  list-style: disc;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.summaryNote {
+  margin-top: var(--s-4);
+  color: color-mix(in srgb, var(--bg) 75%, var(--ink));
+  font-size: 0.8125rem;
+}
+
+.doc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: 1.75rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+  scroll-margin-top: 7rem;
+}
+
+.section:target {
+  border-color: var(--accent);
+}
+
+.sectionTitle {
+  font-family: var(--font-text);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  text-transform: none;
+}
+
+.text {
+  max-width: 72ch;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.items {
+  display: grid;
+  gap: var(--s-2);
+  max-width: 72ch;
+  padding-left: 1.25rem;
+  list-style: disc;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table thead th {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.table tbody th {
+  width: 34%;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.table td {
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Оператор и другие документы ---------- */
+
+.operator {
+  padding: 1.75rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--bg-alt);
+}
+
+.operatorTitle {
+  font-family: var(--font-text);
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.operatorList {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+}
+
+.operatorList dt {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.operatorList dd {
+  font-size: 0.9375rem;
+  overflow-wrap: anywhere;
+}
+
+.operatorList a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.others ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.others a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-pill);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .others a:hover {
+    background: var(--bg-alt);
+  }
+}
+
+/* ---------- Список документов ---------- */
+
+.index {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .index {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+  }
+}
+
+.cards {
+  display: grid;
+  gap: var(--s-3);
+}
+
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  height: 100%;
+  padding: 1.5rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color var(--t-hover) var(--ease);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    border-color: var(--ink);
+  }
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.cardText {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 639px) {
+  .section,
+  .operator {
+    padding: 1.25rem;
+  }
+  .summary {
+    padding: 1.5rem;
+  }
+  .summaryTitle {
+    font-size: 1.75rem;
+  }
+  .table tbody th {
+    width: 40%;
+  }
+}

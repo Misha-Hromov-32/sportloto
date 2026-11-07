@@ -1,0 +1,88 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.trigger:hover,
+.trigger[aria-expanded='true'] {
+  background: var(--bg-alt);
+}
+.pin {
+  color: var(--accent);
+}
+.panel {
+  width: min(320px, calc(100vw - 56px));
+  padding: 8px;
+}
+.panel h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+.hint {
+  margin: 8px 0 16px;
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.options {
+  display: grid;
+  gap: 4px;
+  margin-top: 12px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 68px;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  text-align: left;
+}
+.option strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+}
+.option small {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-2);
+  font-size: 12px;
+}
+.option[aria-pressed='true'],
+.option:hover {
+  background: var(--bg-alt);
+}
+.option svg {
+  color: var(--accent);
+  flex: none;
+}
+.empty {
+  padding: 12px 0;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+@media (max-width: 640px) {
+  .trigger {
+    padding-inline: 8px;
+    gap: 4px;
+    font-size: 12px;
+  }
+  .pin {
+    display: none;
+  }
+}

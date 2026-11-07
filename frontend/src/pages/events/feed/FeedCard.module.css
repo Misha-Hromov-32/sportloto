@@ -1,0 +1,429 @@
+/* Карточка события и мелкие элементы по вёрстке владельца (inbox/design-reference): цвета — токены тем. */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--bg-alt);
+  color: var(--ink);
+  font-size: var(--fs-13);
+  font-weight: 600;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.tag-ok {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+.tag-wait {
+  background: var(--wait-bg);
+  color: var(--wait);
+}
+
+.tag-dark {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.tag-off {
+  background: var(--off-bg);
+  color: var(--off);
+}
+
+.tag-danger {
+  background: var(--danger-bg);
+  color: var(--danger);
+  --flash-color: var(--danger);
+}
+
+.tag-plain {
+  background: var(--surface);
+}
+
+/* ---------- Места ---------- */
+
+.spots {
+  margin-top: 14px;
+}
+
+.spotsBar {
+  height: 6px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--ink) 10%, transparent);
+  overflow: hidden;
+}
+
+.spotsBar i {
+  display: block;
+  height: 100%;
+  border-radius: 6px;
+  background: var(--ink);
+}
+
+.spotsHot .spotsBar i {
+  background: var(--accent);
+}
+
+.spots small {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Карточка ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  padding: 0.5rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+  color: var(--ink);
+  text-align: left;
+  text-decoration: none;
+  transition: border-color var(--t-hover) var(--ease);
+}
+.card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mediaTags {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  right: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.mediaTags .tag {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.6rem;
+}
+.fallback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.5rem;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.fallbackName {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 0.75rem 0.5rem;
+}
+.when {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.when svg {
+  flex-shrink: 0;
+}
+.title {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+.place {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+.place svg {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.match {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.match svg {
+  flex: none;
+  margin-top: 0.1rem;
+  color: var(--accent-text);
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  min-width: 0;
+  margin-top: 1rem;
+}
+.tags .tag {
+  background: var(--bg-alt);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.body .spots {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+.body .spotsBar {
+  height: 3px;
+}
+.body .spots small {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line-soft);
+}
+.price {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.large .title {
+  font-size: 1.75rem;
+}
+.large .when,
+.large .place,
+.large .tags .tag,
+.large .spots small {
+  font-size: 1rem;
+}
+.large .body {
+  padding: 1.5rem 1rem 0.75rem;
+}
+.create {
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--ink);
+  color: var(--bg);
+}
+.createTitle {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+.createText {
+  color: color-mix(in srgb, var(--bg) 78%, var(--ink));
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+.create > a {
+  font-size: 0.75rem;
+}
+.skeleton .media {
+  background: var(--line-soft);
+}
+.skLine {
+  display: block;
+  height: 14px;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  background: var(--line-soft);
+}
+@media (hover: hover) {
+  .card:not(.create, .skeleton):hover {
+    color: var(--ink);
+    border-color: var(--line);
+  }
+}
+@media (max-width: 639px) {
+  .media {
+    aspect-ratio: 16/9;
+  }
+  .body {
+    padding-top: 1rem;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+  .mediaTags .tag {
+    font-size: 0.75rem;
+  }
+  .when,
+  .place {
+    font-size: 0.75rem;
+  }
+  .tags .tag {
+    font-size: 0.75rem;
+  }
+  .body .spots small {
+    font-size: 0.8125rem;
+  }
+  .large .title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Тема «Графит» (data-theme="midnight"): только переопределения, остальные темы не меняются. */
+@media screen {
+  :global(html[data-theme='midnight']) .tag {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--line-soft);
+    border-radius: 0.125rem;
+    background: transparent;
+    color: var(--ink-2);
+    font-weight: 400;
+  }
+  :global(html[data-theme='midnight']) .tag:is(.tag-ok, .tag-wait, .tag-dark, .tag-danger) {
+    border-color: var(--line);
+    color: var(--ink);
+  }
+  :global(html[data-theme='midnight']) .tag-danger {
+    border-color: #d0ae96;
+  }
+  :global(html[data-theme='midnight']) .tag:global(.status-flash) {
+    --flash-color: var(--bg-alt);
+  }
+  :global(html[data-theme='midnight']) .tags .tag {
+    background: transparent;
+  }
+  :global(html[data-theme='midnight']) .mediaTags .tag,
+  :global(html[data-theme='midnight']) .tagOverlay {
+    min-height: 1.875rem;
+    max-width: 100%;
+    padding: 0.4rem 0.65rem;
+    border-color: #a6b9c6;
+    background: #0b1219ed;
+    color: #f1f5f7;
+    line-height: 1.3;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  :global(html[data-theme='midnight']) .mediaTags .tag-danger,
+  :global(html[data-theme='midnight']) .tagOverlay.tag-danger {
+    border-color: #d0ae96;
+  }
+  :global(html[data-theme='midnight']) .card {
+    padding: 0;
+    border-radius: 0.125rem;
+    background: var(--surface);
+  }
+  :global(html[data-theme='midnight']) .media {
+    border-radius: 0;
+  }
+  :global(html[data-theme='midnight']) .media img {
+    filter: grayscale(0.8) saturate(0.4) brightness(0.85);
+  }
+  :global(html[data-theme='midnight']) .body {
+    padding: 1.25rem;
+  }
+  :global(html[data-theme='midnight']) .title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+  }
+  :global(html[data-theme='midnight']) .when,
+  :global(html[data-theme='midnight']) .place,
+  :global(html[data-theme='midnight']) .match {
+    font-size: 0.875rem;
+  }
+  :global(html[data-theme='midnight']) .tags .tag,
+  :global(html[data-theme='midnight']) .mediaTags .tag,
+  :global(html[data-theme='midnight']) .tagOverlay,
+  :global(html[data-theme='midnight']) .body .spots small {
+    font-size: 0.8125rem;
+  }
+  :global(html[data-theme='midnight']) .mediaTags .tag,
+  :global(html[data-theme='midnight']) .tagOverlay {
+    font-weight: 500;
+  }
+  :global(html[data-theme='midnight']) .price {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  :global(html[data-theme='midnight']) .arrow {
+    border: 1px solid var(--line);
+    background: transparent;
+  }
+  :global(html[data-theme='midnight']) .create {
+    background: #14202a;
+    color: var(--ink);
+  }
+  :global(html[data-theme='midnight']) .createTitle {
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: none;
+  }
+  :global(html[data-theme='midnight']) .createText {
+    color: var(--ink-2);
+  }
+  :global(html[data-theme='midnight']) .large .title {
+    font-size: 1.75rem;
+  }
+  :global(html[data-theme='midnight']) .large .when,
+  :global(html[data-theme='midnight']) .large .place,
+  :global(html[data-theme='midnight']) .large .match,
+  :global(html[data-theme='midnight']) .large .tags .tag,
+  :global(html[data-theme='midnight']) .large .spots small {
+    font-size: 1rem;
+  }
+  :global(html[data-theme='midnight'][data-text='large']) .tag,
+  :global(html[data-theme='midnight'][data-text='large']) .tags .tag,
+  :global(html[data-theme='midnight'][data-text='large']) .mediaTags .tag {
+    font-size: 1rem;
+  }
+}
+
+@media (hover: hover) {
+  :global(html[data-theme='midnight']) .card:hover .media img {
+    filter: grayscale(0.2) brightness(1);
+  }
+}

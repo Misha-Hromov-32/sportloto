@@ -1,0 +1,599 @@
+.shell {
+  --header-h: 5rem;
+  --layout-gutter: clamp(1.25rem, 6.2vw, 7rem);
+  --layout-max: 86rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+/* Одна строка навигации: состав ссылок зависит от открытого раздела. */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding-inline: var(--layout-gutter);
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--bg);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 2rem);
+  width: 100%;
+  max-width: var(--layout-max);
+  min-height: var(--header-h);
+  margin-inline: auto;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 1.25rem;
+}
+
+.cityControl {
+  padding-left: 1rem;
+  border-left: 1px solid var(--line-soft);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: clamp(0.75rem, 1.2vw, 1.5rem);
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: var(--header-h);
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 160ms;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 160ms;
+}
+
+.navActive {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.navActive::after {
+  transform: scaleX(1);
+}
+
+.navCounter {
+  display: grid;
+  place-items: center;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding-inline: 0.2rem;
+  border-radius: 50%;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  font-size: 0.625rem;
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.createDesktop {
+  min-height: 2.75rem;
+  padding-inline: 1.1rem;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.guest {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loginBtn {
+  min-height: 2.75rem;
+  padding-inline: 0.5rem;
+  border-color: transparent;
+  font-size: 0.8125rem;
+}
+
+.joinBtn {
+  min-height: 2.75rem;
+  padding-inline: 1.2rem;
+  font-size: 0.8125rem;
+}
+
+.iconBtn,
+.mobileMenu {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 0.8rem;
+  background: transparent;
+  color: var(--ink-2);
+  text-decoration: none;
+  transition:
+    background-color 160ms,
+    color 160ms;
+}
+
+.counter {
+  position: absolute;
+  top: 0.15rem;
+  right: 0.15rem;
+  display: grid;
+  place-items: center;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  padding-inline: 0.2rem;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.account {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  padding: 0.125rem 0.5rem 0.125rem 0.125rem;
+  border: 0;
+  border-radius: 10rem;
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: background-color 160ms;
+}
+
+.account > :first-child {
+  flex-shrink: 0;
+}
+
+.accountName,
+.accountCaret {
+  display: none;
+}
+
+.accountCaret {
+  color: var(--ink-2);
+}
+
+.socialControl {
+  display: inline-flex;
+  margin-left: 0.2rem;
+  padding-left: 0.3rem;
+  border-left: 1px solid var(--line-soft);
+}
+
+.themeControl {
+  display: inline-flex;
+  margin-left: 0.2rem;
+  padding-left: 0.3rem;
+  border-left: 1px solid var(--line-soft);
+}
+
+.mobileMenu {
+  display: none;
+  background: var(--bg-alt);
+}
+
+.menuPanel {
+  width: min(19rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 6rem);
+  overflow-y: auto;
+  padding: 0.6rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.25rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-pop);
+}
+
+.menuPanel :global(.ant-dropdown-menu) {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.menuPanel :global(.ant-dropdown-menu-item) {
+  min-height: 2.75rem;
+  padding-inline: 0.8rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.menuPanel a[aria-current='page'] {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.menuTools {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.menuTools > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-inline: 0.8rem 0.3rem;
+}
+
+.menuTools > div > span {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+}
+
+.shell[data-workspace] .main {
+  background: color-mix(in srgb, var(--bg-alt) 42%, var(--bg));
+}
+
+.shell[data-home],
+.shell[data-home] .main,
+.shell[data-home] .header {
+  background: var(--landing-bg);
+}
+
+@media (hover: hover) {
+  .navLink:hover {
+    color: var(--ink);
+  }
+  .navLink:hover::after {
+    transform: scaleX(1);
+  }
+  .iconBtn:hover,
+  .mobileMenu:hover,
+  .account:hover {
+    background: var(--bg-alt);
+    color: var(--ink);
+  }
+}
+
+@media (min-width: 1400px) {
+  .accountName,
+  .accountCaret {
+    display: inline;
+  }
+}
+
+
+@media (max-width: 1399px) {
+  .headerInner {
+    gap: 0.875rem;
+  }
+  .nav {
+    gap: 0.75rem;
+  }
+  .brandGroup {
+    gap: 0.75rem;
+  }
+  .cityControl {
+    padding-left: 0.65rem;
+  }
+}
+
+/* Keep the new shelf link and all actions on one line on smaller desktop screens.
+   The location button retains its accessible name and the complete city picker. */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .cityControl > button {
+    justify-content: center;
+    min-width: 2.75rem;
+  }
+  .cityControl > button > span {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .nav {
+    display: none;
+  }
+  .mobileMenu {
+    display: grid;
+  }
+}
+
+@media (max-width: 899px) {
+  .cityControl {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .shell {
+    --header-h: 4.25rem;
+    --layout-gutter: 1.25rem;
+  }
+  .headerInner {
+    gap: 0.75rem;
+  }
+  .actions {
+    gap: 0.25rem;
+  }
+  .createDesktop,
+  .themeControl,
+  .socialControl,
+  .joinBtn {
+    display: none;
+  }
+  .account {
+    padding: 0.125rem;
+  }
+  .guest {
+    gap: 0;
+  }
+  .loginBtn {
+    padding-inline: 0.9rem;
+    background: var(--bg-alt);
+  }
+}
+
+@media (max-width: 359px) {
+  .shell {
+    --layout-gutter: 0.875rem;
+  }
+  .headerInner {
+    gap: 0.5rem;
+  }
+  .actions {
+    gap: 0.125rem;
+  }
+}
+/* ---------- Содержимое ---------- */
+
+.main {
+  flex: 1;
+  padding-bottom: calc(var(--tabbar-h) + var(--s-6) + env(safe-area-inset-bottom));
+}
+
+.main:has([data-landing]) {
+  padding-bottom: 0;
+}
+
+.main:focus {
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-bottom: var(--s-8);
+  }
+}
+
+/* ---------- Подвал ---------- */
+
+.footer {
+  display: none;
+  border-top: 1px solid var(--line-soft);
+  background: var(--bg);
+}
+
+@media (min-width: 768px) {
+  .footer {
+    display: block;
+  }
+}
+
+.footerInner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-3) var(--s-6);
+  align-items: center;
+  padding-block: var(--s-6);
+}
+
+.footerNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  justify-self: end;
+}
+
+.footerNav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .footerNav a:hover {
+    text-decoration: underline;
+  }
+}
+
+.footerNote {
+  grid-column: 1 / -1;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+/* ---------- Нижняя панель на телефоне ---------- */
+
+.tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: end;
+  height: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+  padding: 0 var(--s-1) env(safe-area-inset-bottom);
+  background: var(--bg);
+  border-top: 1px solid var(--line-soft);
+}
+
+[data-simple] .tabbar {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (min-width: 768px) {
+  .tabbar {
+    display: none;
+  }
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: var(--tabbar-h);
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+[data-simple] .tab,
+[data-text='large'] .tab {
+  font-size: var(--fs-15);
+}
+
+.tabIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 32px;
+  border-radius: var(--r-pill);
+  transition: background-color var(--t-hover) var(--ease);
+}
+
+.tabActive {
+  color: var(--ink);
+}
+
+.tabActive .tabIcon {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* Главная кнопка «Создать» — круг акцентного цвета над панелью. */
+.tabPrimary {
+  color: var(--ink);
+}
+
+.tabPrimary .tabIcon {
+  width: 56px;
+  height: 56px;
+  margin-top: -20px;
+  border: 3px solid var(--bg);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.tabPrimary.tabActive .tabIcon {
+  background: var(--accent-strong);
+  color: var(--accent-ink);
+}
+
+[data-hand='left'] .tabPrimary {
+  order: -1;
+}
+
+.tabLabel {
+  line-height: 1.1;
+}
+.shell[data-chat-page] {
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+.shell[data-chat-page] .header {
+  flex: 0 0 auto;
+}
+.shell[data-chat-page] .main {
+  display: flex;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.shell[data-chat-page] .footer {
+  display: none;
+}
+@media (max-width: 767px) {
+  .shell[data-chat-page] .main {
+    padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+  }
+}
+
+/* Тема «Графит» (data-theme="midnight"): только переопределения, остальные темы не меняются. */
+@media screen {
+  :global(html[data-theme='midnight']) .header {
+    border-bottom-color: #8aa1b52b;
+    background: #080d11ed;
+    backdrop-filter: blur(16px);
+  }
+  :global(html[data-theme='midnight']) .headerInner {
+    gap: 1.5rem;
+  }
+  :global(html[data-theme='midnight']) .navLink {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+  :global(html[data-theme='midnight']) .navActive {
+    font-weight: 500;
+  }
+  :global(html[data-theme='midnight']) .navLink::after {
+    height: 1px;
+  }
+  :global(html[data-theme='midnight']) .shell[data-home] .footer {
+    display: none;
+  }
+  :global(html[data-theme='midnight']) .tabbar {
+    background: #080d11f5;
+    backdrop-filter: blur(16px);
+  }
+}
+
+.footerNote a {
+  color: inherit;
+  text-decoration-color: var(--line);
+}

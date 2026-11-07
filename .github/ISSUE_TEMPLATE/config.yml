@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Сообщить об уязвимости
+    url: https://github.com/Misha-Hromov-32/sportloto/security/policy
+    about: Контакт владельца и порядок сообщения о проблемах безопасности.
+  - name: Документация
+    url: https://github.com/Misha-Hromov-32/sportloto/blob/main/docs/README.md
+    about: Устройство сервиса, запуск и сценарии проверки.

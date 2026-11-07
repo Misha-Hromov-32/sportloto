@@ -1,0 +1,88 @@
+[project]
+name = "vmeste-backend"
+version = "0.1.0"
+description = "Бэкенд платформы совместных спортивных активностей «Вместе»"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "alembic>=1.20.0",
+    "argon2-cffi>=25.1.0",
+    "asyncpg>=0.32.0",
+    "fastapi>=0.146.0",
+    "httpx>=0.28.1",
+    "psycopg[binary]>=3.2.10",
+    "pydantic>=2.14.1",
+    "pydantic-settings>=2.16.0",
+    "pywebpush>=2.5.0",
+    "sqlalchemy[asyncio]>=2.1.5",
+    "tzdata>=2026.5",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.17.1",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 110
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "CPY",     # заголовки с лицензией не нужны
+    "D",       # докстринги не обязательны: комментируем только нетривиальное
+    "COM812",  # конфликтует с форматтером
+    "RUF001",  # кириллица в строках — норма для русского интерфейса
+    "RUF002",
+    "RUF003",
+    "TRY003",  # сообщения об ошибках передаём явно, они на русском
+    "EM101",
+    "EM102",
+    "TC001",   # FastAPI и Pydantic читают аннотации во время выполнения
+    "TC002",
+    "TC003",
+    "EXE002",  # на Windows файлы в смонтированном томе выглядят исполняемыми
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S105", "S106", "S107", "PLR2004", "PLR0913", "ANN", "INP001", "SLF001", "FBT", "ASYNC110"]
+"migrations/**" = ["INP001", "PLR0915"]
+# Вёрстка письма: длинные строки HTML со стилями в атрибутах читаются лучше целиком.
+"app/mail/templates.py" = ["E501"]
+# Доменные правила: длинные функции с ветвлениями и числами из бизнес-правил (лимиты, часы, проценты)
+# читаются целиком, как описание правила; дробить их ради метрик сложности не стоит.
+"app/domain/**" = [
+    "C901",     # сложность функций правил
+    "PLR0911",  # много return
+    "PLR0912",  # много ветвлений
+    "PLR0913",  # много аргументов
+    "PLR0917",  # позиционные аргументы
+    "PLR0915",  # много операторов
+    "PLR2004",  # числа из правил (лимиты, часы, проценты)
+    "PLR1702",  # вложенность блоков
+    "FBT001",   # флаги в сигнатурах
+    "FBT002",
+    "FBT003",
+    "ANN401",   # данные из JSON — Any
+    "ERA001",   # пояснения с кодом в комментариях
+    "S311",     # random для демо-данных и кодов приглашений не криптографический
+    "E501",     # длинные русские тексты уведомлений
+]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query", "fastapi.Header", "fastapi.Cookie"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"

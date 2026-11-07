@@ -1,0 +1,34 @@
+name: Ошибка
+description: Что-то работает не так, как ожидается.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Об уязвимостях сообщайте по SECURITY.md. Не прикладывайте пароли, токены и чужие личные данные.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Как повторить
+      placeholder: "1. Открыть страницу…\n2. Выбрать…\n3. Нажать…"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемый результат
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Что произошло
+      description: Можно приложить снимок экрана, скрыв личные данные.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Условия проверки
+      placeholder: Город, устройство, ОС, браузер и адрес страницы.
+    validations:
+      required: true

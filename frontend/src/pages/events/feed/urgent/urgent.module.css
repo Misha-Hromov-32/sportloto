@@ -1,0 +1,19 @@
+.lead {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0 0 var(--s-4);
+  color: var(--ink-2);
+}
+
+.icon {
+  flex: none;
+  color: var(--wait);
+}
+
+/* Тема «Графит» (data-theme="midnight"): только переопределения, остальные темы не меняются. */
+@media screen {
+  :global(html[data-theme='midnight']) .icon {
+    color: var(--ink-2);
+  }
+}

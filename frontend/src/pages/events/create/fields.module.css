@@ -1,0 +1,222 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.labelRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-1) var(--s-3);
+}
+
+.label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2);
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.optional {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 400;
+}
+
+.hint {
+  max-width: 64ch;
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  color: var(--danger);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.error svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.invalid :global(.ant-input),
+.invalid :global(.ant-input-number),
+.invalid :global(.ant-picker),
+.invalid :global(.ant-select-selector) {
+  border-color: var(--danger) !important;
+}
+
+/* ---------- Варианты-карточки ---------- */
+
+.cards {
+  display: grid;
+  gap: var(--s-3);
+}
+
+@media (min-width: 640px) {
+  .cols2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cols3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cardWrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--s-3);
+  align-items: start;
+  width: 100%;
+  min-height: var(--tap);
+  height: 100%;
+  padding: var(--s-4);
+  border: 0;
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg-alt);
+  color: var(--ink);
+  text-align: left;
+  transition:
+    background-color var(--t-hover) var(--ease),
+    box-shadow var(--t-hover) var(--ease);
+}
+
+.cardsSm .card {
+  padding: var(--s-3);
+}
+
+@media (hover: hover) {
+  .card:hover:not(:disabled, .cardActive) {
+    background: var(--line-soft);
+  }
+}
+
+.cardActive {
+  background: var(--surface);
+  box-shadow: none;
+  border: 1px solid var(--line-soft);
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+}
+
+.card:disabled {
+  cursor: not-allowed;
+  background: transparent;
+  outline: 1px dashed var(--line-soft);
+  outline-offset: -1px;
+}
+
+.card:disabled .cardTitle,
+.card:disabled .cardText {
+  color: var(--ink-2);
+}
+
+.radio {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
+  border: 2px solid var(--ink-2);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+}
+
+.cardActive .radio {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  min-width: 0;
+}
+
+.cardTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.cardTitle svg {
+  flex: none;
+}
+
+.cardText {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+/* ---------- Чипы и переключатели ---------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.toggleRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg-alt);
+}
+
+.toggleHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.toggleText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.toggleTitle {
+  font-weight: 700;
+}
+
+.cardsSm .cardTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.cardsSm .cardText {
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}

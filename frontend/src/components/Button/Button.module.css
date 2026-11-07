@@ -1,0 +1,155 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: var(--control-h);
+  padding: 0 var(--s-5);
+  border: var(--line-w) solid transparent;
+  border-radius: var(--r-pill);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) var(--ease),
+    border-color var(--t-hover) var(--ease),
+    color var(--t-hover) var(--ease);
+}
+
+.button:disabled,
+.button[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sm {
+  min-height: var(--control-h-sm);
+  padding: 0 var(--s-4);
+  font-size: 0.875rem;
+}
+
+.lg {
+  min-height: calc(var(--control-h) + 8px);
+  padding: 0 var(--s-6);
+  font-size: var(--fs-20);
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.secondary {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.quiet {
+  background: transparent;
+  color: var(--ink);
+  padding-inline: var(--s-3);
+  text-decoration: none;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--line-soft);
+}
+
+.danger {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: var(--danger-ink);
+}
+
+/* На тёмной подложке (фото, табло): светлая кнопка. */
+.inverse {
+  background: var(--bg);
+  border-color: var(--bg);
+  color: var(--ink);
+}
+
+@media (hover: hover) {
+  .primary:hover:not(:disabled) {
+    background: var(--accent-strong);
+    border-color: var(--accent-strong);
+  }
+
+  .secondary:hover:not(:disabled) {
+    background: var(--bg-alt);
+  }
+
+  .quiet:hover:not(:disabled) {
+    text-decoration-color: currentColor;
+  }
+
+  .danger:hover:not(:disabled) {
+    filter: brightness(0.92);
+  }
+
+  .inverse:hover:not(:disabled) {
+    background: var(--bg-alt);
+    border-color: var(--bg-alt);
+  }
+}
+
+.primary:disabled,
+.primary[aria-disabled='true'],
+.danger:disabled,
+.danger[aria-disabled='true'] {
+  background: var(--off-bg);
+  border-color: var(--off-bg);
+  color: var(--off);
+}
+
+.secondary:disabled,
+.secondary[aria-disabled='true'],
+.quiet:disabled {
+  border-color: var(--line-soft);
+  color: var(--off);
+}
+
+.loading,
+.loading:disabled {
+  cursor: progress;
+}
+
+.primary.loading:disabled {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  opacity: 0.85;
+}
+
+.spinner {
+  animation: spin 900ms linear infinite;
+  flex: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Тема «Графит» (data-theme="midnight"): только переопределения, остальные темы не меняются. */
+@media screen {
+  :global(html[data-theme='midnight']) .button {
+    border-radius: 0.625rem;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,543 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  padding-top: var(--s-5);
+  padding-bottom: var(--s-8);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--tap);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.context {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  padding: var(--s-4);
+  border-radius: var(--radius);
+  background: var(--wait-bg);
+  color: var(--ink);
+}
+
+.muted {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  padding-top: var(--s-4);
+}
+
+/* ---------- Фильтры полки ---------- */
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border: var(--line-w) solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+@media (min-width: 768px) {
+  .filters {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.filterSelect {
+  width: 100%;
+}
+
+.count {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+/* ---------- Карточки вещей ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-4);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: var(--line-w) solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.picture {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 140px;
+  background: var(--bg-alt);
+  color: var(--ink-2);
+}
+
+.pictureKind {
+  position: absolute;
+  left: var(--s-3);
+  bottom: var(--s-3);
+  padding: 2px var(--s-2);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+
+.pictureWithPhoto {
+  overflow: hidden;
+}
+
+.picturePhoto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pictureRow {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+  color: var(--ink-2);
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-4) var(--s-4) 0;
+}
+
+.cardTitle {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.owner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.owner a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.ownerTag {
+  padding: 2px var(--s-2);
+  border-radius: var(--r-pill);
+  background: var(--ok-bg);
+  color: var(--ok);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+
+.stock {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ok);
+}
+
+.stockNone {
+  color: var(--off);
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.facts li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+}
+
+.terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.terms li {
+  padding: 2px var(--s-3);
+  border: var(--line-w) solid var(--line-soft);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-15);
+}
+
+.note {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.attention {
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius-s);
+  background: var(--wait-bg);
+  color: var(--wait);
+  font-weight: 600;
+  font-size: var(--fs-15);
+}
+
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  padding: var(--s-4);
+}
+
+/* ---------- Просьбы ---------- */
+
+.loans {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.loan {
+  display: flex;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border: var(--line-w) solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.loanBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.loanHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.loanTitle {
+  font-size: var(--fs-17);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.loanText a,
+.contact a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.quote {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius-s);
+  background: var(--ok-bg);
+}
+
+.loanActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.reject {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.fieldLabel {
+  font-weight: 600;
+}
+
+.optional {
+  margin-left: var(--s-2);
+  color: var(--ink-2);
+  font-weight: 400;
+  font-size: var(--fs-15);
+}
+
+.history summary {
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.history[open] summary {
+  margin-bottom: var(--s-3);
+}
+
+/* ---------- Если ни у кого нет ---------- */
+
+.hints {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border: var(--line-w) dashed var(--line);
+  border-radius: var(--radius);
+}
+
+.hintsTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-17);
+  font-weight: 700;
+}
+
+.hintsList {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .hintsList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.hintsList li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.hintsList span {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+/* ---------- Формы ---------- */
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.dialogNote {
+  color: var(--ink-2);
+}
+
+.dialogError {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.dialogActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+}
+
+.formRow {
+  display: grid;
+  gap: var(--s-4);
+}
+
+@media (min-width: 560px) {
+  .formRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.formRow :global(.ant-select),
+.formRow :global(.ant-input-number) {
+  width: 100%;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.dialog :global(.ant-select),
+.dialog :global(.ant-input-number) {
+  width: 100%;
+}
+
+.caret {
+  flex: none;
+  transition: transform var(--t-ui) var(--ease);
+}
+
+details[open] > summary .caret {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    transition: none;
+  }
+}
+
+/* Карточки общей полки */
+.filters {
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+  background: var(--surface);
+}
+.count,
+.muted {
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+.card {
+  padding: 0.5rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+}
+.picture {
+  height: 11rem;
+  border-radius: 1rem;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+}
+.pictureKind {
+  left: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.cardBody {
+  padding: 1.25rem 0.75rem 0.25rem;
+  gap: 0.75rem;
+}
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.owner {
+  font-size: 0.75rem;
+}
+.ownerTag {
+  font-size: 0.75rem;
+}
+.stock {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.facts,
+.terms {
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+@media (max-width: 639px) {
+  .filters {
+    padding: 1rem;
+  }
+}
+
+/* ---------- Продажа вещей ---------- */
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2);
+  font-size: var(--fs-24);
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.price span {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 500;
+}
+
+.saleNote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  margin-top: var(--s-1);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+  font-size: var(--fs-15);
+  line-height: 1.5;
+}
+
+.priceInput {
+  width: 100%;
+  max-width: 240px;
+}

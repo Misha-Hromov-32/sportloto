@@ -1,0 +1,91 @@
+:root {
+  --motion-panel: 280ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes ui-message {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes ui-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* Блок ниже первого экрана ждёт, пока до него долистают (lib/usePageMotion.ts). */
+  html:not([data-simple]) [data-entry-motion='ready'] {
+    opacity: 0;
+  }
+  html:not([data-simple]) [data-chat-message] {
+    animation: ui-message var(--motion-panel) var(--motion-ease) backwards;
+  }
+  html:not([data-simple]) details[open] > :not(summary) {
+    animation: ui-fade 200ms ease-out backwards;
+  }
+  html:not([data-simple]) .ant-btn {
+    transition:
+      background-color 200ms,
+      border-color 200ms,
+      color 200ms;
+  }
+}
+[data-simple] *,
+[data-simple] *::before,
+[data-simple] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+/* Всплывающие слои Ant Design встают на место в начале своей анимации: при 0,01 мс меню аккаунта
+   оставалось за экраном и из простого режима нельзя было выйти. Анимацию им выключает сама тема
+   Ant Design (token.motion), здесь возвращаем их собственные длительности. */
+[data-simple]
+  :is(
+    .ant-dropdown,
+    .ant-select-dropdown,
+    .ant-picker-dropdown,
+    .ant-cascader-dropdown,
+    .ant-popover,
+    .ant-tooltip
+  ),
+[data-simple]
+  :is(
+    .ant-dropdown,
+    .ant-select-dropdown,
+    .ant-picker-dropdown,
+    .ant-cascader-dropdown,
+    .ant-popover,
+    .ant-tooltip
+  )
+  * {
+  animation-duration: revert !important;
+  transition-duration: revert !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-entry-motion],
+  [data-chat-message] {
+    animation: none !important;
+  }
+}
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  [data-entry-motion] {
+    opacity: 1 !important;
+    translate: none !important;
+  }
+}

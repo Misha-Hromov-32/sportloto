@@ -1,0 +1,8 @@
+*
+!frontend/
+!deploy/nginx.conf
+!deploy/security-headers.conf
+frontend/node_modules
+frontend/dist
+frontend/.vite
+frontend/**/.env*

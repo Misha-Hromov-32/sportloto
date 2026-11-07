@@ -1,0 +1,233 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "text",
+    "links",
+    "search",
+    "action",
+    "question",
+    "options"
+  ],
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "Ответ человеку, 1–5 коротких предложений"
+    },
+    "links": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label",
+          "to"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "search": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Фраза для подбора встреч системой сайта, если человек ищет, куда пойти"
+    },
+    "action": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "summary",
+            "params"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "navigate",
+                "create_event",
+                "join_event",
+                "leave_event",
+                "create_companion",
+                "favorite_event",
+                "update_profile"
+              ]
+            },
+            "summary": {
+              "type": "string"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "path",
+                "eventId",
+                "sport",
+                "title",
+                "description",
+                "date",
+                "time",
+                "durationMin",
+                "address",
+                "capacity",
+                "price",
+                "level",
+                "joinMode",
+                "text",
+                "when",
+                "district",
+                "interests"
+              ],
+              "properties": {
+                "path": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "eventId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "sport": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "title": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "time": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "durationMin": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "address": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "capacity": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "price": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "level": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "enum": [
+                    "any",
+                    "beginner",
+                    "amateur",
+                    "experienced",
+                    null
+                  ]
+                },
+                "joinMode": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "enum": [
+                    "open",
+                    "approval",
+                    null
+                  ]
+                },
+                "text": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "when": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "district": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "interests": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "question": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "options": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

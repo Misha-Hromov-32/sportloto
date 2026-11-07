@@ -1,0 +1,708 @@
+[
+ {
+  "as": "u-dmitry",
+  "op": "create",
+  "resource": "events",
+  "body": {
+   "title": "Проверка S1 — лапта во дворе",
+   "description": "Играем в лапту на школьном стадионе. Правила объясним на месте, мяч и биты есть.",
+   "newSportName": "Тестовая лапта",
+   "confirmNew": true,
+   "startsAt": "2026-10-22T03:00:00.000Z",
+   "durationMin": 90,
+   "place": {
+    "address": "Стадион школы № 10, ул. Ленина, 114",
+    "landmark": "У главного входа",
+    "districtId": "d-center"
+   },
+   "level": "any",
+   "beginnersWelcome": true,
+   "joinMode": "open",
+   "price": {
+    "kind": "free"
+   },
+   "capacity": 20,
+   "minParticipants": null,
+   "cancelPolicy": {
+    "kind": "anytime"
+   },
+   "firstStep": {
+    "intensity": "low",
+    "bring": "Удобная обувь",
+    "preparation": "",
+    "age": "",
+    "howToFind": "Вход со двора",
+    "amenities": [],
+    "firstTimeNote": ""
+   },
+   "discussion": "everyone",
+   "privateInfo": "Телефон: +7 900 000-00-00",
+   "visibility": "public"
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "list",
+  "resource": "events",
+  "filters": [
+   {
+    "field": "q",
+    "operator": "contains",
+    "value": "лапта"
+   }
+  ]
+ },
+ {
+  "as": "u-maria",
+  "op": "create",
+  "resource": "events",
+  "body": {
+   "title": "Проверка S1 — лапта во дворе",
+   "description": "Играем в лапту на школьном стадионе. Правила объясним на месте, мяч и биты есть.",
+   "newSportName": "Тестовая лапта",
+   "confirmNew": true,
+   "startsAt": "2026-10-22T03:00:00.000Z",
+   "durationMin": 90,
+   "place": {
+    "address": "Стадион школы № 10, ул. Ленина, 114",
+    "landmark": "У главного входа",
+    "districtId": "d-center"
+   },
+   "level": "any",
+   "beginnersWelcome": true,
+   "joinMode": "open",
+   "price": {
+    "kind": "free"
+   },
+   "capacity": 20,
+   "minParticipants": null,
+   "cancelPolicy": {
+    "kind": "anytime"
+   },
+   "firstStep": {
+    "intensity": "low",
+    "bring": "Удобная обувь",
+    "preparation": "",
+    "age": "",
+    "howToFind": "Вход со двора",
+    "amenities": [],
+    "firstTimeNote": ""
+   },
+   "discussion": "everyone",
+   "privateInfo": "Телефон: +7 900 000-00-00",
+   "visibility": "public"
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "create",
+  "resource": "organizations",
+  "body": {
+   "name": "Клуб проверки S2",
+   "type": "club",
+   "description": "Совместные тренировки и игры для всех желающих.",
+   "sportIds": [
+    "s-running"
+   ],
+   "city": "Красноярск",
+   "districtId": null,
+   "address": "Парк",
+   "contacts": {
+    "phone": "+7 913 555-10-20",
+    "email": "club@example.test",
+    "social": ""
+   },
+   "submit": true
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "create",
+  "resource": "events",
+  "body": {
+   "title": "Встреча клуба S2",
+   "description": "Играем в лапту на школьном стадионе. Правила объясним на месте, мяч и биты есть.",
+   "newSportName": "Тестовая лапта",
+   "confirmNew": true,
+   "startsAt": "2026-10-22T03:00:00.000Z",
+   "durationMin": 90,
+   "place": {
+    "address": "Стадион школы № 10, ул. Ленина, 114",
+    "landmark": "У главного входа",
+    "districtId": "d-center"
+   },
+   "level": "any",
+   "beginnersWelcome": true,
+   "joinMode": "open",
+   "price": {
+    "kind": "free"
+   },
+   "capacity": 20,
+   "minParticipants": null,
+   "cancelPolicy": {
+    "kind": "anytime"
+   },
+   "firstStep": {
+    "intensity": "low",
+    "bring": "Удобная обувь",
+    "preparation": "",
+    "age": "",
+    "howToFind": "Вход со двора",
+    "amenities": [],
+    "firstTimeNote": ""
+   },
+   "discussion": "everyone",
+   "privateInfo": "Телефон: +7 900 000-00-00",
+   "visibility": "public",
+   "orgId": "{{3.ok.id}}"
+  }
+ },
+ {
+  "as": "u-maria",
+  "op": "custom",
+  "method": "post",
+  "url": "/organizations/{{3.ok.id}}/decide",
+  "body": {
+   "decision": "approve"
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "one",
+  "resource": "organizations",
+  "id": "{{3.ok.id}}"
+ },
+ {
+  "as": "u-anna",
+  "op": "create",
+  "resource": "events",
+  "body": {
+   "title": "Встреча клуба S2",
+   "description": "Играем в лапту на школьном стадионе. Правила объясним на месте, мяч и биты есть.",
+   "newSportName": null,
+   "confirmNew": null,
+   "startsAt": "2026-10-22T03:00:00.000Z",
+   "durationMin": 90,
+   "place": {
+    "address": "Стадион школы № 10, ул. Ленина, 114",
+    "landmark": "У главного входа",
+    "districtId": "d-center"
+   },
+   "level": "any",
+   "beginnersWelcome": true,
+   "joinMode": "open",
+   "price": {
+    "kind": "free"
+   },
+   "capacity": 20,
+   "minParticipants": null,
+   "cancelPolicy": {
+    "kind": "anytime"
+   },
+   "firstStep": {
+    "intensity": "low",
+    "bring": "Удобная обувь",
+    "preparation": "",
+    "age": "",
+    "howToFind": "Вход со двора",
+    "amenities": [],
+    "firstTimeNote": ""
+   },
+   "discussion": "everyone",
+   "privateInfo": "Телефон: +7 900 000-00-00",
+   "visibility": "public",
+   "orgId": "{{3.ok.id}}",
+   "sportId": "s-running"
+  }
+ },
+ {
+  "as": "u-petr",
+  "op": "list",
+  "resource": "events"
+ },
+ {
+  "as": "u-maria",
+  "op": "custom",
+  "method": "post",
+  "url": "/organizations/o-shag/decide",
+  "body": {
+   "decision": "reject",
+   "reason": "Уточните контакты клуба"
+  }
+ },
+ {
+  "as": "u-natalia",
+  "op": "one",
+  "resource": "organizations",
+  "id": "o-shag"
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{0.ok.id}}/join",
+  "body": {}
+ },
+ {
+  "as": "u-dmitry",
+  "op": "one",
+  "resource": "events",
+  "id": "{{0.ok.id}}"
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{0.ok.id}}/join",
+  "body": {}
+ },
+ {
+  "as": "u-dmitry",
+  "op": "create",
+  "resource": "events",
+  "body": {
+   "title": "Проверка заявок S4",
+   "description": "Играем в лапту на школьном стадионе. Правила объясним на месте, мяч и биты есть.",
+   "startsAt": "2026-10-22T03:00:00.000Z",
+   "durationMin": 90,
+   "place": {
+    "address": "Стадион школы № 10, ул. Ленина, 114",
+    "landmark": "У главного входа",
+    "districtId": "d-center"
+   },
+   "level": "any",
+   "beginnersWelcome": true,
+   "joinMode": "approval",
+   "price": {
+    "kind": "fixed",
+    "amount": 300
+   },
+   "capacity": 20,
+   "cancelPolicy": {
+    "kind": "hoursBefore",
+    "hours": 12
+   },
+   "firstStep": {
+    "intensity": "low",
+    "bring": "Удобная обувь",
+    "preparation": "",
+    "age": "",
+    "howToFind": "Вход со двора",
+    "amenities": [],
+    "firstTimeNote": ""
+   },
+   "discussion": "everyone",
+   "privateInfo": "Телефон: +7 900 000-00-00",
+   "visibility": "public",
+   "sportId": "s-running"
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{14.ok.id}}/join",
+  "body": {
+   "note": "Бегаю 5 км"
+  }
+ },
+ {
+  "as": "u-petr",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{14.ok.id}}/join",
+  "body": {}
+ },
+ {
+  "as": "u-maria",
+  "op": "custom",
+  "method": "post",
+  "url": "/participations/{{15.ok.my.id}}/decide",
+  "body": {
+   "decision": "accept"
+  }
+ },
+ {
+  "as": "u-dmitry",
+  "op": "custom",
+  "method": "post",
+  "url": "/participations/{{15.ok.my.id}}/decide",
+  "body": {
+   "decision": "accept"
+  }
+ },
+ {
+  "as": "u-dmitry",
+  "op": "custom",
+  "method": "post",
+  "url": "/participations/{{16.ok.my.id}}/decide",
+  "body": {
+   "decision": "reject",
+   "reason": "Нужен другой уровень подготовки"
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "one",
+  "resource": "events",
+  "id": "{{14.ok.id}}"
+ },
+ {
+  "as": "u-petr",
+  "op": "one",
+  "resource": "events",
+  "id": "{{14.ok.id}}"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "one",
+  "resource": "events",
+  "id": "{{14.ok.id}}"
+ },
+ {
+  "as": "u-anna",
+  "op": "create",
+  "resource": "messages",
+  "body": {
+   "eventId": "{{0.ok.id}}",
+   "text": "Где встречаемся?",
+   "replyTo": null
+  }
+ },
+ {
+  "as": "u-dmitry",
+  "op": "create",
+  "resource": "messages",
+  "body": {
+   "eventId": "{{0.ok.id}}",
+   "text": "У входа в парк.",
+   "replyTo": "{{23.ok.id}}"
+  }
+ },
+ {
+  "as": null,
+  "op": "list",
+  "resource": "messages",
+  "filters": [
+   {
+    "field": "eventId",
+    "operator": "eq",
+    "value": "{{0.ok.id}}"
+   }
+  ]
+ },
+ {
+  "as": "u-anna",
+  "op": "list",
+  "resource": "notifications"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "list",
+  "resource": "notifications"
+ },
+ {
+  "as": "u-maria",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{0.ok.id}}/moderate",
+  "body": {
+   "action": "remove",
+   "ruleId": "rule-1",
+   "comment": "Проверка причины снятия S6"
+  }
+ },
+ {
+  "as": "u-petr",
+  "op": "list",
+  "resource": "events",
+  "filters": [
+   {
+    "field": "q",
+    "operator": "contains",
+    "value": "лапта"
+   }
+  ]
+ },
+ {
+  "as": "u-petr",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{0.ok.id}}/join",
+  "body": {}
+ },
+ {
+  "as": "u-anna",
+  "op": "one",
+  "resource": "events",
+  "id": "{{0.ok.id}}"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "one",
+  "resource": "events",
+  "id": "{{0.ok.id}}"
+ },
+ {
+  "as": "u-anna",
+  "op": "list",
+  "resource": "notifications"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "list",
+  "resource": "messages",
+  "filters": [
+   {
+    "field": "eventId",
+    "operator": "eq",
+    "value": "{{0.ok.id}}"
+   },
+   {
+    "field": "invite",
+    "operator": "eq",
+    "value": null
+   }
+  ]
+ },
+ {
+  "as": "u-dmitry",
+  "op": "custom",
+  "method": "get",
+  "url": "/people/suggest",
+  "query": {
+   "q": "Анна"
+  }
+ },
+ {
+  "as": "u-dmitry",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{0.ok.id}}/appeal",
+  "body": {
+   "comment": "Исправил описание"
+  }
+ },
+ {
+  "as": "u-maria",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{0.ok.id}}/moderate",
+  "body": {
+   "action": "restore"
+  }
+ },
+ {
+  "as": "u-maria",
+  "op": "list",
+  "resource": "audit"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "update",
+  "resource": "events",
+  "id": "{{14.ok.id}}",
+  "body": {
+   "startsAt": "2026-10-23T11:00:00.000Z",
+   "capacity": 30,
+   "place": {
+    "address": "Остров Татышев, центральная аллея",
+    "landmark": ""
+   }
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "one",
+  "resource": "events",
+  "id": "{{14.ok.id}}"
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{14.ok.id}}/ack-changes",
+  "body": {}
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{14.ok.id}}/leave",
+  "body": {}
+ },
+ {
+  "as": "u-dmitry",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/{{14.ok.id}}/cancel",
+  "body": {
+   "reason": "Заболел тренер"
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "list",
+  "resource": "notifications"
+ },
+ {
+  "as": "u-petr",
+  "op": "create",
+  "resource": "companions",
+  "body": {
+   "sportId": "s-chess",
+   "text": "Ищу соперника по шахматам по вечерам, играю не очень сильно.",
+   "districtId": "d-center",
+   "when": "Будни после 18:00",
+   "level": "amateur",
+   "readiness": "join"
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "put",
+  "url": "/companions/{{45.ok.id}}/metoo",
+  "body": {}
+ },
+ {
+  "as": "u-petr",
+  "op": "one",
+  "resource": "companions",
+  "id": "{{45.ok.id}}"
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "delete",
+  "url": "/companions/{{45.ok.id}}/metoo",
+  "body": {}
+ },
+ {
+  "as": "u-petr",
+  "op": "custom",
+  "method": "post",
+  "url": "/companions/{{45.ok.id}}/close",
+  "body": {}
+ },
+ {
+  "as": "u-anna",
+  "op": "create",
+  "resource": "sports",
+  "body": {
+   "name": "Бадминтон на льду"
+  }
+ },
+ {
+  "as": "u-dmitry",
+  "op": "create",
+  "resource": "events",
+  "body": {
+   "title": "Проверка S1 — лапта во дворе",
+   "description": "Играем в лапту на школьном стадионе. Правила объясним на месте, мяч и биты есть.",
+   "newSportName": "валейбол",
+   "confirmNew": false,
+   "startsAt": "2026-10-22T03:00:00.000Z",
+   "durationMin": 90,
+   "place": {
+    "address": "Стадион школы № 10, ул. Ленина, 114",
+    "landmark": "У главного входа",
+    "districtId": "d-center"
+   },
+   "level": "any",
+   "beginnersWelcome": true,
+   "joinMode": "open",
+   "price": {
+    "kind": "free"
+   },
+   "capacity": 20,
+   "minParticipants": null,
+   "cancelPolicy": {
+    "kind": "anytime"
+   },
+   "firstStep": {
+    "intensity": "low",
+    "bring": "Удобная обувь",
+    "preparation": "",
+    "age": "",
+    "howToFind": "Вход со двора",
+    "amenities": [],
+    "firstTimeNote": ""
+   },
+   "discussion": "everyone",
+   "privateInfo": "Телефон: +7 900 000-00-00",
+   "visibility": "public"
+  }
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "post",
+  "url": "/notifications/read",
+  "body": {}
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "get",
+  "url": "/me"
+ },
+ {
+  "as": "u-maria",
+  "op": "custom",
+  "method": "get",
+  "url": "/admin/stats"
+ },
+ {
+  "op": "advance",
+  "minutes": 1560
+ },
+ {
+  "as": null,
+  "op": "list",
+  "resource": "events",
+  "filters": [
+   {
+    "field": "when",
+    "operator": "eq",
+    "value": "today"
+   }
+  ]
+ },
+ {
+  "as": "u-anna",
+  "op": "list",
+  "resource": "notifications"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "delete",
+  "resource": "events",
+  "id": "{{0.ok.id}}"
+ },
+ {
+  "as": "u-maria",
+  "op": "custom",
+  "method": "post",
+  "url": "/sports/{{0.ok.sport.id}}/promote",
+  "body": {
+   "icon": "Baseball",
+   "categoryIds": [
+    "c-games"
+   ],
+   "popular": false
+  }
+ },
+ {
+  "as": "u-maria",
+  "op": "list",
+  "resource": "sports",
+  "filters": [
+   {
+    "field": "kind",
+    "operator": "eq",
+    "value": "catalog"
+   }
+  ]
+ }
+]

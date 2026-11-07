@@ -1,0 +1,61 @@
+{
+  "name": "vmeste-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "check:ui": "node scripts/check-all.mjs",
+    "check": "npm run lint && npm run check:ui && npm run build"
+  },
+  "dependencies": {
+    "@ant-design/cssinjs": "^1.24.0",
+    "@fontsource/onest": "^5.3.1",
+    "@fontsource/oswald": "^5.3.0",
+    "@fontsource/roboto-condensed": "^5.3.0",
+    "@maplibre/maplibre-gl-leaflet": "^0.1.4",
+    "@phosphor-icons/react": "^2.1.10",
+    "@protomaps/basemaps": "^5.7.2",
+    "@refinedev/antd": "^6.0.3",
+    "@refinedev/core": "^5.0.12",
+    "@refinedev/react-router": "^2.0.4",
+    "@tanstack/react-query": "^5.104.4",
+    "antd": "~5.29.3",
+    "dayjs": "^1.11.23",
+    "leaflet": "^1.9.4",
+    "maplibre-gl": "^6.4.1",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-easy-crop": "5.5.7",
+    "react-leaflet": "^5.0.0",
+    "react-router": "~7.18.4"
+  },
+  "overrides": {
+    "path-to-regexp": "^8.4.0",
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.1"
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.2",
+    "vite": "^8.3.4"
+  }
+}

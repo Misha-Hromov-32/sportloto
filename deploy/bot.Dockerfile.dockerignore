@@ -1,0 +1,7 @@
+*
+!bots/
+bots/.venv
+bots/**/__pycache__
+bots/.pytest_cache
+bots/.ruff_cache
+bots/tests

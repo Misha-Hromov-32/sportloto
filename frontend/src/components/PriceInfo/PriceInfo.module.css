@@ -1,0 +1,42 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--s-3);
+  align-items: start;
+}
+
+.icon {
+  margin-top: 2px;
+  color: var(--ink-2);
+}
+
+.main {
+  font-weight: 700;
+  font-size: var(--fs-20);
+  font-variant-numeric: tabular-nums;
+}
+
+.mainSmall {
+  font-weight: 600;
+}
+
+.detail {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.compact {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.free {
+  color: var(--ok);
+}

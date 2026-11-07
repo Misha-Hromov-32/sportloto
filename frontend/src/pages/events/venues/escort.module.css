@@ -1,0 +1,36 @@
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  padding: 2px 10px;
+  border-radius: var(--r-pill);
+  background: var(--wait-bg);
+  color: var(--wait);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--s-3);
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+}
+
+.box :global(.ant-checkbox-wrapper) {
+  min-height: var(--tap);
+  align-items: center;
+}
+
+.label {
+  font-size: var(--fs-16);
+  font-weight: 600;
+}
+
+.hint {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}

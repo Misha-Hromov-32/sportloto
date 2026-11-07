@@ -1,0 +1,414 @@
+{
+ "city": "Москва",
+ "importedAt": "2026-10-20",
+ "source": "Открытые посты сообществ ВКонтакте, загружены через админку импорта (/admin/imports)",
+ "snapshotBefore": "/srv/sport-backups/before-bryansk-import-20261020T112908Z/database.dump",
+ "howToRemove": "Снять все встречи города: для каждого id из events — POST /api/events/{id}/moderate {\"action\":\"remove\",\"ruleId\":\"rule-1\",\"comment\":\"Снято при чистке импорта\"} от администратора (скрипт /tmp/bry/remove_city.py на сервере). Страницы сообществ (organizations) остаются служебными, их можно передать сообществу или оставить.",
+ "counts": {
+  "events": 30,
+  "organizations": 17,
+  "bySport": {
+   "s-tabletennis": 1,
+   "s-dance": 6,
+   "s-workout": 8,
+   "s-80t": 1,
+   "s-chess": 3,
+   "s-yoga": 4,
+   "s-7vh": 1,
+   "s-running": 6
+  }
+ },
+ "organizations": [
+  {
+   "id": "o-82t",
+   "sourceId": "src-7ze",
+   "name": "РИО Дмитровка г. Москва",
+   "url": "https://vk.com/rio.moscow.dmitrovsky",
+   "logo": true
+  },
+  {
+   "id": "o-81g",
+   "sourceId": "src-7zg",
+   "name": "Листва: Москва",
+   "url": "https://vk.com/listva_books_msk",
+   "logo": true
+  },
+  {
+   "id": "o-812",
+   "sourceId": "src-7zi",
+   "name": "Центр иностранных языков Wonderland Kids",
+   "url": "https://vk.com/wonderland_kids",
+   "logo": true
+  },
+  {
+   "id": "o-81t",
+   "sourceId": "src-7zk",
+   "name": "ОКЦ: БАБУШКИНСКИЙ, ЛОСИНООСТРОВСКИЙ, ЯРОСЛАВСКИЙ",
+   "url": "https://vk.com/okcsvao.yaroslavsky",
+   "logo": true
+  },
+  {
+   "id": "o-80h",
+   "sourceId": "src-7zm",
+   "name": "БАЙЛАР вечеринки в Москве",
+   "url": "https://vk.com/bailarparty",
+   "logo": true
+  },
+  {
+   "id": "o-828",
+   "sourceId": "src-7zp",
+   "name": "Станция 2025 | Лазертаг | Москва",
+   "url": "https://vk.com/spirit.station",
+   "logo": true
+  },
+  {
+   "id": "o-80n",
+   "sourceId": "src-7zr",
+   "name": "Fitnation - сеть фитнес-клубов в Москве",
+   "url": "https://vk.com/fitnation.russia",
+   "logo": true
+  },
+  {
+   "id": "o-820",
+   "sourceId": "src-7zt",
+   "name": "Арбатские новости  ЦАО",
+   "url": "https://vk.com/arbatskie_novosti",
+   "logo": true
+  },
+  {
+   "id": "o-82g",
+   "sourceId": "src-7zv",
+   "name": "Здесь вам Хамовники",
+   "url": "https://vk.com/hamovniki_msk",
+   "logo": true
+  },
+  {
+   "id": "o-81l",
+   "sourceId": "src-7zx",
+   "name": "MODENBACLASS танцы и оздоровление",
+   "url": "https://vk.com/modenbaclass",
+   "logo": true
+  },
+  {
+   "id": "o-80d",
+   "sourceId": "src-7zz",
+   "name": "Управа района Крюково города Москвы",
+   "url": "https://vk.com/uprava_krukovo",
+   "logo": true
+  },
+  {
+   "id": "o-80r",
+   "sourceId": "src-801",
+   "name": "Управа Молжаниновского района города Москвы",
+   "url": "https://vk.com/uprava_molzhaninovsky",
+   "logo": true
+  },
+  {
+   "id": "o-82p",
+   "sourceId": "src-803",
+   "name": "Управа Бескудниковского района города Москвы",
+   "url": "https://vk.com/uprava_beskudnikovskiy",
+   "logo": true
+  },
+  {
+   "id": "o-81b",
+   "sourceId": "src-805",
+   "name": "Центр йоги и медитации \"Счастье\". Москва",
+   "url": "https://vk.com/aolmoscow",
+   "logo": true
+  },
+  {
+   "id": "o-80x",
+   "sourceId": "src-807",
+   "name": "SIGMA chess",
+   "url": "https://vk.com/sigmachess",
+   "logo": true
+  },
+  {
+   "id": "o-816",
+   "sourceId": "src-809",
+   "name": "Move - Шахматный клуб",
+   "url": "https://vk.com/movechess",
+   "logo": true
+  },
+  {
+   "id": "o-82c",
+   "sourceId": "src-80b",
+   "name": "Москва Беговая",
+   "url": "https://vk.com/moskvabegovaya",
+   "logo": true
+  }
+ ],
+ "events": [
+  {
+   "id": "e-80f",
+   "title": "Рейтинговый турнир по настольному теннису в Крюково",
+   "startsAt": "2026-10-25T12:00:00.000Z",
+   "sportId": "s-tabletennis",
+   "orgId": "o-80d",
+   "series": null,
+   "source": "https://vk.com/wall-215419995_2824"
+  },
+  {
+   "id": "e-80j",
+   "title": "Вечеринка БАЙЛАР: мастер-класс по урбан кизомбе и танцы",
+   "startsAt": "2026-10-24T16:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-80h",
+   "series": null,
+   "source": "https://vk.com/wall-137302495_2214"
+  },
+  {
+   "id": "e-80l",
+   "title": "Хэллоуин на БАЙЛАРе: учим танец Уэнсдей и танцуем до полуночи",
+   "startsAt": "2026-10-31T16:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-80h",
+   "series": null,
+   "source": "https://vk.com/wall-137302495_2216"
+  },
+  {
+   "id": "e-80p",
+   "title": "Бесплатный мастер-класс по сайклу в «Пятой Авеню»",
+   "startsAt": "2026-10-31T11:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-80n",
+   "series": null,
+   "source": "https://vk.com/wall-201455342_2594"
+  },
+  {
+   "id": "e-80v",
+   "title": "Соревнование по дартсу для жителей Молжаниново",
+   "startsAt": "2026-10-23T11:00:00.000Z",
+   "sportId": "s-80t",
+   "orgId": "o-80r",
+   "series": null,
+   "source": "https://vk.com/wall-218747726_2179"
+  },
+  {
+   "id": "e-80z",
+   "title": "Турнир по блицу SIGMA OPEN с обсчётом рейтинга",
+   "startsAt": "2026-10-25T09:00:00.000Z",
+   "sportId": "s-chess",
+   "orgId": "o-80x",
+   "series": null,
+   "source": "https://vk.com/wall-231188666_12"
+  },
+  {
+   "id": "e-814",
+   "title": "Бесплатное занятие йогой для взрослых у «Белорусской»",
+   "startsAt": "2026-10-24T09:00:00.000Z",
+   "sportId": "s-yoga",
+   "orgId": "o-812",
+   "series": null,
+   "source": "https://vk.com/wall-91106897_2825"
+  },
+  {
+   "id": "e-818",
+   "title": "Рапид для начинающих в шахматном клубе Move",
+   "startsAt": "2026-10-21T16:00:00.000Z",
+   "sportId": "s-chess",
+   "orgId": "o-816",
+   "series": null,
+   "source": "https://vk.com/wall-239092156_241"
+  },
+  {
+   "id": "e-81d",
+   "title": "Бесплатное пробное занятие по йоге и дыханию «Первый шаг»",
+   "startsAt": "2026-10-21T16:30:00.000Z",
+   "sportId": "s-yoga",
+   "orgId": "o-81b",
+   "series": null,
+   "source": "https://vk.com/wall-229714088_406"
+  },
+  {
+   "id": "e-81e",
+   "title": "Бесплатное пробное занятие по йоге и дыханию «Первый шаг»",
+   "startsAt": "2026-10-25T12:00:00.000Z",
+   "sportId": "s-yoga",
+   "orgId": "o-81b",
+   "series": null,
+   "source": "https://vk.com/wall-229714088_406"
+  },
+  {
+   "id": "e-81i",
+   "title": "Шахматный турнир с шахматным клубом МГУ в «Листве»",
+   "startsAt": "2026-10-21T16:00:00.000Z",
+   "sportId": "s-chess",
+   "orgId": "o-81g",
+   "series": null,
+   "source": "https://vk.com/wall-60574465_25611"
+  },
+  {
+   "id": "e-81o",
+   "title": "Латино для высоких девушек по воскресеньям",
+   "startsAt": "2026-10-25T13:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-81l",
+   "series": "series-81n",
+   "source": "https://vk.com/wall-213117729_443"
+  },
+  {
+   "id": "e-81p",
+   "title": "Латино для высоких девушек по воскресеньям",
+   "startsAt": "2026-11-01T13:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-81l",
+   "series": "series-81n",
+   "source": "https://vk.com/wall-213117729_443"
+  },
+  {
+   "id": "e-81q",
+   "title": "Латино для высоких девушек по воскресеньям",
+   "startsAt": "2026-11-08T13:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-81l",
+   "series": "series-81n",
+   "source": "https://vk.com/wall-213117729_443"
+  },
+  {
+   "id": "e-81r",
+   "title": "Латино для высоких девушек по воскресеньям",
+   "startsAt": "2026-11-15T13:00:00.000Z",
+   "sportId": "s-dance",
+   "orgId": "o-81l",
+   "series": "series-81n",
+   "source": "https://vk.com/wall-213117729_443"
+  },
+  {
+   "id": "e-81w",
+   "title": "Стрейчинг в РЦ «Орион»: растяжка и мягкий фитнес",
+   "startsAt": "2026-11-02T15:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-81t",
+   "series": "series-81v",
+   "source": "https://vk.com/wall-131680891_3495"
+  },
+  {
+   "id": "e-81x",
+   "title": "Стрейчинг в РЦ «Орион»: растяжка и мягкий фитнес",
+   "startsAt": "2026-11-09T15:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-81t",
+   "series": "series-81v",
+   "source": "https://vk.com/wall-131680891_3495"
+  },
+  {
+   "id": "e-81y",
+   "title": "Стрейчинг в РЦ «Орион»: растяжка и мягкий фитнес",
+   "startsAt": "2026-11-16T15:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-81t",
+   "series": "series-81v",
+   "source": "https://vk.com/wall-131680891_3495"
+  },
+  {
+   "id": "e-823",
+   "title": "Зарядка для долголетия «Здоровая спина» на Арбате",
+   "startsAt": "2026-10-28T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-820",
+   "series": "series-822",
+   "source": "https://vk.com/wall-212505738_5116"
+  },
+  {
+   "id": "e-824",
+   "title": "Зарядка для долголетия «Здоровая спина» на Арбате",
+   "startsAt": "2026-11-04T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-820",
+   "series": "series-822",
+   "source": "https://vk.com/wall-212505738_5116"
+  },
+  {
+   "id": "e-825",
+   "title": "Зарядка для долголетия «Здоровая спина» на Арбате",
+   "startsAt": "2026-11-11T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-820",
+   "series": "series-822",
+   "source": "https://vk.com/wall-212505738_5116"
+  },
+  {
+   "id": "e-826",
+   "title": "Зарядка для долголетия «Здоровая спина» на Арбате",
+   "startsAt": "2026-11-18T07:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-820",
+   "series": "series-822",
+   "source": "https://vk.com/wall-212505738_5116"
+  },
+  {
+   "id": "e-82a",
+   "title": "Открытая игра в лазертаг для взрослых на «Станции»",
+   "startsAt": "2026-10-21T17:00:00.000Z",
+   "sportId": "s-7vh",
+   "orgId": "o-828",
+   "series": null,
+   "source": "https://vk.com/wall-152986800_9754"
+  },
+  {
+   "id": "e-82e",
+   "title": "Беговой квиз по Музеону и Нескучному саду",
+   "startsAt": "2026-10-25T07:30:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-82c",
+   "series": null,
+   "source": "https://vk.com/wall-240024568_299"
+  },
+  {
+   "id": "e-82j",
+   "title": "Бесплатные беговые тренировки в Лужниках",
+   "startsAt": "2026-10-25T07:00:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-82g",
+   "series": "series-82i",
+   "source": "https://vk.com/wall-212505996_5139"
+  },
+  {
+   "id": "e-82k",
+   "title": "Бесплатные беговые тренировки в Лужниках",
+   "startsAt": "2026-11-01T07:00:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-82g",
+   "series": "series-82i",
+   "source": "https://vk.com/wall-212505996_5139"
+  },
+  {
+   "id": "e-82m",
+   "title": "Бесплатные беговые тренировки в Лужниках",
+   "startsAt": "2026-10-28T16:30:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-82g",
+   "series": "series-82l",
+   "source": "https://vk.com/wall-212505996_5139"
+  },
+  {
+   "id": "e-82n",
+   "title": "Бесплатные беговые тренировки в Лужниках",
+   "startsAt": "2026-11-04T16:30:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-82g",
+   "series": "series-82l",
+   "source": "https://vk.com/wall-212505996_5139"
+  },
+  {
+   "id": "e-82r",
+   "title": "День знакомства с йогой в центре долголетия «Бескудниковский»",
+   "startsAt": "2026-10-24T07:00:00.000Z",
+   "sportId": "s-yoga",
+   "orgId": "o-82p",
+   "series": null,
+   "source": "https://vk.com/wall-218770004_2957"
+  },
+  {
+   "id": "e-82v",
+   "title": "Утренний забег по торговому центру «РИО» Дмитровка",
+   "startsAt": "2026-10-25T05:00:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-82t",
+   "series": null,
+   "source": "https://vk.com/wall-50942880_54552"
+  }
+ ]
+}
