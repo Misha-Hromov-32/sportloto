@@ -1,0 +1,226 @@
+/* ---------- Баланс ---------- */
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding: var(--s-5);
+  border: 1px solid var(--line-soft);
+  border-radius: 24px;
+  background: var(--surface);
+}
+
+@media (min-width: 768px) {
+  .balance {
+    padding: var(--s-6);
+  }
+}
+
+.balanceHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+.balanceTitle {
+  font-size: var(--fs-24);
+  font-weight: 800;
+}
+
+.numbers {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .numbers {
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+}
+
+.numbers > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  padding: var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+}
+
+.numbers dt {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.numbers dd {
+  margin: 0;
+  font-size: var(--fs-32);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.numberMain dd {
+  color: var(--ok);
+  font-size: var(--fs-44);
+}
+
+.numberSub {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.balanceActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-4);
+}
+
+.muted {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.45;
+}
+
+/* ---------- Списки ---------- */
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  padding-top: var(--s-4);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tab.rows {
+  gap: var(--s-2);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  padding: var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.rowMain {
+  display: flex;
+  flex: 1 1 18rem;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.rowTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+a.rowTitle:hover {
+  text-decoration: underline;
+}
+
+.rowMeta {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.4;
+}
+
+.rowActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+
+.rowSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--s-2);
+}
+
+@media (max-width: 479px) {
+  .rowSide {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.rowSum {
+  font-size: var(--fs-20);
+  font-weight: 800;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.plus {
+  color: var(--ok);
+}
+
+/* ---------- Вывод ---------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.formLead {
+  font-size: var(--fs-17);
+}
+
+.amount {
+  width: 100%;
+  max-width: 240px;
+}
+
+.formNote {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.45;
+}
+
+.formError {
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--danger-bg);
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.formActions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--s-2);
+}
+
+.formActions > :last-child:not(:first-child) {
+  align-self: center;
+}

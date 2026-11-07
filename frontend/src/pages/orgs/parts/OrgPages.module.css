@@ -1,0 +1,245 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+  padding-bottom: var(--s-8);
+}
+
+.muted {
+  color: var(--ink-2);
+}
+
+/* ---------- Заявка ---------- */
+
+.existing {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: var(--s-3);
+  max-width: 760px;
+  padding: var(--s-4);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg-alt);
+}
+
+.existing > svg {
+  margin-top: 2px;
+}
+
+.existingBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.existingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.existingList li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+  font-weight: 700;
+}
+
+/* ---------- Кабинет ---------- */
+
+.cabinetHead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--s-2) var(--s-4);
+  align-items: start;
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--line-soft);
+  border-radius: 24px;
+  background: var(--surface);
+}
+
+@media (min-width: 768px) {
+  .cabinetHead {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    padding-top: 24px;
+  }
+}
+
+.cabinetTitle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cabinetContext,
+.cabinetType {
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.cabinetEdit {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-left: calc(var(--s-3) * -1);
+}
+
+@media (min-width: 768px) {
+  .cabinetEdit {
+    grid-column: auto;
+    margin-left: 0;
+  }
+}
+
+.fixReason {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  max-width: 760px;
+  padding: var(--s-4);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--danger-bg);
+}
+
+.fixLabel {
+  font-weight: 700;
+  color: var(--danger);
+}
+
+.fixText {
+  font-size: var(--fs-20);
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Публичная страница ---------- */
+
+.publicPage {
+  width: 100%;
+  max-width: 100rem;
+  padding: 3rem clamp(1.25rem, 6.2vw, 7rem) 4rem;
+  background: var(--landing-bg);
+}
+
+.unpublished {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg-alt);
+}
+
+.unpublishedBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.unpublishedTitle {
+  font-weight: 700;
+  font-size: var(--fs-20);
+}
+
+.unpublishedRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+}
+
+.ownerBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  padding: var(--s-2) var(--s-2) var(--s-2) var(--s-4);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg-alt);
+  font-weight: 600;
+}
+
+.ownerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.publicGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-6);
+}
+
+@media (min-width: 1024px) {
+  .publicGrid {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    grid-template-areas:
+      'about aside'
+      'upcoming aside'
+      'past aside';
+    grid-template-rows: auto auto 1fr;
+    column-gap: var(--s-7);
+    align-items: start;
+  }
+
+  .publicAbout {
+    grid-area: about;
+  }
+
+  .publicUpcoming {
+    grid-area: upcoming;
+  }
+
+  .publicAside {
+    grid-area: aside;
+  }
+
+  .publicPast {
+    grid-area: past;
+  }
+}
+
+.publicAside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+  min-width: 0;
+}
+
+.upcoming {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.featured {
+  max-width: 560px;
+}
+
+.eventList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.publicPast .eventList + * {
+  margin-top: var(--s-3);
+  align-self: flex-start;
+}
+
+.miniMap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.mapNote {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}

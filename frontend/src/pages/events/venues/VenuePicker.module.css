@@ -1,0 +1,152 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.actions,
+.extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-3);
+}
+
+.muted {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.price {
+  font-weight: 700;
+}
+
+.selected {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding: var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.selectedHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+.selectedText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.selectedName {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  font-size: var(--fs-17);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .selectedName:hover {
+    color: var(--accent-text);
+  }
+}
+
+.selectedActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--s-2);
+}
+
+.windows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.windowsTitle {
+  font-weight: 700;
+}
+
+.chosen {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--s-3);
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.warning {
+  display: flex;
+  gap: var(--s-2);
+  padding: var(--s-3);
+  border-radius: var(--radius-s);
+  background: var(--wait-bg);
+  color: var(--wait);
+  font-weight: 600;
+}
+
+.warning svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.rowText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}

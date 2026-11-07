@@ -1,0 +1,381 @@
+/* Portraits share the same swipe mechanics as event cards. */
+
+.face {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  container-type: size;
+}
+
+.face[data-expanded] {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.portrait {
+  position: relative;
+  flex: 0 0 51%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--accent-soft);
+}
+
+.portrait::after {
+  content: '';
+  position: absolute;
+  inset: 30% 0 0;
+  background: linear-gradient(transparent, rgb(12 24 21 / 18%) 25%, rgb(12 24 21 / 88%));
+  pointer-events: none;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.photoFallback {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at 25% 20%, var(--accent-soft), transparent 70%), var(--bg-alt);
+  color: var(--accent-text);
+}
+
+.photoFallback > span {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 800;
+}
+
+.photoFallback > svg {
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  opacity: 0.12;
+  transform: rotate(-15deg);
+}
+
+.person {
+  position: absolute;
+  z-index: 1;
+  inset: auto var(--s-5) var(--s-5);
+  color: white;
+}
+
+.personName {
+  margin: 0 0 0.45rem;
+  font-size: var(--fs-32);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 15%);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  color: rgb(255 255 255 / 90%);
+  font-size: var(--fs-15);
+}
+
+.location > svg { flex: none; }
+
+.face[data-expanded] .portrait {
+  flex: 0 0 auto;
+  height: 320px;
+}
+
+.readiness {
+  position: absolute;
+  z-index: 1;
+  top: var(--s-4);
+  left: var(--s-4);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: var(--r-pill);
+  background: rgb(20 36 30 / 65%);
+  color: white;
+  font-size: var(--fs-15);
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+}
+
+.activity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+}
+
+.sportName {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-20);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.sportName > svg { color: var(--accent-text); flex: none; }
+
+.level {
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  overflow: hidden;
+  padding: var(--s-4) var(--s-4) var(--s-1);
+}
+
+.body > * {
+  flex-shrink: 0;
+}
+
+.face[data-expanded] .body {
+  flex: none;
+  overflow: visible;
+}
+
+.text {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-size: var(--fs-16);
+  font-weight: 400;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.face[data-expanded] .text {
+  display: block;
+}
+
+.meta {
+  display: grid;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.meta li,
+.match {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-16);
+  line-height: 1.4;
+}
+
+.meta svg,
+.match svg {
+  flex: none;
+  margin-top: 0.125rem;
+}
+
+.match {
+  color: var(--accent-text);
+  font-weight: 600;
+  font-size: var(--fs-15);
+}
+
+.face:not([data-expanded]) .match > span {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.metoo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  margin-top: auto;
+}
+
+.metoo strong {
+  color: var(--ink);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding-bottom: var(--s-3);
+}
+
+.detailsText {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-16);
+  line-height: 1.6;
+}
+
+.profileLink {
+  align-self: flex-start;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.foot {
+  flex: none;
+  display: flex;
+  padding: 0 var(--s-3) var(--s-1);
+  background: var(--surface);
+}
+
+.face[data-expanded] .foot {
+  position: sticky;
+  bottom: 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: var(--tap);
+  padding: 0 var(--s-1);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-16);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+.more:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-s);
+}
+
+/* Невысокий экран: сначала прячем второстепенное, текст объявления остаётся. */
+@container (max-height: 34rem) {
+  .face:not([data-expanded]) .portrait {
+    flex-basis: 48%;
+  }
+}
+
+@container (max-height: 27rem) {
+  .person { inset: auto var(--s-4) var(--s-3); }
+  .personName { font-size: 1.65rem; }
+  .face:not([data-expanded]) .match {
+    display: none;
+  }
+  .face:not([data-expanded]) .metoo {
+    display: none;
+  }
+  .face:not([data-expanded]) .text {
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* On short screens the portrait fills the card; essentials stay above the controls.
+   The complete announcement is always available through «Подробнее». */
+@container (max-height: 24rem) {
+  .face:not([data-expanded]) .portrait {
+    position: absolute;
+    inset: 0;
+  }
+  .face:not([data-expanded]) .portrait::after {
+    inset: 0;
+    background: linear-gradient(180deg, rgb(12 24 21 / 5%) 20%, rgb(12 24 21 / 35%) 40%, rgb(12 24 21 / 92%));
+  }
+  .face:not([data-expanded]) .person {
+    inset: auto var(--s-4) 7.5rem;
+  }
+  .face:not([data-expanded]) .body {
+    position: relative;
+    z-index: 1;
+    flex: none;
+    gap: 0.35rem;
+    margin-top: auto;
+    padding: 0 var(--s-4);
+    overflow: visible;
+  }
+  .face:not([data-expanded]) .text { display: none; }
+  .face:not([data-expanded]) .sportName { color: white; font-size: 1.125rem; }
+  .face:not([data-expanded]) .sportName > svg { color: white; }
+  .face:not([data-expanded]) .level {
+    background: rgb(255 255 255 / 16%);
+    color: white;
+  }
+  .face:not([data-expanded]) .meta li { color: rgb(255 255 255 / 90%); font-size: 0.875rem; }
+  .face:not([data-expanded]) .foot { position: relative; z-index: 1; background: transparent; }
+  .face:not([data-expanded]) .more { color: white; text-decoration-color: rgb(255 255 255 / 40%); }
+}
+
+@container (max-height: 18rem) {
+  .face:not([data-expanded]) .readiness { display: none; }
+}
+
+/* ---------- Итог ---------- */
+
+.metooTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--ok);
+  font-size: var(--fs-15);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.savedIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+/* ---------- Переключатель вида ---------- */
+
+.viewBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+}

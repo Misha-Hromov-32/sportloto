@@ -1,0 +1,75 @@
+.root {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-4);
+  align-items: start;
+}
+
+.compact {
+  gap: var(--s-3);
+  align-items: center;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.caption {
+  font-size: var(--fs-15);
+  color: var(--ink-2);
+}
+
+.name {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.compact .name {
+  font-size: var(--fs-17);
+}
+
+@media (hover: hover) {
+  .name:hover {
+    text-decoration: underline;
+  }
+}
+
+.trust {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-15);
+  color: var(--ink-2);
+}
+
+.verified {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.type {
+  color: var(--ink-2);
+  font-weight: 400;
+}
+
+.type::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 var(--s-2) 0 2px;
+  background: var(--line-soft);
+  vertical-align: middle;
+}
+
+.facts {
+  margin-top: var(--s-1);
+  font-size: var(--fs-15);
+}

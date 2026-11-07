@@ -1,0 +1,73 @@
+[project]
+name = "sport-i-tochka-bots"
+version = "0.1.0"
+description = "Боты «Спорт и точка» в Telegram и VK: поиск, запись, создание встреч, заявки и уведомления"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "httpx[socks]>=0.28.1",
+    "pillow>=11.0.0",
+    "tzdata>=2024.1",
+]
+
+[project.optional-dependencies]
+# На сервере ключи людей в базе бота шифруются ключом BOT_STORE_KEY (Fernet).
+server = ["cryptography>=43.0.0"]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "cryptography>=43.0.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.17.1",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 110
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "CPY",     # заголовки с лицензией не нужны
+    "D",       # докстринги не обязательны: комментируем только нетривиальное
+    "COM812",  # конфликтует с форматтером
+    "RUF001",  # кириллица в строках — норма для русского интерфейса
+    "RUF002",
+    "RUF003",
+    "TRY003",  # сообщения об ошибках передаём явно, они на русском
+    "EM101",
+    "EM102",
+    "EXE002",  # на Windows файлы в смонтированном томе выглядят исполняемыми
+    "ANN401",  # ответы сайта и мессенджеров — JSON, тип Any
+    "PLR2004", # числа из правил (лимиты кнопок, часы, размеры)
+    "BLE001",  # бот не падает из-за одной ошибки: ловим всё, пишем в журнал без личных данных
+    "FBT001",
+    "FBT002",
+    "PLR0913",
+    "PLR0911",
+    "C901",
+    "PLR0912",
+    "PLR0915",
+    "E501",    # длинные русские тексты сообщений
+    "ASYNC109", # таймаут помощника передаётся в запрос явно: мост отвечает до минуты
+    "FBT003",
+    "N818",    # SiteUnavailable, Unreachable — имена по смыслу, не по суффиксу
+    "TC001",
+    "ISC004",  # длинные тексты справки склеиваются из строк внутри кортежа
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S105", "S106", "S107", "S311", "ANN", "INP001", "SLF001", "FBT", "ARG001", "ARG002", "PLC0415"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".."]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+asyncio_default_test_loop_scope = "function"

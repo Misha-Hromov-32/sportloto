@@ -1,0 +1,7 @@
+.preview {
+  display: flex;
+  justify-content: center;
+  padding: var(--s-4) 0;
+  border-radius: var(--r-card);
+  background: var(--bg-alt);
+}

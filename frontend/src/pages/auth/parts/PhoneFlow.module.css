@@ -1,0 +1,47 @@
+.offer:empty {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+.offerButton {
+  gap: var(--s-2);
+  text-align: left;
+  line-height: 1.4;
+}
+.offerButton > svg {
+  flex: none;
+  color: var(--accent-text);
+}
+
+.stack {
+  display: grid;
+  gap: var(--s-4);
+}
+.stack > a,
+.stack > button {
+  margin-top: 0;
+}
+
+.phone {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.problem {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.codeField :global(input.ant-input) {
+  min-height: 64px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+.codeField :global(input.ant-input::placeholder) {
+  letter-spacing: normal;
+}

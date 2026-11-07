@@ -1,0 +1,131 @@
+[
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/e-streetball/join",
+  "body": {
+   "note": "Играю во дворе, возьмёте?"
+  },
+  "note": "Анна подаёт заявку на встречу Дмитрия по заявке"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "list",
+  "resource": "participations",
+  "filters": [
+   {
+    "field": "scope",
+    "operator": "eq",
+    "value": "organizer_pending"
+   }
+  ],
+  "pagination": {
+   "mode": "off"
+  },
+  "note": "Стопка Дмитрия: все новые заявки по его событиям"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "custom",
+  "method": "post",
+  "url": "/participations/{{0.ok.my.id}}/decide",
+  "body": {
+   "decision": "accept"
+  },
+  "note": "Дмитрий принимает Анну"
+ },
+ {
+  "as": "u-dmitry",
+  "op": "list",
+  "resource": "participations",
+  "filters": [
+   {
+    "field": "scope",
+    "operator": "eq",
+    "value": "organizer_pending"
+   }
+  ],
+  "pagination": {
+   "mode": "off"
+  },
+  "note": "Заявки Анны в стопке больше нет, места пересчитаны"
+ },
+ {
+  "as": "u-olga",
+  "op": "update",
+  "resource": "events",
+  "id": "e-kids-chess",
+  "body": {
+   "joinMode": "approval"
+  },
+  "note": "Клуб переводит детское занятие на запись по заявке"
+ },
+ {
+  "as": "u-anna",
+  "op": "custom",
+  "method": "post",
+  "url": "/events/e-kids-chess/join",
+  "body": {
+   "children": [
+    {
+     "name": "Миша",
+     "age": 8
+    },
+    {
+     "name": "Лиза",
+     "age": 10
+    }
+   ]
+  },
+  "note": "Анна записывает двоих детей"
+ },
+ {
+  "as": "u-ksenia",
+  "op": "list",
+  "resource": "participations",
+  "filters": [
+   {
+    "field": "scope",
+    "operator": "eq",
+    "value": "organizer_pending"
+   }
+  ],
+  "pagination": {
+   "mode": "off"
+  },
+  "note": "Соуправляющая клуба видит заявки клуба, заявка с детьми займёт два места"
+ },
+ {
+  "as": "u-anna",
+  "op": "list",
+  "resource": "participations",
+  "filters": [
+   {
+    "field": "scope",
+    "operator": "eq",
+    "value": "organizer_pending"
+   }
+  ],
+  "pagination": {
+   "mode": "off"
+  },
+  "note": "У Анны своих событий нет"
+ },
+ {
+  "as": null,
+  "op": "list",
+  "resource": "participations",
+  "filters": [
+   {
+    "field": "scope",
+    "operator": "eq",
+    "value": "organizer_pending"
+   }
+  ],
+  "pagination": {
+   "mode": "off"
+  },
+  "note": "Гость получает ошибку"
+ }
+]

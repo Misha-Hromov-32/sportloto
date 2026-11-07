@@ -1,0 +1,257 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding-top: var(--s-4);
+}
+
+.boardIntro {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--s-2) var(--s-3);
+  align-items: start;
+  padding: var(--s-4);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.boardIntro .actions {
+  grid-column: 1 / -1;
+}
+
+.boardIcon {
+  flex: none;
+  color: var(--ink-2);
+}
+
+.statusChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.muted {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.need {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border: var(--line-w) solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.needHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.needOrg {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--tap);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .needOrg:hover {
+    text-decoration: underline;
+  }
+}
+
+.needTitle {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.needText {
+  color: var(--ink-soft);
+}
+
+.needFacts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.needFacts li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.needFacts a,
+.closed a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.closed,
+.plaque {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--ok-bg);
+  color: var(--ink);
+}
+
+.closed svg,
+.plaque svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--ok);
+}
+
+.plaque {
+  font-weight: 600;
+}
+
+.plaque a {
+  color: var(--ink);
+}
+
+.offers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.offersTitle {
+  font-size: var(--fs-17);
+  font-weight: 700;
+}
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-3);
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+}
+
+.offerHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.offerName {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.quote {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.summaryRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+}
+
+.shelfRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+  padding-top: var(--s-3);
+  border-top: var(--line-w) solid var(--line-soft);
+}
+
+.shelfRow > span {
+  flex: 1 1 240px;
+}
+
+.shelfLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.dialog :global(.ant-select),
+.dialog :global(.ant-input-number) {
+  width: 100%;
+}
+
+.dialogNote {
+  color: var(--ink-2);
+}
+
+.dialogError {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.dialogActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+}
+
+.formRow {
+  display: grid;
+  gap: var(--s-4);
+}
+
+@media (min-width: 560px) {
+  .formRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,316 @@
+/* D-16: стоп-лист организатора — окно добавления, поля и строки списка. */
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.whoName {
+  font-size: var(--fs-17);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.intro,
+.blocked {
+  display: flex;
+  gap: var(--s-2);
+  align-items: flex-start;
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-card);
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+.intro svg,
+.blocked svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--ink-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.error {
+  margin: var(--s-1) 0 0;
+  color: var(--danger);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+/* ---------- Поля ---------- */
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.legend,
+.label {
+  display: block;
+  margin-bottom: var(--s-2);
+  padding: 0;
+  font-size: var(--fs-16);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.optional {
+  color: var(--ink-2);
+  font-weight: 400;
+  font-size: var(--fs-15);
+}
+
+.hint {
+  margin: var(--s-1) 0 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.options {
+  display: grid;
+  gap: var(--s-2);
+}
+
+@media (min-width: 560px) {
+  .options {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .optionsTerm {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.option {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--s-3);
+  align-items: center;
+  min-height: 52px;
+  padding: var(--s-2) var(--s-4);
+  border: 1.5px solid var(--line-soft);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    border-color var(--t-hover) var(--ease),
+    background-color var(--t-hover) var(--ease);
+}
+
+@media (hover: hover) {
+  .option:hover {
+    border-color: var(--ink);
+  }
+}
+
+.option:has(:focus-visible) {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.optionOn {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.radio {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid currentColor;
+  border-radius: var(--r-pill);
+}
+
+.optionOn .mark {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.optionText {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cancelBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-card);
+}
+
+.checkLabel {
+  font-size: var(--fs-16);
+  font-weight: 600;
+}
+
+.upcoming {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  margin: 0;
+  padding-left: calc(var(--s-5) + var(--s-2));
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.notice {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+/* ---------- Кнопка «⋯» ---------- */
+
+.more {
+  display: inline-grid;
+  place-items: center;
+  width: var(--tap);
+  height: var(--tap);
+  padding: 0;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color var(--t-hover) var(--ease);
+}
+
+@media (hover: hover) {
+  .more:hover {
+    border-color: var(--ink);
+  }
+}
+
+.more:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ---------- Строки списка ---------- */
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: grid;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-card);
+  background: var(--surface);
+}
+
+@media (min-width: 900px) {
+  .row {
+    grid-template-columns: minmax(14rem, 1fr) minmax(0, 2fr) auto;
+    align-items: start;
+  }
+}
+
+.rowOff {
+  background: var(--bg-alt);
+  color: var(--ink-2);
+}
+
+.rowHead {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-width: 0;
+}
+
+.rowWho {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-1);
+  min-width: 0;
+}
+
+.rowName {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.row:not(.rowOff) .rowName {
+  color: var(--ink);
+}
+
+@media (hover: hover) {
+  .rowName:hover {
+    text-decoration: underline;
+  }
+}
+
+.facts {
+  display: grid;
+  gap: var(--s-1);
+  margin: 0;
+}
+
+.facts > div {
+  display: grid;
+  gap: 0 var(--s-3);
+}
+
+@media (min-width: 560px) {
+  .facts > div {
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+  }
+}
+
+.facts dt {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.rowActions {
+  display: flex;
+  justify-content: flex-start;
+}

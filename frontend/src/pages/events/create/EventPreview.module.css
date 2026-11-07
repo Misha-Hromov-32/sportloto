@@ -1,0 +1,182 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius, 1.5rem);
+  background: var(--surface);
+  box-shadow: none;
+  border: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+.draftPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  background: var(--surface);
+}
+.draftPreview h3 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.draftMeta {
+  display: grid;
+  gap: 12px;
+  font-size: 13px;
+}
+.draftMeta li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.draftMeta svg {
+  flex: none;
+  color: var(--ink-2);
+}
+.draftHint {
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--ink-2);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-2) 0 var(--s-4);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.head > :last-child {
+  padding-inline: var(--s-4);
+}
+
+.facts {
+  display: grid;
+}
+
+@media (min-width: 900px) {
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .facts > .row:nth-child(odd) {
+    border-right: 1px solid var(--line-soft);
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  border-bottom: 1px solid var(--line-soft);
+  min-width: 0;
+}
+
+.head .row {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.root > .row:last-child {
+  border-bottom: 0;
+}
+
+.rowHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-1) var(--s-3);
+  min-height: 32px;
+}
+
+.rowLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.edit {
+  margin-left: auto;
+}
+
+.rowValue {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.editor {
+  padding-top: var(--s-2);
+}
+
+.editing {
+  background: var(--bg-alt);
+}
+
+.problem {
+  background: var(--danger-bg);
+}
+
+.problemText {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  color: var(--danger);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.problemText svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.sport {
+  font-weight: 700;
+}
+
+.title {
+  font-family: var(--font-text);
+  font-size: var(--fs-32);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+.sub {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.empty {
+  color: var(--ink-2);
+  font-style: normal;
+}
+
+.description {
+  white-space: pre-line;
+  max-width: 64ch;
+}
+
+.feed {
+  pointer-events: none;
+}

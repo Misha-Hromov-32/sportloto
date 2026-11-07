@@ -1,0 +1,277 @@
+/* Как герой вёрстки: крупное имя на фоне страницы, карточка справа, лента фото.
+   Подстраивается под ширину своего блока: одна и та же шапка в предпросмотре формы и на странице. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 0.5rem;
+  color: var(--ink);
+}
+
+.cover {
+  overflow: hidden;
+  aspect-ratio: 3 / 1;
+  border-radius: var(--r-media);
+  background: var(--bg-alt);
+}
+
+.cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  font-size: 2.5rem;
+  overflow-wrap: anywhere;
+  text-wrap: initial;
+}
+
+.place {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.cardName {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cardName b {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cardName small {
+  margin-top: 0.25rem;
+  color: var(--ink-2);
+  font-size: 0.75rem;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.factValue {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2.75rem;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+
+.factLabel {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.status svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.statusOk {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+.statusWait {
+  background: var(--wait-bg);
+  color: var(--wait);
+}
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+  padding-bottom: 0.25rem;
+}
+
+.strip li {
+  width: auto;
+  height: 13rem;
+  overflow: hidden;
+  border: 0.5rem solid var(--surface);
+  outline: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--bg-alt);
+}
+
+.strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.strip0 {
+  width: 14rem;
+  height: 12rem;
+}
+
+.strip1 {
+  width: 11rem;
+  height: 12rem;
+}
+
+.strip2 {
+  width: 16rem;
+  height: 12rem;
+}
+
+@container (min-width: 560px) {
+  .name {
+    font-size: 3.75rem;
+  }
+}
+
+@container (min-width: 820px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) 21rem;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .name {
+    font-size: 5.5rem;
+    line-height: 0.98;
+  }
+
+  .strip0 {
+    width: 16rem;
+    height: 17rem;
+  }
+
+  .strip1 {
+    width: 14rem;
+    height: 15rem;
+  }
+
+  .strip2 {
+    width: 20rem;
+    height: 18rem;
+  }
+}
+
+.badge::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.name > span,
+.place svg {
+  color: var(--accent-text);
+}
+@container (min-width:820px) {
+  .strip li {
+    height: 15rem;
+  }
+}
+@container (max-width:559px) {
+  .hero {
+    gap: 1.5rem;
+  }
+  .name {
+    font-size: clamp(2.25rem, 10cqi, 3.5rem);
+  }
+  .strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+  .strip li {
+    height: 10rem;
+    border-width: 0.35rem;
+    border-radius: 1.25rem;
+  }
+}
+
+.fact:nth-child(n + 3) {
+  grid-column: 1/-1;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.fact:nth-child(n + 3) .factValue {
+  font-size: 1.5rem;
+}

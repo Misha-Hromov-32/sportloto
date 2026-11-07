@@ -1,0 +1,32 @@
+.switches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.lead {
+  max-width: 48rem;
+  color: var(--ink-2);
+}
+
+.needs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.needChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+/* ---------- Фильтр ленты «Нужна доступная среда» ---------- */
+
+.accessRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}

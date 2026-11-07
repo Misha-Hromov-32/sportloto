@@ -1,0 +1,9 @@
+{
+  "server": "wss://sport.up-point.tech/api/assistant/bridge",
+  "key": "stb_… ключ из админки: Помощник → «Выпустить ключ моста»",
+  "name": "Компьютер в офисе",
+  "codexPath": "",
+  "model": "",
+  "reasoningEffort": "low",
+  "concurrency": 2
+}

@@ -1,0 +1,201 @@
+/* С8: сердечко, подписка, сохранённый поиск и вкладка «Избранное». Только токены темы. */
+
+.frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.frame > :first-child {
+  flex: 1;
+}
+
+.heart {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition:
+    color 180ms var(--ease),
+    transform 120ms var(--ease);
+}
+
+.heart:active {
+  transform: scale(0.94);
+}
+
+.heart:focus-visible,
+.favButton:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.heartOn,
+.favButtonOn svg {
+  color: var(--accent-text);
+}
+
+@media (hover: hover) {
+  .heart:hover {
+    color: var(--accent-text);
+  }
+
+  .favButton:hover {
+    border-color: var(--ink);
+  }
+}
+
+.favButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  padding: 0 var(--s-4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.favButtonOn {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ---------- Вкладка «Избранное» ---------- */
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+}
+
+.skeleton {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.blockTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 800;
+}
+
+.blockTitle svg {
+  color: var(--accent-text);
+}
+
+.blockCount {
+  min-width: 28px;
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  background: var(--bg-alt);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 700;
+  text-align: center;
+}
+
+.blockEmpty {
+  margin: 0;
+  padding: var(--s-4);
+  border: 1px dashed var(--line);
+  border-radius: var(--r-card);
+  color: var(--ink-2);
+}
+
+.rows,
+.cards {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--s-3) var(--s-4);
+  padding: var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: 1.25rem;
+  background: var(--surface);
+}
+
+.cardIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cardBody p {
+  margin: 0;
+}
+
+.cardCaption,
+.cardMeta {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.cardTitle {
+  font-size: var(--fs-17);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.cardActions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+@media (min-width: 768px) {
+  .card {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .cardActions {
+    grid-column: auto;
+    justify-content: flex-end;
+  }
+}

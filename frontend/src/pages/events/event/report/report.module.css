@@ -1,0 +1,105 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--tap);
+  padding: 0 var(--s-1);
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: var(--fs-15);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .trigger:hover {
+    color: var(--ink);
+  }
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.done,
+.doneInline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.done {
+  min-height: var(--tap);
+}
+
+.doneInline {
+  padding: 0 10px;
+  min-height: var(--tap);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.subject {
+  margin: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.legend {
+  margin-bottom: var(--s-2);
+  font-weight: 600;
+}
+
+.reasons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.reason {
+  align-items: flex-start;
+  min-height: var(--tap);
+  padding: var(--s-2) 0;
+}
+
+.reasonLabel {
+  display: block;
+  font-weight: 600;
+}
+
+.reasonHint {
+  display: block;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.error {
+  margin: 0;
+  color: var(--danger);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--s-3);
+}

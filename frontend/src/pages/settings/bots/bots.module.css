@@ -1,0 +1,334 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.cardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.cardTitle {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--fs-17);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.logo {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.md {
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: var(--fs-15);
+}
+.md svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: var(--fs-20);
+}
+.lg svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.abilities {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--fs-15);
+  line-height: 1.45;
+}
+.abilities li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.abilities svg {
+  flex: none;
+  margin-top: 0.1rem;
+  color: var(--ink-2);
+}
+
+.soon {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.6;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-soft);
+  list-style: none;
+}
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.linkText {
+  display: flex;
+  flex: 1 1 12rem;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.linkName {
+  font-size: var(--fs-16);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.linkMeta {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.done,
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: var(--fs-15);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.done {
+  color: var(--ok);
+}
+.done svg {
+  flex: none;
+}
+.error {
+  color: var(--danger);
+}
+
+.window {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+.closeWindow {
+  align-self: flex-start;
+}
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.ticketLead {
+  margin: 0;
+  font-size: var(--fs-16);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.openBot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: var(--tap);
+  padding: 0.35rem 1.1rem 0.35rem 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--fs-16);
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color var(--t-hover) var(--ease);
+}
+.openBot .logo {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--r-pill);
+}
+.openBot > span:not(.logo) {
+  white-space: nowrap;
+}
+.openBot > svg {
+  flex: none;
+  color: var(--ink-2);
+}
+.openBotPrimary {
+  min-height: 3.5rem;
+  padding-right: 1.5rem;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: var(--fs-17);
+}
+.openBotPrimary > svg {
+  color: inherit;
+}
+.openBot:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.codeBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.codeLabel {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+.codeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+.code {
+  font-family: var(--font-display);
+  font-size: var(--fs-44);
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.ticketFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+}
+.timer {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+.timerValue {
+  color: var(--ink);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.claim {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-soft);
+}
+.claimTitle {
+  font-size: var(--fs-17);
+  font-weight: 700;
+}
+.claimText {
+  margin: 0 0 0.5rem;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.6;
+}
+.fieldLabel {
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+.claimRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.claimInput {
+  width: 12rem;
+  min-height: var(--control-h);
+  font-size: var(--fs-20);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.2em;
+}
+
+/* Длинная подпись кнопки на узком экране и с крупным текстом переносится, а не обрезается. */
+.wrap,
+.wrap > span {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+  text-align: left;
+}
+
+@media (hover: hover) {
+  .openBot:hover {
+    border-color: var(--ink);
+  }
+  .openBotPrimary:hover {
+    border-color: var(--accent-strong);
+    background: var(--accent-strong);
+  }
+}
+
+@media (max-width: 639px) {
+  .card {
+    padding: 1rem;
+  }
+  .window {
+    margin-inline: -0.25rem;
+    padding: 0.75rem;
+  }
+  .openBot {
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding-right: 0.9rem;
+  }
+  .connect {
+    width: 100%;
+  }
+  .claimInput {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .claimRow > button {
+    width: 100%;
+  }
+  .code {
+    font-size: var(--fs-32);
+  }
+}

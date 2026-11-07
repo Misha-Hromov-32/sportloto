@@ -1,0 +1,58 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding: var(--s-5);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius, 1.5rem);
+  background: var(--surface);
+}
+
+.block > header {
+  margin-bottom: 0;
+}
+
+.intro {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s, 1rem);
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+.intro svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+.warn {
+  background: var(--wait-bg);
+}
+
+.warn svg {
+  color: var(--wait);
+}
+
+.empty {
+  color: var(--ink-2);
+}
+
+@media (max-width: 767px) {
+  .block {
+    padding: var(--s-4);
+  }
+}
+
+.lead {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  color: var(--ink-2);
+}
+
+.lead svg {
+  flex: none;
+  margin-top: 3px;
+}

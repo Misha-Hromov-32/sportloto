@@ -1,0 +1,537 @@
+/* ---------- Карточка ---------- */
+
+.face {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  container-type: size;
+}
+
+.face[data-expanded] {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.media {
+  position: relative;
+  flex: 0 0 55%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+
+.face[data-expanded] .media {
+  flex-basis: 35%;
+}
+
+.media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media::after {
+  content: '';
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(to bottom, transparent, var(--photo-scrim));
+  pointer-events: none;
+}
+
+.fallback {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.mediaTags {
+  position: absolute;
+  z-index: 1;
+  right: var(--s-3);
+  bottom: var(--s-3);
+  left: var(--s-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  overflow: hidden;
+  padding: var(--s-4) var(--s-4) var(--s-1);
+}
+
+.body > * {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Что не поместилось по высоте, переносится во вторую колонку за краем карточки, а не режется пополам. */
+.face:not([data-expanded]) .body {
+  flex-wrap: wrap;
+  align-content: flex-start;
+  column-gap: var(--s-6);
+}
+
+.face[data-expanded] .body {
+  flex: none;
+  overflow: visible;
+}
+
+.when {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-1) var(--s-2);
+  margin: 0;
+  color: var(--accent-text);
+  font-size: var(--fs-20);
+  font-weight: 700;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 500;
+}
+
+.title {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-size: var(--fs-20);
+  font-weight: 700;
+  line-height: 1.25;
+  text-wrap: pretty;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.place {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.4;
+}
+
+.place svg,
+.when svg,
+.match svg {
+  flex: none;
+  margin-top: 0.125rem;
+}
+
+.spots {
+  margin-top: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-1) var(--s-3);
+  margin: 0;
+  font-size: var(--fs-16);
+}
+
+.meta span {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.org {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.orgText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.orgName {
+  overflow: hidden;
+  font-size: var(--fs-15);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.orgFacts {
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+}
+
+.match {
+  display: flex;
+  gap: 0.375rem;
+  margin: 0;
+  font-size: var(--fs-15);
+  line-height: 1.4;
+}
+
+.match svg {
+  color: var(--accent-text);
+}
+
+.foot {
+  flex: none;
+  display: flex;
+  padding: 0 var(--s-3) var(--s-1);
+  background: var(--surface);
+}
+
+.face[data-expanded] .foot {
+  position: sticky;
+  bottom: 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: var(--tap);
+  padding: 0 var(--s-1);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-16);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+.more:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-s);
+}
+
+@container (max-height: 34rem) {
+  .face:not([data-expanded]) .media {
+    flex-basis: 40%;
+  }
+  .face:not([data-expanded]) .match {
+    display: none;
+  }
+}
+
+@container (max-height: 27rem) {
+  .face:not([data-expanded]) .media {
+    flex-basis: 30%;
+  }
+}
+
+@container (max-height: 22rem) {
+  .face:not([data-expanded]) .media {
+    flex-basis: 20%;
+  }
+  .face:not([data-expanded]) .countdown {
+    display: none;
+  }
+}
+
+/* ---------- Подробности ---------- */
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  margin-top: var(--s-2);
+  padding: var(--s-4) 0;
+  border-top: 1px solid var(--line-soft);
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.detailsText {
+  margin: 0;
+  font-size: var(--fs-16);
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.detailsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.detailsTitle {
+  margin: 0;
+  font-size: var(--fs-16);
+  font-weight: 700;
+}
+
+.steps {
+  display: grid;
+  gap: var(--s-2);
+  margin: 0;
+}
+
+.steps dt {
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+
+.steps dd {
+  margin: 0;
+  font-size: var(--fs-15);
+  line-height: 1.45;
+}
+
+.map {
+  overflow: hidden;
+  border-radius: var(--radius-s);
+}
+
+.going {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  font-size: var(--fs-15);
+}
+
+/* ---------- Состояния вне стопки ---------- */
+
+.mode {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  width: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+  padding-block: var(--s-4) var(--s-6);
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.loading {
+  width: 100%;
+  max-width: 27.5rem;
+  height: clamp(28rem, calc(100dvh - var(--header-h) - 15rem), 40rem);
+  margin-inline: auto;
+}
+
+/* ---------- Итог ---------- */
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.summaryTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-32);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.summaryTitle:focus {
+  outline: none;
+}
+
+.summaryText {
+  margin: 0;
+  font-size: var(--fs-16);
+  line-height: 1.5;
+}
+
+.savedTitle {
+  margin: var(--s-2) 0 0;
+  font-size: var(--fs-20);
+  font-weight: 700;
+}
+
+.savedList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.savedItem {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3);
+}
+
+.savedItem + .savedItem {
+  border-top: 1px solid var(--line-soft);
+}
+
+.thumb {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 3.375rem;
+  overflow: hidden;
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+  color: var(--ink-2);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.savedBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-1);
+  min-width: 0;
+}
+
+.savedName {
+  color: var(--ink);
+  font-size: var(--fs-16);
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .savedName:hover {
+    text-decoration: underline;
+  }
+}
+
+.savedWhen {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.guestNote {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.guestNote p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.nothing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-3);
+}
+
+.summaryActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  padding-top: var(--s-2);
+}
+
+@media (max-width: 560px) {
+  .savedItem {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+  }
+  .thumb {
+    width: 3.5rem;
+    height: 2.625rem;
+  }
+  .savedItem > :last-child {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+/* ---------- Панели ---------- */
+
+.drawer :global(.ant-drawer-content-wrapper) {
+  max-height: 90dvh;
+}
+
+.drawer :global(.ant-drawer-content) {
+  border-radius: var(--r-media) var(--r-media) 0 0;
+}
+
+.drawer :global(.ant-drawer-header),
+.drawer :global(.ant-drawer-body) {
+  padding-inline: max(var(--s-4), calc((100% - 34rem) / 2));
+}
+
+.panel,
+.drawerFoot {
+  width: 100%;
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.panelWhen {
+  margin: 0;
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.guest {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.guest p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.filters {
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+}

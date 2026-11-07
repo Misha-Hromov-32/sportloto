@@ -1,0 +1,342 @@
+/* ---------- Окно и шторка ---------- */
+
+.sheet :global(.ant-drawer-content-wrapper) {
+  max-height: 92dvh;
+}
+
+.sheet :global(.ant-drawer-content) {
+  max-height: 92dvh;
+  border-radius: var(--r-media) var(--r-media) 0 0;
+}
+
+.sheet :global(.ant-drawer-body) {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.sheet :global(.ant-drawer-header),
+.sheet :global(.ant-drawer-body),
+.sheet :global(.ant-drawer-footer) {
+  padding-inline: var(--s-4);
+}
+
+.sheet :global(.ant-drawer-body) {
+  padding-bottom: calc(var(--s-5) + env(safe-area-inset-bottom, 0px));
+}
+
+/* На телефоне кнопка оплаты всегда под пальцем, даже если пояснения длинные. */
+.sheet :global(.ant-drawer-body):has(.payActions) {
+  padding-bottom: 0;
+}
+
+.sheet .payActions {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  margin-inline: calc(var(--s-4) * -1);
+  padding: var(--s-3) var(--s-4) calc(var(--s-3) + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line-soft);
+  background: var(--surface);
+}
+
+.modal :global(.ant-modal-body) {
+  padding-top: var(--s-2);
+}
+
+.sheetFoot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+/* ---------- Окно оплаты ---------- */
+
+.payBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  min-width: 0;
+}
+
+.payWhat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.payTitle {
+  font-size: var(--fs-17);
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.payWhen {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.methodsLabel {
+  font-size: var(--fs-15);
+  font-weight: 700;
+}
+
+.method {
+  display: grid;
+  grid-template-columns: 24px 40px minmax(0, 1fr) auto;
+  gap: var(--s-3);
+  align-items: center;
+  width: 100%;
+  min-height: 72px;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) var(--ease),
+    outline-color var(--t-hover) var(--ease);
+}
+
+@media (hover: hover) {
+  .method:hover:not(.methodActive) {
+    background: var(--line-soft);
+  }
+}
+
+.method:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.methodActive {
+  border-color: var(--line-soft);
+  background: var(--surface);
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+}
+
+.methodActive:focus-visible {
+  outline: 3px solid var(--focus-ring);
+}
+
+.methodRadio {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--ink-2);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+}
+
+.methodActive .methodRadio {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.methodIcon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-s);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.methodActive .methodIcon {
+  background: var(--bg-alt);
+}
+
+.methodBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.methodName {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.methodText {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.35;
+}
+
+.cheaper {
+  padding: 2px var(--s-2);
+  border-radius: var(--r-pill);
+  background: var(--ok-bg);
+  color: var(--ok);
+  font-size: var(--fs-13);
+  font-weight: 700;
+}
+
+.methodSum {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.methodSum strong {
+  font-size: var(--fs-20);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.methodSum span {
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+}
+
+@media (max-width: 420px) {
+  .method {
+    grid-template-columns: 24px minmax(0, 1fr) auto;
+  }
+
+  .methodIcon {
+    display: none;
+  }
+}
+
+.methodsHint {
+  color: var(--ok);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+/* ---------- Из чего сумма ---------- */
+
+.fees {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-s);
+  background: var(--surface);
+}
+
+.fees > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-2) 0;
+}
+
+.fees > div + div {
+  border-top: 1px solid var(--line-soft);
+}
+
+.fees dt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font-size: var(--fs-16);
+}
+
+.fees dt span {
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+}
+
+.fees dd {
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.fees .feesTotal dt,
+.fees .feesTotal dd {
+  font-size: var(--fs-17);
+  font-weight: 800;
+}
+
+/* ---------- Складчина и подсказки ---------- */
+
+.splitNote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--wait-bg);
+  color: var(--ink);
+  font-size: var(--fs-15);
+  line-height: 1.45;
+}
+
+.splitTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--wait);
+  font-size: var(--fs-17);
+  font-weight: 700;
+}
+
+.splitTitle svg {
+  flex: none;
+}
+
+.payNote {
+  color: var(--ink);
+  font-size: var(--fs-15);
+  line-height: 1.45;
+}
+
+.secure {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.4;
+}
+
+.secure svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.payError {
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--danger-bg);
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.payActions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--s-2);
+}
+
+.payActions > :last-child:not(:first-child) {
+  align-self: center;
+}

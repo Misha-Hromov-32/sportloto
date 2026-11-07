@@ -1,0 +1,246 @@
+# Запуск из корня репозитория: docker compose -f deploy/docker-compose.yml up -d --build
+# Переменные берутся из deploy/.env (образец — deploy/.env.example); без него работают значения по умолчанию.
+#
+# Профили:
+#   (без профиля)  db + backend + web + mail — приложение на http://localhost:8080
+#   dev            db + backend-dev (перезапуск при правке) + frontend-dev (Vite) — http://localhost:5173,
+#                  mailpit — письма не уходят наружу, их видно на http://127.0.0.1:8025
+#   test           backend-test — тесты и линтер бэкенда в контейнере
+name: vmeste
+
+x-backend-env: &backend-env
+  DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-vmeste}:${POSTGRES_PASSWORD:-vmeste}@db:5432/${POSTGRES_DB:-vmeste}
+  COOKIE_SECURE: ${COOKIE_SECURE:-false}
+  SITE_URL: ${SITE_URL:-}
+  DEMO_LOGIN_ENABLED: ${DEMO_LOGIN_ENABLED:-false}
+  DEMO_SEED_ON_START: ${DEMO_SEED_ON_START:-false}
+  DEMO_SHIFT_DATES: ${DEMO_SHIFT_DATES:-false}
+  # Сброс демо-данных по запросу: на публичном сервере false (см. .env.example).
+  DEMO_RESET_ENABLED: ${DEMO_RESET_ENABLED:-false}
+  # Снимки записей людей перед обновлением демо-данных до новой версии (том domain-backups у backend).
+  DOMAIN_BACKUP_DIR: ${DOMAIN_BACKUP_DIR:-/backups}
+  DOMAIN_TICK_SECONDS: ${DOMAIN_TICK_SECONDS:-15}
+  AI_PROVIDER: ${AI_PROVIDER:-fake}
+  AI_TIMEOUT_SECONDS: ${AI_TIMEOUT_SECONDS:-8}
+  GIGACHAT_AUTH_KEY: ${GIGACHAT_AUTH_KEY:-}
+  GIGACHAT_SCOPE: ${GIGACHAT_SCOPE:-GIGACHAT_API_PERS}
+  GIGACHAT_CA_BUNDLE: ${GIGACHAT_CA_BUNDLE:-}
+  YANDEX_API_KEY: ${YANDEX_API_KEY:-}
+  YANDEX_FOLDER_ID: ${YANDEX_FOLDER_ID:-}
+  # Почта: по умолчанию выключена (письма пишутся в журнал), сервер отправки — сервис mail.
+  MAIL_ENABLED: ${MAIL_ENABLED:-false}
+  EMAIL_VERIFICATION: ${EMAIL_VERIFICATION:-false}
+  SMTP_HOST: ${SMTP_HOST:-mail}
+  SMTP_PORT: ${SMTP_PORT:-587}
+  SMTP_USERNAME: ${SMTP_USERNAME:-}
+  SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+  SMTP_STARTTLS: ${SMTP_STARTTLS:-false}
+  SMTP_SSL: ${SMTP_SSL:-false}
+  MAIL_FROM: ${MAIL_FROM:-Спорт и точка <noreply@sport.up-point.tech>}
+  MAIL_REPLY_TO: ${MAIL_REPLY_TO:-}
+  # SMS с кодом, если письмо не дошло: log — код в журнал, smsaero — отправка через SMS Aero.
+  SMS_PROVIDER: ${SMS_PROVIDER:-log}
+  SMS_VERIFICATION_ENABLED: ${SMS_VERIFICATION_ENABLED:-false}
+  SMSAERO_EMAIL: ${SMSAERO_EMAIL:-}
+  SMSAERO_API_KEY: ${SMSAERO_API_KEY:-}
+  SMSAERO_SIGN: ${SMSAERO_SIGN:-SMS Aero}
+  SMS_DAILY_LIMIT: ${SMS_DAILY_LIMIT:-100}
+  SMS_CODE_PEPPER: ${SMS_CODE_PEPPER:-}
+  # Заполнение профиля из ВКонтакте: сервисный ключ приложения VK. Пусто — функция выключена.
+  VK_SERVICE_TOKEN: ${VK_SERVICE_TOKEN:-}
+  # VK: секрет запросов привязки. Пусто — привязка выключена.
+  BOT_API_SECRET: ${BOT_API_SECRET:-}
+  TELEGRAM_BOT_USERNAME: ${TELEGRAM_BOT_USERNAME:-}
+  VK_GROUP_ID: ${VK_GROUP_ID:-242415813}
+  # Уведомления в браузер (Web Push): ключи VAPID из scripts/generate-vapid-keys.py. Пусто — канал выключен.
+  WEB_PUSH_PUBLIC_KEY: ${WEB_PUSH_PUBLIC_KEY:-}
+  WEB_PUSH_PRIVATE_KEY: ${WEB_PUSH_PRIVATE_KEY:-}
+  WEB_PUSH_SUBJECT: ${WEB_PUSH_SUBJECT:-mailto:noreply@sport.up-point.tech}
+  # По умолчанию оплата выключена. fake используется только на отдельном тестовом стенде.
+  PAYMENTS_PROVIDER: ${PAYMENTS_PROVIDER:-disabled}
+  PAYMENTS_ENABLED: ${PAYMENTS_ENABLED:-false}
+  YOOKASSA_SHOP_ID: ${YOOKASSA_SHOP_ID:-}
+  YOOKASSA_SECRET_KEY: ${YOOKASSA_SECRET_KEY:-}
+  YOOKASSA_RECEIPTS: ${YOOKASSA_RECEIPTS:-false}
+  YOOKASSA_TAX_SYSTEM_CODE: ${YOOKASSA_TAX_SYSTEM_CODE:-}
+  YOOKASSA_VAT_CODE: ${YOOKASSA_VAT_CODE:-1}
+  YOOKASSA_PAYOUT_AGENT_ID: ${YOOKASSA_PAYOUT_AGENT_ID:-}
+  YOOKASSA_PAYOUT_SECRET_KEY: ${YOOKASSA_PAYOUT_SECRET_KEY:-}
+  YOOKASSA_CHECK_IP: ${YOOKASSA_CHECK_IP:-false}
+
+x-backend-healthcheck: &backend-healthcheck
+  test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
+  interval: 10s
+  timeout: 5s
+  start_period: 30s
+  retries: 5
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-vmeste}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-vmeste}
+      POSTGRES_DB: ${POSTGRES_DB:-vmeste}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    # Порт открыт только на localhost: для миграций и тестов с машины разработчика.
+    ports:
+      - "127.0.0.1:${DB_HOST_PORT:-5433}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build:
+      context: ..
+      dockerfile: deploy/backend.Dockerfile
+    restart: unless-stopped
+    # Большой каталог не должен вытеснять память остальных сервисов сервера.
+    mem_limit: 3g
+    memswap_limit: 3g
+    cpus: 1.5
+    environment:
+      <<: *backend-env
+      APP_ENV: prod
+    volumes:
+      - domain-backups:/backups
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck: *backend-healthcheck
+
+  # Почтовый сервер для писем подтверждения и сброса пароля: принимает только из сети compose
+  # (порт наружу не открыт), подписывает DKIM и сам доставляет в почтовые ящики получателей.
+  # Без ключа в MAIL_DKIM_DIR стартует без подписи (в журнале: «No DKIM keys found»).
+  mail:
+    image: boky/postfix:v5.1.0-alpine
+    restart: unless-stopped
+    environment:
+      ALLOWED_SENDER_DOMAINS: ${MAIL_DOMAIN:-sport.up-point.tech}
+      POSTFIX_myhostname: ${MAIL_HOSTNAME:-sport.up-point.tech}
+      DKIM_SELECTOR: mail
+    volumes:
+      # Ключ <домен>.private; на сервере MAIL_DKIM_DIR=/srv/sport-mail/dkim.
+      - ${MAIL_DKIM_DIR:-./dkim}:/etc/opendkim/keys:ro
+
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/web.Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${HTTP_PORT:-8080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  # VK-бот сообщества (bots/): обычный клиент сайта, ходит в бэкенд внутри сети. Состояние и ключи
+  # подключённых людей — в томе vk-bot-data. Без VK_GROUP_TOKEN сервис спит и пишет в журнал одну строку.
+  vk-bot:
+    build:
+      context: ..
+      dockerfile: deploy/bot.Dockerfile
+    restart: unless-stopped
+    environment:
+      SITE_URL: http://backend:8000
+      PUBLIC_SITE_URL: ${SITE_URL:-https://sport.up-point.tech}
+      BOT_API_SECRET: ${BOT_API_SECRET:-}
+      BOT_STORE_KEY: ${BOT_STORE_KEY:-}
+      VK_GROUP_TOKEN: ${VK_GROUP_TOKEN:-}
+      VK_GROUP_ID: ${VK_GROUP_ID:-242415813}
+      NOTIFY_INTERVAL: ${NOTIFY_INTERVAL:-30}
+    volumes:
+      - vk-bot-data:/data
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  # ---------- Разработка: правки кода подхватываются без пересборки образов ----------
+
+  backend-dev:
+    profiles: [dev]
+    build:
+      context: ..
+      dockerfile: deploy/backend.Dockerfile
+      target: dev
+    environment:
+      <<: *backend-env
+      APP_ENV: dev
+      DOMAIN_STRICT: "true"
+      PYTHONPATH: /app
+      # Письма уходят в mailpit, ссылки в них ведут на Vite.
+      SITE_URL: ${DEV_SITE_URL:-http://localhost:5173}
+      MAIL_ENABLED: "true"
+      EMAIL_VERIFICATION: ${DEV_EMAIL_VERIFICATION:-true}
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+      SMTP_USERNAME: ""
+      SMTP_PASSWORD: ""
+      SMTP_STARTTLS: "false"
+      SMTP_SSL: "false"
+    volumes:
+      - ../backend:/app
+    command: ["sh", "-c", "alembic upgrade head && exec uvicorn app.main:create_app --factory --host 0.0.0.0 --port 8000 --reload"]
+    ports:
+      - "127.0.0.1:${BACKEND_HOST_PORT:-8000}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+    healthcheck: *backend-healthcheck
+
+  # Ловушка писем для разработки: всё, что отправил backend-dev, видно на http://127.0.0.1:8025.
+  mailpit:
+    profiles: [dev]
+    image: axllent/mailpit:v1.31.3
+    ports:
+      - "127.0.0.1:${MAILPIT_HOST_PORT:-8025}:8025"
+      # SMTP для бэкенда, запущенного на машине разработчика (backend/.env.example).
+      - "127.0.0.1:${MAILPIT_SMTP_HOST_PORT:-1025}:1025"
+
+  frontend-dev:
+    profiles: [dev]
+    image: node:22-alpine
+    working_dir: /app
+    environment:
+      VITE_DEV_HOST: 0.0.0.0
+      VITE_API_PROXY: http://backend-dev:8000
+    volumes:
+      - ../frontend:/app
+      # Зависимости — в томе: в контейнере Linux, на машине разработчика может быть другая ОС.
+      - frontend-node-modules:/app/node_modules
+    command: ["sh", "-c", "npm ci --no-audit --no-fund && exec npm run dev"]
+    ports:
+      - "127.0.0.1:${FRONTEND_HOST_PORT:-5173}:5173"
+    depends_on:
+      backend-dev:
+        condition: service_healthy
+
+  # ---------- Тесты бэкенда: docker compose -f deploy/docker-compose.yml run --rm backend-test ----------
+
+  backend-test:
+    profiles: [test]
+    build:
+      context: ..
+      dockerfile: deploy/backend.Dockerfile
+      target: dev
+    environment:
+      PYTHONPATH: /app
+      TEST_DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-vmeste}:${POSTGRES_PASSWORD:-vmeste}@db:5432/vmeste_test
+    volumes:
+      - ../backend:/app
+    command: ["sh", "-c", "ruff check . && ruff format --check . && pytest -q"]
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db-data:
+  domain-backups:
+  frontend-node-modules:
+  vk-bot-data:

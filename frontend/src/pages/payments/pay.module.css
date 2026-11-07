@@ -1,0 +1,317 @@
+/* ---------- Возврат после оплаты ---------- */
+
+.page {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 100rem;
+  min-height: calc(100dvh - 18rem);
+  margin-inline: auto;
+  padding: 4rem clamp(1rem, 6.2vw, 7rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 3rem;
+  background: var(--landing-bg);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  min-width: 0;
+}
+
+.copy h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.4vw, 5.25rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.copy h1:focus {
+  outline: none;
+}
+
+.copy h1 > span {
+  color: var(--accent);
+}
+
+.title-ok > span {
+  color: var(--ok) !important;
+}
+
+.title-wait > span {
+  color: var(--wait) !important;
+}
+
+.title-danger > span {
+  color: var(--danger) !important;
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  max-width: 36rem;
+  color: var(--ink-2);
+  font-size: var(--fs-17);
+  line-height: 1.55;
+}
+
+.checking {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+}
+
+.checking svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--wait);
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--danger-bg);
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.receipt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-width: 0;
+  padding: var(--s-6);
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.receiptHead {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.receiptTitle {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.receiptRows {
+  display: flex;
+  flex-direction: column;
+  margin: var(--s-2) 0 0;
+}
+
+.receiptRows > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-2) 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.receiptRows dt {
+  color: var(--ink-2);
+}
+
+.receiptRows dd {
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.receiptTotal dt,
+.receiptTotal dd {
+  color: var(--ink) !important;
+  font-size: var(--fs-20);
+  font-weight: 800 !important;
+}
+
+.testNote {
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius-s);
+  background: var(--wait-bg);
+  color: var(--wait);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--s-6);
+    padding-block: var(--s-6);
+  }
+
+  .receipt {
+    padding: var(--s-5);
+  }
+}
+
+@media (max-width: 480px) {
+  .actions > * {
+    flex: 1 1 100%;
+  }
+}
+
+/* ---------- Тестовая страница банка ---------- */
+
+.bank {
+  min-height: 100dvh;
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+.testBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  background: var(--wait-bg);
+  color: var(--wait);
+  font-weight: 700;
+  text-align: center;
+}
+
+.testBar svg {
+  flex: none;
+}
+
+.bankWrap {
+  width: 100%;
+  max-width: 30rem;
+  margin-inline: auto;
+  padding: var(--s-6) var(--s-4) var(--s-8);
+}
+
+.bankBrand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.bankBrandName {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.bankCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  padding: var(--s-6) var(--s-5);
+  border: 1px solid var(--line-soft);
+  border-radius: 1.5rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.bankSum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.bankSum span {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.bankSum strong {
+  font-size: var(--fs-44);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.bankRows {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.bankRows > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--s-3) 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.bankRows dt {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.bankRows dd {
+  margin: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.bankMethod {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border-radius: var(--radius-s);
+  background: var(--bg-alt);
+  font-size: var(--fs-15);
+  line-height: 1.4;
+}
+
+.bankMethod svg {
+  flex: none;
+}
+
+.bankActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.bankFoot {
+  margin-top: var(--s-5);
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  line-height: 1.45;
+  text-align: center;
+}

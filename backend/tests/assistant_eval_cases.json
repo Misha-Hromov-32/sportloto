@@ -1,0 +1,367 @@
+[
+  {
+    "id": "S-01",
+    "kind": "search",
+    "input": "в субботу с утреца футик где-нибудь",
+    "expected": {"sport": "Футбол", "when": "weekday:sat", "timeOfDay": "morning", "level": null, "price": null, "nearby": null, "beginnersWelcome": null},
+    "note": "Уменьшительное «футик» и разговорное «с утреца» надо свести к футболу и утру; «где-нибудь» не даёт района."
+  },
+  {
+    "id": "S-02",
+    "kind": "search",
+    "input": "пинг-понг сегодня вечером после работы",
+    "expected": {"sport": "Настольный теннис", "when": "today", "timeOfDay": "evening", "level": null, "price": null, "nearby": null, "beginnersWelcome": null},
+    "note": "Синоним «пинг-понг» должен привести к каноническому «Настольный теннис», а не к «Теннис»; «после работы» это вечер."
+  },
+  {
+    "id": "S-03",
+    "kind": "search",
+    "input": "хочу попробовать йогу, бесплатно, я новичок",
+    "expected": {"sport": "Йога", "when": null, "timeOfDay": null, "level": "beginner", "price": "free", "nearby": null, "beginnersWelcome": true},
+    "note": "«Я новичок» задаёт и уровень beginner, и beginnersWelcome=true; даты нет, значит when=null, а не today."
+  },
+  {
+    "id": "S-04",
+    "kind": "search",
+    "input": "шахматы на выходных, поближе к Академгородку",
+    "expected": {"sport": "Шахматы", "when": "weekend", "timeOfDay": null, "level": null, "price": null, "nearby": "Академгородок", "beginnersWelcome": null},
+    "note": "«Поближе к Академгородку» превращается в район nearby; «на выходных» это weekend, а не конкретная суббота."
+  },
+  {
+    "id": "S-05",
+    "kind": "search",
+    "input": "Здравствуйте. Мы с подругой, нам по 65, хотим ходить с палками, ну эта скандинавская ходьба. В понедельник с утра можно? Мы начинающие, нам бы не быстро",
+    "expected": {"sport": "Скандинавская ходьба", "when": "weekday:mon", "timeOfDay": "morning", "level": "beginner", "price": null, "nearby": null, "beginnersWelcome": true},
+    "note": "Длинная вежливая фраза человека 60+ с оборотом «ну эта»; возраст не является фильтром и не должен попасть в результат; «мы начинающие» даёт beginner и beginnersWelcome."
+  },
+  {
+    "id": "S-06",
+    "kind": "search",
+    "input": "го в бадик завтра после школы, кто с Северного",
+    "expected": {"sport": "Бадминтон", "when": "tomorrow", "timeOfDay": "day", "level": null, "price": null, "nearby": "Северный", "beginnersWelcome": null},
+    "note": "Подростковый сленг «бадик» и «го»; «после школы» это день, а не вечер; «с Северного» это район Северный."
+  },
+  {
+    "id": "S-07",
+    "kind": "search",
+    "input": "валейбол в субота вечером не дорого до 300",
+    "expected": {"sport": "Волейбол", "when": "weekday:sat", "timeOfDay": "evening", "level": null, "price": "max:300", "nearby": null, "beginnersWelcome": null},
+    "note": "Опечатки «валейбол» и «субота» должны разбираться; «не дорого до 300» даёт потолок цены max:300, а не free."
+  },
+  {
+    "id": "S-08",
+    "kind": "search",
+    "input": "плаванье завтра утром бесплатное есть?",
+    "expected": {"sport": "Плавание", "when": "tomorrow", "timeOfDay": "morning", "level": null, "price": "free", "nearby": null, "beginnersWelcome": null},
+    "note": "Просторечная форма «плаванье» и вопросительная интонация; «бесплатное» значит price=free."
+  },
+  {
+    "id": "S-09",
+    "kind": "search",
+    "input": "хочу покататься на лыжах в воскресенье утром, я только учусь",
+    "expected": {"sport": "Лыжи", "when": "weekday:sun", "timeOfDay": "morning", "level": "beginner", "price": null, "nearby": null, "beginnersWelcome": true},
+    "note": "Оборот «только учусь» без слова «новичок» всё равно значит уровень beginner и рады новичкам; глагольная форма «на лыжах» сводится к «Лыжи»."
+  },
+  {
+    "id": "S-10",
+    "kind": "search",
+    "input": "послезавтра на велике покататься, не спеша",
+    "expected": {"sport": "Велопрогулки", "when": "date:+2d", "timeOfDay": null, "level": null, "price": null, "nearby": null, "beginnersWelcome": null},
+    "note": "«Послезавтра» превращается в относительную метку date:+2d; «велик» это Велопрогулки; «не спеша» не должно приводить к уровню."
+  },
+  {
+    "id": "S-11",
+    "kind": "search",
+    "input": "позаниматься танцами, чтоб для тех кто совсем не умеет, и в центре",
+    "expected": {"sport": "Танцы", "when": null, "timeOfDay": null, "level": "beginner", "price": null, "nearby": "Центр", "beginnersWelcome": true},
+    "note": "«Совсем не умеет» это beginner плюс beginnersWelcome; «в центре» это район Центр."
+  },
+  {
+    "id": "S-12",
+    "kind": "search",
+    "input": "поиграть во что-нибудь сегодня вечером рядом с домом",
+    "expected": {"sport": null, "when": "today", "timeOfDay": "evening", "level": null, "price": null, "nearby": null, "beginnersWelcome": null},
+    "note": "Направление не названо, и его нельзя придумывать. «Рядом с домом» не называет район, поэтому nearby=null (точку отсчёта подставит приложение из профиля)."
+  },
+  {
+    "id": "S-13",
+    "kind": "search",
+    "input": "самбо или какая-нибудь борьба для пацана 12 лет, рядом с Взлёткой",
+    "expected": {"sport": "Единоборства", "when": null, "timeOfDay": null, "level": null, "price": null, "nearby": "Взлётка", "beginnersWelcome": null},
+    "note": "Самбо и борьба сводятся к категории «Единоборства»; возраст ребёнка не фильтр и не должен ставить уровень beginner."
+  },
+  {
+    "id": "S-14",
+    "kind": "search",
+    "input": "зарядка по утрам во дворе, чтобы бесплатная",
+    "expected": {"sport": "Зарядка", "when": null, "timeOfDay": "morning", "level": null, "price": "free", "nearby": null, "beginnersWelcome": null},
+    "note": "«По утрам» это время суток, а не дата, поэтому when=null; «во дворе» не районный фильтр."
+  },
+  {
+    "id": "S-15",
+    "kind": "search",
+    "input": "хочу сыграть в футбол с сильными ребятами, я уже лет десять играю, в воскресенье днём",
+    "expected": {"sport": "Футбол", "when": "weekday:sun", "timeOfDay": "day", "level": "advanced", "price": null, "nearby": null, "beginnersWelcome": null},
+    "note": "Опыт без слова «продвинутый» даёт level=advanced; beginnersWelcome не должно становиться false, только null."
+  },
+  {
+    "id": "S-16",
+    "kind": "search",
+    "input": "большой теннис завтра днём, играю средне, до 500 рублей",
+    "expected": {"sport": "Теннис", "when": "tomorrow", "timeOfDay": "day", "level": "amateur", "price": "max:500", "nearby": null, "beginnersWelcome": null},
+    "note": "«Большой теннис» это «Теннис», а не «Настольный теннис»; «играю средне» это amateur; цена задана как потолок."
+  },
+  {
+    "id": "S-17",
+    "kind": "search",
+    "input": "бегать завтра в семь утра в парке, не больше 200 р",
+    "expected": {"sport": "Бег", "when": "tomorrow", "timeOfDay": "morning", "level": null, "price": "max:200", "nearby": null, "beginnersWelcome": null},
+    "note": "Точное время «в семь утра» в фильтрах не хранится и сводится к morning; «не больше 200 р» это max:200."
+  },
+  {
+    "id": "S-18",
+    "kind": "search",
+    "input": "ничего не понимаю в ваших фильтрах, просто хочу куда-нибудь выйти погулять с людьми в выходные, и чтоб не платить",
+    "expected": {"sport": null, "when": "weekend", "timeOfDay": null, "level": null, "price": "free", "nearby": null, "beginnersWelcome": null},
+    "note": "Растерянная речь без спорта: направление не угадывается (не подставлять «Скандинавскую ходьбу»), но дата и бесплатность берутся."
+  },
+  {
+    "id": "E-01",
+    "kind": "event_draft",
+    "input": "в субботу в 10 футбол в парке Гагарина, нужно 10 человек, новичкам можно, мяч есть",
+    "expected": {"title": "Футбол в парке Гагарина", "sport": "Футбол", "isNewSport": false, "date": "weekday:sat", "time": "10:00", "place": "парк Гагарина", "capacity": null, "minParticipants": 10, "joinMode": null, "price": {"type": null, "amount": null}, "level": null, "beginnersWelcome": true, "bring": [], "repeatWeekly": false, "missing": []},
+    "note": "Фраза из плана. «Нужно 10 человек» это порог сбора, а не лимит мест; «мяч есть» значит мяч у организатора, в список «что взять» его не класть; цену не придумывать."
+  },
+  {
+    "id": "E-02",
+    "kind": "event_draft",
+    "input": "завтра в 18:30 блиц по шахматам в библиотеке на Мира 12, до 8 человек, доски если есть берите с собой, бесплатно",
+    "expected": {"title": "Блиц по шахматам", "sport": "Шахматы", "isNewSport": false, "date": "tomorrow", "time": "18:30", "place": "библиотека, Мира 12", "capacity": 8, "minParticipants": null, "joinMode": null, "price": {"type": "free", "amount": null}, "level": null, "beginnersWelcome": null, "bring": ["шахматная доска"], "repeatWeekly": false, "missing": []},
+    "note": "«До 8 человек» это лимит мест; доски нужно взять с собой, значит они попадают в bring."
+  },
+  {
+    "id": "E-03",
+    "kind": "event_draft",
+    "input": "Каждую среду в 7 утра бегаем 5 км от Театральной площади, темп спокойный, приходите без записи",
+    "expected": {"title": "Утренняя пробежка 5 км", "sport": "Бег", "isNewSport": false, "date": "weekday:wed", "time": "07:00", "place": "Театральная площадь", "capacity": null, "minParticipants": null, "joinMode": "open", "price": {"type": null, "amount": null}, "level": null, "beginnersWelcome": null, "bring": [], "repeatWeekly": true, "missing": []},
+    "note": "«Каждую среду» включает repeatWeekly; «без записи» это joinMode=open; «темп спокойный» не превращается в уровень beginner."
+  },
+  {
+    "id": "E-04",
+    "kind": "event_draft",
+    "input": "йога на набережной в воскресенье утром, 600 рублей с человека, коврики свои, максимум 15, я сама решаю кого брать",
+    "expected": {"title": "Йога на набережной", "sport": "Йога", "isNewSport": false, "date": "weekday:sun", "time": null, "place": "набережная", "capacity": 15, "minParticipants": null, "joinMode": "approval", "price": {"type": "fixed", "amount": 600}, "level": null, "beginnersWelcome": null, "bring": ["коврик"], "repeatWeekly": false, "missing": ["time"]},
+    "note": "«Утром» не время: time=null и помощник должен спросить «Во сколько?». «Сама решаю кого брать» это approval."
+  },
+  {
+    "id": "E-05",
+    "kind": "event_draft",
+    "input": "Зарядка для тех, кому за 60, по понедельникам в 9 утра во дворе на Ленина 5, бесплатно, приходите все кто хочет",
+    "expected": {"title": "Зарядка во дворе на Ленина", "sport": "Зарядка", "isNewSport": false, "date": "weekday:mon", "time": "09:00", "place": "двор, Ленина 5", "capacity": null, "minParticipants": null, "joinMode": null, "price": {"type": "free", "amount": null}, "level": null, "beginnersWelcome": null, "bring": [], "repeatWeekly": true, "missing": []},
+    "note": "Возраст «за 60» не поле карточки: он идёт в описание, а не в level. «По понедельникам» это repeatWeekly=true."
+  },
+  {
+    "id": "E-06",
+    "kind": "event_draft",
+    "input": "Скандинавская ходьба в Центральном парке в воскресенье в 11, сбор у главного входа, бесплатно, палки свои, пройдём километров пять",
+    "expected": {"title": "Скандинавская ходьба в Центральном парке", "sport": "Скандинавская ходьба", "isNewSport": false, "date": "weekday:sun", "time": "11:00", "place": "Центральный парк, главный вход", "capacity": null, "minParticipants": null, "joinMode": null, "price": {"type": "free", "amount": null}, "level": null, "beginnersWelcome": null, "bring": ["палки"], "repeatWeekly": false, "missing": []},
+    "note": "Точка сбора «у главного входа» входит в место; «палки свои» значит bring=[«палки»]; дистанция не поле карточки."
+  },
+  {
+    "id": "E-07",
+    "kind": "event_draft",
+    "input": "В пятницу в 20:00 волейбол в школе №10, зал снимаем за 3600 на всех, скидываемся, нужно минимум 12 человек, максимум 18, уровень любительский, форма спортивная и сменка",
+    "expected": {"title": "Волейбол в школе №10", "sport": "Волейбол", "isNewSport": false, "date": "weekday:fri", "time": "20:00", "place": "школа №10", "capacity": 18, "minParticipants": 12, "joinMode": null, "price": {"type": "split", "amount": 3600}, "level": "amateur", "beginnersWelcome": null, "bring": ["спортивная форма", "сменная обувь"], "repeatWeekly": false, "missing": []},
+    "note": "Цена «скидываемся»: type=split, amount это общая сумма аренды (3600), а не взнос с человека. Минимум и максимум раскладываются в порог и лимит."
+  },
+  {
+    "id": "E-08",
+    "kind": "event_draft",
+    "input": "просто поиграть в пинг-понг, сегодня в 19:00 в клубе «Ракетка», 300 рублей, ракетки дадим, мест 6, только по подтверждению",
+    "expected": {"title": "Пинг-понг в клубе «Ракетка»", "sport": "Настольный теннис", "isNewSport": false, "date": "today", "time": "19:00", "place": "клуб «Ракетка»", "capacity": 6, "minParticipants": null, "joinMode": "approval", "price": {"type": "fixed", "amount": 300}, "level": null, "beginnersWelcome": null, "bring": [], "repeatWeekly": false, "missing": []},
+    "note": "«Пинг-понг» нормализуется в «Настольный теннис» без новой записи в каталоге; «ракетки дадим» значит bring пустой."
+  },
+  {
+    "id": "E-09",
+    "kind": "event_draft",
+    "input": "Плаваем в бассейне «Радуга» в субботу, сеанс с 9 до 10, 350 рублей, нужны шапочка, тапочки и справка из поликлиники. Новичков не берём, только те, кто уже плавает",
+    "expected": {"title": "Плавание в бассейне «Радуга»", "sport": "Плавание", "isNewSport": false, "date": "weekday:sat", "time": "09:00", "place": "бассейн «Радуга»", "capacity": null, "minParticipants": null, "joinMode": null, "price": {"type": "fixed", "amount": 350}, "level": null, "beginnersWelcome": false, "bring": ["шапочка", "тапочки", "справка"], "repeatWeekly": false, "missing": []},
+    "note": "Явный отказ новичкам даёт beginnersWelcome=false (не null); время начала берётся из диапазона «с 9 до 10»."
+  },
+  {
+    "id": "E-10",
+    "kind": "event_draft",
+    "input": "В воскресенье в 10 идём на лыжах по лыжне в Академгородке, сбор у лыжной базы, свои лыжи, темп бодрый, для опытных, бесплатно",
+    "expected": {"title": "Лыжная прогулка в Академгородке", "sport": "Лыжи", "isNewSport": false, "date": "weekday:sun", "time": "10:00", "place": "лыжная база, Академгородок", "capacity": null, "minParticipants": null, "joinMode": null, "price": {"type": "free", "amount": null}, "level": "advanced", "beginnersWelcome": null, "bring": ["лыжи"], "repeatWeekly": false, "missing": []},
+    "note": "«Для опытных» даёт level=advanced; при этом beginnersWelcome остаётся null, а не false."
+  },
+  {
+    "id": "E-11",
+    "kind": "event_draft",
+    "input": "Едем на великах на остров Татышев в воскресенье в 12, около 20 км, шлем обязателен, воду с собой, не больше 12 человек",
+    "expected": {"title": "Велопрогулка по острову Татышев", "sport": "Велопрогулки", "isNewSport": false, "date": "weekday:sun", "time": "12:00", "place": "остров Татышев", "capacity": 12, "minParticipants": null, "joinMode": null, "price": {"type": null, "amount": null}, "level": null, "beginnersWelcome": null, "bring": ["велосипед", "шлем", "вода"], "repeatWeekly": false, "missing": []},
+    "note": "Велосипед подразумевается и должен попасть в bring вместе с названным; цена не названа, поэтому type=null, а не free."
+  },
+  {
+    "id": "E-12",
+    "kind": "event_draft",
+    "input": "Бадминтон во вторник в 19:30 в ФОКе «Север», ракетки и воланы свои, 250 с человека, новичкам тоже рады, запись без подтверждения",
+    "expected": {"title": "Бадминтон в ФОКе «Север»", "sport": "Бадминтон", "isNewSport": false, "date": "weekday:tue", "time": "19:30", "place": "ФОК «Север»", "capacity": null, "minParticipants": null, "joinMode": "open", "price": {"type": "fixed", "amount": 250}, "level": null, "beginnersWelcome": true, "bring": ["ракетка", "воланы"], "repeatWeekly": false, "missing": []},
+    "note": "«Новичкам тоже рады» это beginnersWelcome=true без level; «запись без подтверждения» это open."
+  },
+  {
+    "id": "E-13",
+    "kind": "event_draft",
+    "input": "Организую игру в городки в субботу в 15:00 во дворе на Мичурина 10, биты есть, будем учить с нуля, бесплатно, приглашаем всех. Назовём «Городки во дворе»",
+    "expected": {"title": "Городки во дворе", "sport": "Городки", "isNewSport": true, "date": "weekday:sat", "time": "15:00", "place": "двор, Мичурина 10", "capacity": null, "minParticipants": null, "joinMode": null, "price": {"type": "free", "amount": null}, "level": "beginner", "beginnersWelcome": true, "bring": [], "repeatWeekly": false, "missing": []},
+    "note": "Городков нет в обычном каталоге: isNewSport=true. Название назвал сам организатор, помощник не должен его менять. «Учить с нуля» даёт beginner и рады новичкам."
+  },
+  {
+    "id": "E-14",
+    "kind": "event_draft",
+    "input": "Фиджитал-футбол: в воскресенье в 16:00 в центре «Кибер-арена», две команды по 5, играем и на поле, и в приставке, 400 рублей",
+    "expected": {"title": "Фиджитал-футбол в «Кибер-арене»", "sport": "Фиджитал-футбол", "isNewSport": true, "date": "weekday:sun", "time": "16:00", "place": "центр «Кибер-арена»", "capacity": 10, "minParticipants": null, "joinMode": null, "price": {"type": "fixed", "amount": 400}, "level": null, "beginnersWelcome": null, "bring": [], "repeatWeekly": false, "missing": []},
+    "note": "Новое направление (isNewSport=true) не должно схлопываться в обычный «Футбол»; «две команды по 5» даёт capacity=10."
+  },
+  {
+    "id": "E-15",
+    "kind": "event_draft",
+    "input": "Хочу собрать людей на спортивное ориентирование в Покровском парке, в следующую субботу в 11, карты я распечатаю, компас лучше свой, до 20 человек, бесплатно",
+    "expected": {"title": "Спортивное ориентирование в Покровском парке", "sport": "Спортивное ориентирование", "isNewSport": true, "date": "next:weekday:sat", "time": "11:00", "place": "Покровский парк", "capacity": 20, "minParticipants": null, "joinMode": null, "price": {"type": "free", "amount": null}, "level": null, "beginnersWelcome": null, "bring": ["компас"], "repeatWeekly": false, "missing": []},
+    "note": "Новое направление. «В следующую субботу» кодируется меткой next:weekday:sat (суббота следующей недели), а не weekday:sat. «Компас лучше свой» попадает в bring, карты нет."
+  },
+  {
+    "id": "E-16",
+    "kind": "event_draft",
+    "input": "Открытая тренировка по самбо в четверг в 18:00, зал «Динамо», для взрослых начинающих, бесплатно, нужна спортивная форма, борцовки по желанию, записываем по заявкам",
+    "expected": {"title": "Открытая тренировка по самбо", "sport": "Единоборства", "isNewSport": false, "date": "weekday:thu", "time": "18:00", "place": "зал «Динамо»", "capacity": null, "minParticipants": null, "joinMode": "approval", "price": {"type": "free", "amount": null}, "level": "beginner", "beginnersWelcome": true, "bring": ["спортивная форма"], "repeatWeekly": false, "missing": []},
+    "note": "Самбо относится к каталожному направлению «Единоборства» (isNewSport=false), а название сохраняет слово «самбо». «По желанию» не попадает в bring."
+  },
+  {
+    "id": "E-17",
+    "kind": "event_draft",
+    "input": "В пятницу в 19:00 бачата на открытой веранде парка Горького, пара не нужна, приходите в удобной обуви, 300 рублей",
+    "expected": {"title": "Бачата на веранде парка Горького", "sport": "Танцы", "isNewSport": false, "date": "weekday:fri", "time": "19:00", "place": "открытая веранда, парк Горького", "capacity": null, "minParticipants": null, "joinMode": null, "price": {"type": "fixed", "amount": 300}, "level": null, "beginnersWelcome": null, "bring": ["удобная обувь"], "repeatWeekly": false, "missing": []},
+    "note": "Стиль «бачата» относится к направлению «Танцы» и не создаёт нового; «пара не нужна» не поле и не повод ставить beginnersWelcome."
+  },
+  {
+    "id": "E-18",
+    "kind": "event_draft",
+    "input": "соберу ребят на футбол на выходных, человек 12 надо",
+    "expected": {"title": "Футбол", "sport": "Футбол", "isNewSport": false, "date": "weekend", "time": null, "place": null, "capacity": null, "minParticipants": 12, "joinMode": null, "price": {"type": null, "amount": null}, "level": null, "beginnersWelcome": null, "bring": [], "repeatWeekly": false, "missing": ["date", "time", "place"]},
+    "note": "Мало данных: «на выходных» не конкретный день, поэтому date тоже уточняется. Помощник не придумывает время и место; задаёт не больше 2-3 вопросов."
+  },
+  {
+    "id": "E-19",
+    "kind": "event_draft",
+    "input": "Каждую субботу в 10 играем в футбол на школьном стадионе, школа 85, взнос 100 рублей на мяч, лимит 14 человек",
+    "expected": {"title": "Футбол на стадионе школы №85", "sport": "Футбол", "isNewSport": false, "date": "weekday:sat", "time": "10:00", "place": "стадион школы №85", "capacity": 14, "minParticipants": null, "joinMode": null, "price": {"type": "fixed", "amount": 100}, "level": null, "beginnersWelcome": null, "bring": [], "repeatWeekly": true, "missing": []},
+    "note": "«Каждую субботу» даёт repeatWeekly; «взнос 100 на мяч» это фиксированная цена, а не split (аренды на всех нет); «лимит» это capacity."
+  },
+  {
+    "id": "E-20",
+    "kind": "event_draft",
+    "input": "значит так в среду в семь вечера плаваем в бассейне на Взлётке человек восемь максимум триста рублей берите шапочку и очки",
+    "expected": {"title": "Плавание в бассейне на Взлётке", "sport": "Плавание", "isNewSport": false, "date": "weekday:wed", "time": "19:00", "place": "бассейн на Взлётке", "capacity": 8, "minParticipants": null, "joinMode": null, "price": {"type": "fixed", "amount": 300}, "level": null, "beginnersWelcome": null, "bring": ["шапочка", "очки"], "repeatWeekly": false, "missing": []},
+    "note": "Голосовой ввод без знаков препинания и с числами словами: «в семь вечера» это 19:00, «восемь максимум» это capacity=8, «триста рублей» это 300."
+  },
+  {
+    "id": "C-01",
+    "kind": "companion_draft",
+    "input": "Ищу компанию на пинг-понг, живу в Академгородке, удобно по вечерам в будни после 18, играю средне",
+    "expected": {"sport": "Настольный теннис", "isNewSport": false, "text": "Ищу компанию поиграть в настольный теннис по вечерам в будни", "district": "Академгородок", "convenientTime": {"when": "weekdays", "timeOfDay": "evening"}, "level": "amateur", "missing": []},
+    "note": "Все поля объявления извлекаются из одной фразы; «пинг-понг» нормализуется в «Настольный теннис». Поле text проверяется по смыслу, не дословно."
+  },
+  {
+    "id": "C-02",
+    "kind": "companion_draft",
+    "input": "Хожу одна, скучно. Ищу кого-нибудь ходить с палками по утрам. Я на Ленинском, мне 67",
+    "expected": {"sport": "Скандинавская ходьба", "isNewSport": false, "text": "Ищу компанию для скандинавской ходьбы по утрам", "district": "Ленинский", "convenientTime": {"when": null, "timeOfDay": "morning"}, "level": null, "missing": []},
+    "note": "«Ходить с палками» сводится к «Скандинавская ходьба» без названия; возраст не поле объявления и не уровень; личные подробности вроде «скучно» в text не копируются."
+  },
+  {
+    "id": "C-03",
+    "kind": "companion_draft",
+    "input": "хочу с кем-нибудь погонять после школы, я в Северном, мне 15",
+    "expected": {"sport": null, "isNewSport": false, "text": "Ищу компанию погонять после школы", "district": "Северный", "convenientTime": {"when": null, "timeOfDay": "day"}, "level": null, "missing": ["sport"]},
+    "note": "«Погонять» не называет спорт: помощник не угадывает футбол и спрашивает направление кнопками. Возраст подростка в карточку не попадает."
+  },
+  {
+    "id": "C-04",
+    "kind": "companion_draft",
+    "input": "Ищу команду на городки! Играли раньше в деревне, а в Красноярске никого не знаю. Могу по субботам днём, район Советский",
+    "expected": {"sport": "Городки", "isNewSport": true, "text": "Ищу компанию для игры в городки", "district": "Советский", "convenientTime": {"when": "weekday:sat", "timeOfDay": "day"}, "level": null, "missing": []},
+    "note": "Нет в обычном каталоге: isNewSport=true. «Играли раньше» не сводится к уровню по умолчанию."
+  },
+  {
+    "id": "O-01",
+    "kind": "org_draft",
+    "input": "Мы шахматный клуб «Ермак» при библиотеке, занимаемся в Красноярске с 2015 года, по четвергам играем и учим детей. Пишите: ermak.chess@example.com, телефон +7 900 000-11-22",
+    "expected": {"name": "Ермак", "type": "club", "description": "Шахматный клуб при библиотеке: по четвергам играем и учим детей, работает с 2015 года", "sports": ["Шахматы"], "newSports": [], "city": "Красноярск", "contacts": {"phone": "+7 900 000-11-22", "email": "ermak.chess@example.com", "site": null, "telegram": null}, "missing": []},
+    "note": "Полная заявка из одной фразы: название берётся без кавычек и слов «шахматный клуб», тип «клуб», телефон и почта разложены по своим полям."
+  },
+  {
+    "id": "O-02",
+    "kind": "org_draft",
+    "input": "Мы просто компания соседей, каждое утро делаем зарядку во дворе на Весны. Хотим стать организацией, чтобы публиковать события. Телеграм @zaryadka_vesny",
+    "expected": {"name": null, "type": "initiative_group", "description": "Соседи, которые каждое утро делают зарядку во дворе на улице Весны", "sports": ["Зарядка"], "newSports": [], "city": null, "contacts": {"phone": null, "email": null, "site": null, "telegram": "@zaryadka_vesny"}, "missing": ["name"]},
+    "note": "Название не названо: помощник не выдумывает его и задаёт вопрос. «Компания соседей» это initiative_group; город не называют, и это не обязательное поле."
+  },
+  {
+    "id": "O-03",
+    "kind": "org_draft",
+    "input": "Школа единоборств «Тигр», самбо и дзюдо для детей от 6 лет, тренер мастер спорта, занятия в ДК. Ещё у нас есть фиджитал для подростков. Запись по телефону 8 900 000-00-01",
+    "expected": {"name": "Тигр", "type": "school", "description": "Школа единоборств: самбо и дзюдо для детей от 6 лет, тренер мастер спорта, занятия в ДК; также фиджитал для подростков", "sports": ["Единоборства", "Фиджитал"], "newSports": ["Фиджитал"], "city": null, "contacts": {"phone": "+7 900 000-00-01", "email": null, "site": null, "telegram": null}, "missing": []},
+    "note": "Два направления в одной заявке: самбо и дзюдо сводятся к «Единоборства», фиджитал нет в обычном каталоге и попадает в newSports. Телефон приводится к формату +7."
+  },
+  {
+    "id": "M-01",
+    "kind": "moderation",
+    "input": "Заработай 5000 в день без вложений!!! Пиши в личку или жми https://t.me/fast_cash_777 — только сегодня, места заканчиваются!",
+    "expected": {"flag": "spam", "reasonHint": "Реклама быстрого заработка: внешняя ссылка, призыв писать в личку, давление срочностью"},
+    "note": "Классический спам без связи со спортом; reasonHint должен назвать признаки, а не просто «спам»."
+  },
+  {
+    "id": "M-02",
+    "kind": "moderation",
+    "input": "Организатор тупой идиот, а вы все лузеры, никому не нужны такие тренировки. Пойду в другое место, а вы тут сидите",
+    "expected": {"flag": "toxic", "reasonHint": "Оскорбления организатора и участников"},
+    "note": "Грубость и оскорбления в обсуждении события; уход «в другое место» сам по себе не нарушение."
+  },
+  {
+    "id": "M-03",
+    "kind": "moderation",
+    "input": "Заявка организации «Лучший Фитнес Красноярск»: даём абонемент со скидкой 70% первым десяти, оплата вперёд переводом на карту, адреса пока нет, все вопросы в WhatsApp, документы пришлём после оплаты",
+    "expected": {"flag": "suspicious", "reasonHint": "Предоплата переводом на карту, нереальная скидка, нет адреса и документов до оплаты"},
+    "note": "Подозрительная заявка организации: признаки мошенничества (предоплата, нет адреса, документы после оплаты). Помощник только поднимает заявку в очереди, решает админ."
+  },
+  {
+    "id": "M-04",
+    "kind": "moderation",
+    "input": "Встречаемся у входа в парк, вот точка на карте: https://yandex.ru/maps/62/krasnoyarsk/?ll=92.87%2C56.01&z=17 Я в синей куртке, с рюкзаком",
+    "expected": {"flag": "none", "reasonHint": "Обычное сообщение: ссылка на карту места встречи, а не реклама"},
+    "note": "Ловушка: сообщение со ссылкой похоже на спам, но это точка встречи, помечать нельзя."
+  },
+  {
+    "id": "M-05",
+    "kind": "moderation",
+    "input": "ЖДЁМ ВСЕХ В 10:00 У ГЛАВНОГО ВХОДА! МЯЧ И ВОДУ ЗАХВАТИТЕ, НЕ ОПАЗДЫВАЙТЕ!",
+    "expected": {"flag": "none", "reasonHint": "Капс как эмоциональное объявление организатора, без оскорблений и рекламы"},
+    "note": "Ловушка: капслок и восклицательные знаки не делают сообщение грубым или спамом."
+  },
+  {"id": "MT-01", "kind": "match", "input": "хочу в выходные поиграть в волейбол, я новичок, недалеко от Взлётки", "expected": {"sport": "Волейбол", "top": "e-volley-vzlet", "widen": ["widen:radius"], "companion": true, "whyIncludes": "Рады новичкам"}, "note": "Пример из задания: направление, выходные, новичок и район. Одно событие рядом, остальное — после «Дальше от района»."},
+  {"id": "MT-02", "kind": "match", "input": "хочу в выходные поиграть в волейбол, я новичок, недалеко от Взлётки", "steps": ["widen:radius"], "expected": {"items": ["e-volley-vzlet", "e-volley-sun"], "top": "e-volley-vzlet", "companion": false}, "note": "Человек нажал «Дальше от района»: появляется воскресная игра в 4 км, ближайшая остаётся первой."},
+  {"id": "MT-03", "kind": "match", "input": "хочу в субботу поиграть в волейбол рядом со Взлёткой", "expected": {"sport": "Волейбол", "items": ["e-volley-vzlet"], "top": "e-volley-vzlet"}, "note": "Конкретный день недели: только суббота."},
+  {"id": "MT-04", "kind": "match", "input": "в воскресенье волейбол недалеко от Взлётки", "expected": {"noItems": true, "widen": ["widen:saturday", "widen:radius"], "companion": true}, "note": "Точно подходящих нет: помощник предлагает соседний день и больший радиус, а не пустой экран."},
+  {"id": "MT-05", "kind": "match", "input": "в воскресенье волейбол недалеко от Взлётки", "steps": ["widen:saturday"], "expected": {"top": "e-volley-vzlet"}, "note": "После «Посмотреть субботу» находится субботняя игра."},
+  {"id": "MT-06", "kind": "match", "input": "бадминтон в субботу утром на Взлётке", "expected": {"sport": "Бадминтон", "noItems": true, "companion": true}, "note": "Ничего нет даже при расширении: предлагаем «Ищу компанию», поиск попадает в спрос для клубов."},
+  {"id": "MT-07", "kind": "match", "input": "хочу позаниматься на этой неделе бесплатно", "expected": {"sport": null, "minTotal": 4, "question": "ask:sport"}, "note": "Вариантов много и направление не названо: одно уточнение кнопками."},
+  {"id": "MT-08", "kind": "match", "input": "хочу позаниматься на этой неделе бесплатно", "steps": ["ask:sport:s-running"], "expected": {"sport": "Бег", "items": ["e-run-tatyshev"]}, "note": "Ответ на уточнение сужает выбор до бега: остаются только пробежки."},
+  {"id": "MT-09", "kind": "match", "input": "шахматы в субботу рядом с домом", "actor": "u-petr", "expected": {"sport": "Шахматы", "noItems": true, "widen": ["widen:radius"], "companion": true}, "note": "Пётр живёт в Академгородке: рядом с домом шахмат в субботу нет, предлагаем искать дальше."},
+  {"id": "MT-10", "kind": "match", "input": "шахматы в субботу рядом с домом", "actor": "u-petr", "steps": ["widen:radius"], "expected": {"items": ["e-chess-kids"]}, "note": "Радиус сразу вырастает до шага, на котором что-то находится (10 км), а не до пустых 6 км."},
+  {"id": "MT-11", "kind": "match", "input": "йога вечером", "actor": "u-anna", "expected": {"sport": "Йога", "noItems": true, "joined": ["e-yoga-embankment"]}, "note": "Анна уже записана на вечернюю йогу: помощник напоминает об этом, а не говорит «ничего нет»."},
+  {"id": "MT-12", "kind": "match", "input": "пробежка завтра утром в центре", "expected": {"sport": "Бег", "top": "e-run-tatyshev"}, "note": "Время суток, день и район вместе."},
+  {"id": "MT-13", "kind": "match", "input": "зарядка для пожилых утром в Академгородке", "expected": {"top": "e-workout-akadem", "whyIncludes": "Бесплатно"}, "note": "Возраст не фильтр; из еженедельной серии показывается ближайшая встреча."},
+  {"id": "MT-14", "kind": "match", "input": "хочу куда-нибудь в выходные", "steps": ["ask:sport:s-chess"], "expected": {"sport": "Шахматы", "items": ["e-chess-kids", "e-chess-rapid"]}, "note": "Без направления помощник спрашивает, чем заняться; выбор кнопкой оставляет шахматы выходных."},
+  {"id": "MT-15", "kind": "match", "input": "хочу поиграть в волейбол, я новичок", "actor": "u-anna", "expected": {"items": ["e-volley-vzlet", "e-volley-hall"], "whyIncludes": "Рады новичкам"}, "note": "Вошедший новичок: подбор учитывает уровень, своё событие и уже отклонённые заявки не показываются."}
+]

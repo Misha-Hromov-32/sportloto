@@ -1,0 +1,235 @@
+/*
+ * Общая дизайн-система «Спорт и точка». Визуальный ориентир — GoodRec:
+ * белая база, красный акцент, мягкие светлые поверхности и тонкие линии.
+ * Семантические имена (--bg, --accent, --ok, --wait…) ссылаются на них: компоненты и тема
+ * Ant Design читают только эти переменные.
+ * Темы: светлая (по умолчанию), тёмная, розовая. «Крупный текст», «Простой режим»
+ * и «Для левши» комбинируются с любой темой.
+ */
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --red: #d63b41;
+  --red-dark: #cb383e;
+  --ink: #212121;
+  --ink-soft: #393939;
+  --paper: #ffffff;
+  --muted: #646464;
+  --green: #267c4b;
+  --green-bg: #e6f2eb;
+  --amber: #995c00;
+  --amber-bg: #fff0d2;
+
+  --bg: var(--paper);
+  --landing-bg: var(--paper);
+  --bg-alt: #f5f3ef;
+  --bg-deep: #ebe7e1;
+  --surface: #ffffff;
+  --ink-2: var(--muted);
+  --line: #a6a6a6;
+  --line-soft: #ebe7e1;
+  --accent: var(--red);
+  --accent-strong: var(--red-dark);
+  --accent-ink: #ffffff;
+  --accent-text: var(--red);
+  --accent-soft: #fceced;
+  --ok: var(--green);
+  --ok-bg: var(--green-bg);
+  --wait: var(--amber);
+  --wait-bg: var(--amber-bg);
+  --off: var(--muted);
+  --off-bg: #e9e9eb;
+  --danger: #c4001d;
+  --danger-bg: #ffe0e4;
+  --danger-ink: #ffffff;
+  --focus-ring: var(--red);
+  --overlay: rgb(18 18 18 / 0.6);
+  --photo-scrim: rgb(0 0 0 / 0.55);
+  --shadow: 0 8px 24px -16px rgb(33 33 33 / 0.18);
+  --shadow-pop: 0 12px 32px -12px rgb(33 33 33 / 0.22);
+  --shadow-header: 0 6px 20px -14px rgb(0 0 0 / 0.35);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --red: #d63b41;
+  --red-dark: #cb383e;
+  --ink: #f4f4f5;
+  --ink-soft: #d9d9dc;
+  --paper: #212121;
+  --muted: #a3a3a8;
+  --green: #43d17f;
+  --green-bg: #0f2a1a;
+  --amber: #ffb23f;
+  --amber-bg: #2e2005;
+
+  --bg: var(--paper);
+  --landing-bg: #1c1c1e;
+  --bg-alt: #1a1a1c;
+  --bg-deep: #252528;
+  --surface: #161618;
+  --ink-2: var(--muted);
+  --line: #2d2d31;
+  --line-soft: #2d2d31;
+  --accent: var(--red);
+  --accent-strong: var(--red-dark);
+  --accent-ink: #ffffff;
+  --accent-text: #fc5f5d;
+  --accent-soft: #3a0d18;
+  --ok: var(--green);
+  --ok-bg: var(--green-bg);
+  --wait: var(--amber);
+  --wait-bg: var(--amber-bg);
+  --off: var(--muted);
+  --off-bg: #252528;
+  --danger: #ff5470;
+  --danger-bg: #3a0b14;
+  --danger-ink: #0f0f10;
+  --focus-ring: #ff6b86;
+  --overlay: rgb(0 0 0 / 0.72);
+  --photo-scrim: rgb(0 0 0 / 0.62);
+  --shadow: 0 1.25rem 3rem -1.25rem rgb(0 0 0 / 0.75);
+  --shadow-pop: 0 1rem 2.5rem -1rem rgb(0 0 0 / 0.8);
+  --shadow-header: 0 6px 20px -14px rgb(0 0 0 / 0.9);
+}
+
+/* Розовая тема: вторичный текст и линии из оттенка фона, ошибка уходит в бордовый. */
+[data-theme='pink'] {
+  color-scheme: light;
+
+  --red: #e0006f;
+  --red-dark: #b8005b;
+  --ink: #2a0716;
+  --ink-soft: #45102a;
+  --paper: #fff1f6;
+  --muted: #6b2443;
+  --green: #0b7a3b;
+  --green-bg: #ddf5e6;
+  --amber: #8f4a00;
+  --amber-bg: #ffe9c4;
+
+  --bg: var(--paper);
+  --landing-bg: var(--paper);
+  --bg-alt: #ffe1ec;
+  --bg-deep: #ffcfe0;
+  --surface: #ffffff;
+  --ink-2: var(--muted);
+  --line: #f6c6d8;
+  --line-soft: #f6c6d8;
+  --accent: var(--red);
+  --accent-strong: var(--red-dark);
+  --accent-ink: #ffffff;
+  --accent-text: #b8005b;
+  --accent-soft: #ffd0e3;
+  --ok: var(--green);
+  --ok-bg: var(--green-bg);
+  --wait: var(--amber);
+  --wait-bg: var(--amber-bg);
+  --off: var(--muted);
+  --off-bg: #f7d6e3;
+  --danger: #b0003a;
+  --danger-bg: #ffd6e0;
+  --danger-ink: #ffffff;
+  --focus-ring: #b8005b;
+  --overlay: rgb(42 7 22 / 0.56);
+  --photo-scrim: rgb(42 7 22 / 0.58);
+  --shadow: 0 1.25rem 3rem -1.25rem rgb(42 7 22 / 0.3);
+  --shadow-pop: 0 1rem 2.5rem -1rem rgb(42 7 22 / 0.35);
+  --shadow-header: 0 6px 20px -14px rgb(42 7 22 / 0.4);
+}
+
+/* Печать (афиша А4) всегда в светлых цветах, независимо от темы на экране. */
+@media print {
+  [data-theme] {
+    color-scheme: light;
+    --red: #e5173f;
+    --ink: #121212;
+    --paper: #ffffff;
+    --muted: #5c5c5c;
+    --bg: #ffffff;
+    --bg-alt: #f3f3f4;
+    --bg-deep: #e9e9eb;
+    --surface: #ffffff;
+    --ink-2: #5c5c5c;
+    --line: #e2e2e5;
+    --line-soft: #e2e2e5;
+    --accent: #e5173f;
+    --accent-ink: #ffffff;
+    --accent-text: #e5173f;
+  }
+}
+
+:root {
+  /* Цвет знака бренда постоянный и не зависит от выбранной темы интерфейса. */
+  --brand-dot: #d63b41;
+  --display: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+  --sans: 'Onest', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: var(--display);
+  --font-text: var(--sans);
+
+  /* Шкала в rem от базы 16px; «Крупный текст» поднимает базу до 19px, и вся страница растёт целиком. */
+  --fs-13: 0.8125rem;
+  --fs-15: 0.9375rem;
+  --fs-16: 1rem;
+  --fs-17: 1.0625rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-32: 2rem;
+  --fs-44: 2.75rem;
+  --fs-64: 4rem;
+  --fs-88: 5.5rem;
+
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+
+  --radius: 1rem;
+  --radius-s: 0.75rem;
+  --r-card: var(--radius-s);
+  --r-media: 1.5rem;
+  --r-pill: 999px;
+  --line-w: 1px;
+
+  --control-h: 3rem;
+  --control-h-sm: 2.75rem;
+  --tap: 2.75rem;
+
+  --container: 82rem;
+  --gutter: 1.5rem;
+  --header-h: 4.25rem;
+  --tabbar-h: 4.5rem;
+
+  --t-press: 140ms;
+  --t-hover: 200ms;
+  --t-ui: 250ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --header-h: 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 1rem;
+  }
+}
+
+html {
+  font-size: 100%;
+}
+
+html[data-text='large'] {
+  font-size: 118.75%;
+}

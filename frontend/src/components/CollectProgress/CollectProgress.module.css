@@ -1,0 +1,119 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--s-3);
+  row-gap: 2px;
+}
+
+.number {
+  font-family: var(--font-text);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-transform: none;
+  line-height: 1;
+  font-size: var(--fs-20);
+}
+
+.full .number {
+  font-size: var(--fs-32);
+}
+
+.caption {
+  font-size: var(--fs-15);
+  color: var(--ink-2);
+}
+
+.seats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.seat {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 12px;
+  height: 12px;
+  border: var(--line-w) solid var(--ink-2);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-13);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.full .seats {
+  gap: 6px;
+}
+
+.full .seat {
+  width: 36px;
+  height: 36px;
+}
+
+.taken {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+/* Черта после места-порога: «состоится, если наберётся N». */
+.threshold {
+  margin-right: 10px;
+}
+
+.threshold::after {
+  content: '';
+  position: absolute;
+  right: -9px;
+  top: -4px;
+  bottom: -4px;
+  width: 3px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+}
+
+.full .threshold::after {
+  right: -10px;
+  top: -6px;
+  bottom: -6px;
+}
+
+.bar {
+  position: relative;
+  height: 12px;
+  border: var(--line-w) solid var(--ink);
+  border-radius: var(--r-pill);
+  overflow: visible;
+}
+
+.full .bar {
+  height: 20px;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  transform-origin: left center;
+  transition: transform var(--t-ui) var(--ease);
+}
+
+.tick {
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  width: 3px;
+  margin-left: -1.5px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+}

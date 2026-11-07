@@ -1,0 +1,63 @@
+.header,
+.menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  transition: filter 160ms;
+}
+
+.header .link {
+  border-radius: 50%;
+}
+
+.link[data-tone='vk'] .icon {
+  background: #0077ff;
+  color: #fff;
+}
+
+.link:hover .icon,
+.link:focus-visible .icon {
+  filter: brightness(0.9);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.menu {
+  gap: 0.75rem;
+}
+
+.menu .link {
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.menu .icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    transition: none;
+  }
+}

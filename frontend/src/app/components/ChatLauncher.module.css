@@ -1,0 +1,144 @@
+.launcher {
+  position: fixed;
+  z-index: 90;
+  bottom: 24px;
+  right: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 0 22px 0 16px;
+  border: 0;
+  border-radius: var(--r-pill);
+  color: var(--accent-ink);
+  background: var(--accent);
+  box-shadow: var(--shadow-pop);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--t-hover) var(--ease);
+}
+.launcherMark {
+  flex: none;
+}
+@media (hover: hover) {
+  .launcher:hover {
+    background: var(--accent-strong);
+  }
+}
+.drawer :global(.ant-drawer-mask) {
+  background: rgb(18 18 18 / 0.32);
+}
+.drawer:global(.ant-drawer-right) :global(.ant-drawer-content-wrapper) {
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  height: calc(100% - 40px);
+  max-height: 780px;
+  max-width: calc(100vw - 40px);
+  border-radius: 27px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.18);
+}
+.drawer :global(.ant-drawer-body) {
+  padding: 0;
+  overflow: hidden;
+}
+.drawer :global(.ant-drawer-header) {
+  padding: 18px 20px;
+  border-bottom: 0;
+}
+.drawer :global(.ant-drawer-close) {
+  margin-inline-end: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  font-size: 14px;
+}
+.drawerHeading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.drawerHeading > span {
+  display: grid;
+  flex: none;
+  color: var(--accent-text);
+}
+.drawerHeading strong {
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.drawerHeading small {
+  display: block;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 400;
+  line-height: 1.3;
+  margin-top: 2px;
+}
+.drawer :global(.ant-drawer-extra a) {
+  color: var(--ink-2);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+}
+@media (max-width: 767px) {
+  .launcher {
+    bottom: calc(var(--tabbar-h, 64px) + 16px + env(safe-area-inset-bottom));
+    right: 16px;
+    justify-content: center;
+    width: 56px;
+    padding: 0;
+  }
+  .launcherLabel {
+    display: none;
+  }
+  .launcher[data-above-actions] {
+    bottom: calc(var(--tabbar-h, 64px) + 94px + env(safe-area-inset-bottom));
+  }
+  .drawer:global(.ant-drawer-right) :global(.ant-drawer-content-wrapper) {
+    right: 8px;
+    bottom: 8px;
+    height: calc(100% - 16px);
+    max-width: calc(100vw - 16px);
+    border-radius: 22px;
+  }
+  .drawer :global(.ant-drawer-header) {
+    padding: 14px;
+  }
+  .drawerHeading small {
+    font-size: 0.875rem;
+  }
+}
+@media print {
+  .launcher {
+    display: none;
+  }
+}
+/* Режим «По одной» на телефоне: кнопка не закрывает кнопки под карточкой. */
+@media (max-width: 767px) {
+  :global(html[data-deck]) .launcher {
+    display: none;
+  }
+}
+
+/* Тема «Графит» (data-theme="midnight"): только переопределения, остальные темы не меняются. */
+@media screen {
+  :global(html[data-theme='midnight']) .launcher {
+    border: 1px solid var(--line);
+    border-radius: 0.625rem;
+    font-weight: 500;
+  }
+  :global(html[data-theme='midnight']) .drawer :global(.ant-drawer-content-wrapper) {
+    border: 1px solid var(--line);
+    border-radius: 0.625rem;
+  }
+}

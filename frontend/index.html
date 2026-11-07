@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru" data-theme="light" data-hand="right">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta property="og:site_name" content="Спорт и точка" />
+    <meta property="og:locale" content="ru_RU" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=red-dot" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <!--# block name="seo" -->
+    <title>Спорт и точка — компания для спорта в Красноярске</title>
+    <meta
+      name="description"
+      content="Футбол, волейбол, бег, йога и ещё десятки видов спорта в Красноярске. Смотрите, кто и где собирается, записывайтесь на встречи или соберите свою."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Спорт и точка — компания для спорта в Красноярске" />
+    <meta
+      property="og:description"
+      content="Смотрите, кто и где собирается, записывайтесь на встречи или соберите свою."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!--# endblock -->
+    <!--# include virtual="/api/seo/head?path=$request_uri" stub="seo" -->
+    <script>
+      (function () {
+        try {
+          var raw =
+            sessionStorage.getItem('vmeste.settings.active') ||
+            localStorage.getItem('vmeste.settings.active');
+          if (!raw) return;
+          var s = JSON.parse(raw);
+          var root = document.documentElement;
+          if (s.theme) root.setAttribute('data-theme', s.theme === 'dark' ? 'midnight' : s.theme);
+          if (s.largeText) root.setAttribute('data-text', 'large');
+          if (s.simple) root.setAttribute('data-simple', '');
+          root.setAttribute('data-hand', s.leftHand ? 'left' : 'right');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--# include virtual="/api/seo/body?path=$request_uri" --></div>
+    <noscript>Для работы сайта включите JavaScript в настройках браузера.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

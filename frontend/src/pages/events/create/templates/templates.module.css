@@ -1,0 +1,88 @@
+/* С11: шаблоны в начале мастера. */
+
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--fs-20);
+  font-weight: 800;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--s-3);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 72px;
+  padding: var(--s-3) var(--s-4);
+  border: 1.5px solid var(--line-soft);
+  border-radius: 1.25rem;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 180ms var(--ease);
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    border-color: var(--ink);
+  }
+}
+
+.cardOn {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cardName {
+  font-size: var(--fs-17);
+  font-weight: 700;
+}
+
+.cardHint {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.hint,
+.done {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.done {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.done svg {
+  flex: none;
+  margin-top: 1px;
+}

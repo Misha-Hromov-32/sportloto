@@ -1,0 +1,441 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+/* Фильтры по вёрстке владельца: дни, направления и режим записи. Чипы и переключатель — общие компоненты. */
+
+.chipRow {
+  display: flex;
+  gap: var(--s-2);
+  margin-inline: -1.25rem;
+  padding: 2px 1.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chipRow::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .chipRow {
+    flex-wrap: wrap;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+  }
+}
+
+.chipRow > * {
+  flex: none;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.row .chipRow {
+  flex: 1 1 100%;
+}
+
+@media (min-width: 768px) {
+  .row .chipRow {
+    flex: 1 1 auto;
+  }
+}
+
+.segmented {
+  margin-left: auto;
+}
+
+.dateField :global(.ant-picker) {
+  width: 11rem;
+  min-height: var(--tap);
+  border-radius: var(--r-pill);
+}
+
+.dateFieldOn :global(.ant-picker) {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+@media (max-width: 640px) {
+  .row {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  .segmented {
+    display: flex;
+    margin-left: 0;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .segmented :global(.ant-segmented-group) {
+    display: flex;
+    width: 100%;
+  }
+  .segmented :global(.ant-segmented-item-label) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 6px 8px;
+    white-space: normal;
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .segmented :global(.ant-segmented-item) {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.trigger {
+  display: inline-flex;
+}
+
+.triggerLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- Выбранные фильтры ---------- */
+
+.active {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+/* ---------- Панель выбора ---------- */
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .sheet {
+    width: 320px;
+    max-height: min(560px, 70vh);
+    overflow-y: auto;
+  }
+
+  .sheetWide {
+    width: 520px;
+  }
+}
+
+.sheetTitle {
+  font-size: var(--fs-17);
+  font-weight: 700;
+}
+
+.drawer :global(.ant-drawer-content-wrapper) {
+  max-height: 88dvh;
+}
+
+.drawer :global(.ant-drawer-content) {
+  border-radius: var(--r-media) var(--r-media) 0 0;
+}
+
+.sheetNote {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  min-height: var(--control-h);
+  padding: var(--s-3) var(--s-2);
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  font-size: var(--fs-17);
+}
+
+.option:last-child {
+  border-bottom: 0;
+}
+
+@media (hover: hover) {
+  .option:hover {
+    background: var(--bg-alt);
+  }
+}
+
+.optionActive {
+  font-weight: 700;
+}
+
+.optionMark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
+  border: var(--line-w) solid var(--line-soft);
+  border-radius: var(--r-pill);
+}
+
+.optionActive .optionMark {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.optionText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.optionHint {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 400;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.fieldLabel {
+  font-weight: 600;
+}
+
+/* ---------- Направления ---------- */
+
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.pickerSelected {
+  font-size: var(--fs-15);
+  color: var(--ink-2);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.groupTitle {
+  font-weight: 700;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.tree {
+  display: flex;
+  flex-direction: column;
+}
+
+.tree .groupTitle {
+  margin-bottom: var(--s-2);
+}
+
+.cat {
+  border-top: 1px solid var(--line-soft);
+}
+
+.catTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--control-h);
+  padding: var(--s-2) 0;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.catTitle::-webkit-details-marker {
+  display: none;
+}
+
+.catTitle::after {
+  content: '+';
+  font-family: var(--font-text);
+  font-size: var(--fs-24);
+  line-height: 1;
+}
+
+.cat[open] > .catTitle::after {
+  content: '−';
+}
+
+.catCount {
+  margin-left: auto;
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 400;
+}
+
+.catBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: var(--s-4);
+}
+
+.sub {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.subTitle {
+  color: var(--ink-2);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+/* Компактная панель каталога; выпадающие панели сохраняют крупные варианты. */
+.chipRow > button,
+.trigger > button,
+.active > span {
+  min-height: 2.5rem;
+  padding-inline: 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  gap: 0.375rem;
+}
+.chipRow > button[aria-pressed='true'],
+.trigger > button[aria-pressed='true'] {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+  color: var(--accent-text);
+}
+.dateField :global(.ant-picker) {
+  min-height: 2.5rem;
+  padding-block: 0.25rem;
+  font-size: 0.8125rem;
+}
+.dateField :global(.ant-picker-input > input) {
+  font-size: 0.8125rem;
+}
+.segmented :global(.ant-segmented-item-label) {
+  min-height: 2.25rem;
+  font-size: 0.8125rem;
+}
+.moreFilters {
+  border-top: 1px solid var(--line-soft);
+  padding-top: 0.75rem;
+}
+.moreSummary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.moreSummary::-webkit-details-marker {
+  display: none;
+}
+.moreSummary > svg {
+  color: var(--accent-text);
+  flex-shrink: 0;
+}
+.moreSummary > span {
+  margin-left: 0.5rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+.moreSummary::after {
+  content: '+';
+  margin-left: auto;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.moreFilters[open] > .moreSummary::after {
+  content: '−';
+}
+.extraRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-block: 0.75rem 0.25rem;
+}
+.extraRow > button {
+  min-height: 2.5rem;
+  padding-inline: 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.active > button {
+  font-size: 0.8125rem;
+}
+@media (min-width: 768px) {
+  .row {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .row .chipRow {
+    flex: 1 1 100%;
+  }
+}
+@media (min-width: 1440px) {
+  .row .chipRow {
+    flex: 1 1 auto;
+  }
+}
+@media (max-width: 767px) {
+  .moreSummary > span {
+    display: none;
+  }
+  .segmented {
+    margin-left: 0;
+    width: 100%;
+  }
+  .segmented :global(.ant-segmented-group) {
+    display: flex;
+    width: 100%;
+  }
+  .segmented :global(.ant-segmented-item) {
+    flex: 1;
+  }
+  .segmented :global(.ant-segmented-item-label) {
+    padding-inline: 0.5rem;
+  }
+}

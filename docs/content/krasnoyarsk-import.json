@@ -1,0 +1,258 @@
+{
+ "city": "Красноярск",
+ "importedAt": "2026-10-20",
+ "source": "Открытые посты сообществ ВКонтакте, загружены через админку импорта (/admin/imports)",
+ "snapshotBefore": "/srv/sport-backups/before-bryansk-import-20261020T112908Z/database.dump",
+ "howToRemove": "Снять все встречи города: для каждого id из events — POST /api/events/{id}/moderate {\"action\":\"remove\",\"ruleId\":\"rule-1\",\"comment\":\"Снято при чистке импорта\"} от администратора (скрипт /tmp/bry/remove_city.py на сервере). Страницы сообществ (organizations) остаются служебными, их можно передать сообществу или оставить.",
+ "counts": {
+  "events": 18,
+  "organizations": 10,
+  "bySport": {
+   "s-workout": 2,
+   "s-running": 1,
+   "s-boxing": 4,
+   "s-martial": 4,
+   "s-7yb": 1,
+   "s-football": 3,
+   "s-7vh": 1,
+   "s-padel": 1,
+   "s-taichi": 1
+  }
+ },
+ "organizations": [
+  {
+   "id": "o-7z0",
+   "sourceId": "src-7x1",
+   "name": "ГАРАЖ фитнес-центр│Красноярск",
+   "url": "https://vk.com/garagesportru",
+   "logo": true
+  },
+  {
+   "id": "o-7xm",
+   "sourceId": "src-7x3",
+   "name": "Министерство спорта Красноярского края",
+   "url": "https://vk.com/kraysport24",
+   "logo": true
+  },
+  {
+   "id": "o-7yo",
+   "sourceId": "src-7x5",
+   "name": "АВАНПОСТ | Лазертаг и VR в Красноярске",
+   "url": "https://vk.com/lasertag_avanpost",
+   "logo": true
+  },
+  {
+   "id": "o-7yk",
+   "sourceId": "src-7x7",
+   "name": "5 минут на сборы: Афиша в Красноярске",
+   "url": "https://vk.com/nasbori5minut",
+   "logo": true
+  },
+  {
+   "id": "o-7ys",
+   "sourceId": "src-7x9",
+   "name": "Падел Прайм | Красноярск",
+   "url": "https://vk.com/padelprime",
+   "logo": true
+  },
+  {
+   "id": "o-7xq",
+   "sourceId": "src-7xb",
+   "name": "Академия зимних видов спорта",
+   "url": "https://vk.com/azvskrsk",
+   "logo": true
+  },
+  {
+   "id": "o-7xu",
+   "sourceId": "src-7xd",
+   "name": "\"Северный человек\" Красноярск.",
+   "url": "https://vk.com/krasnoyarsksevchel",
+   "logo": true
+  },
+  {
+   "id": "o-7yf",
+   "sourceId": "src-7xg",
+   "name": "Центр развития волейбола \"Взлет\"",
+   "url": "https://vk.com/vzlet24",
+   "logo": true
+  },
+  {
+   "id": "o-7yw",
+   "sourceId": "src-7xi",
+   "name": "Мероприятия Красноярска",
+   "url": "https://vk.com/afisha124kras",
+   "logo": true
+  },
+  {
+   "id": "o-7y9",
+   "sourceId": "src-7xk",
+   "name": "Красноярский горный клуб",
+   "url": "https://vk.com/krskmountainclub",
+   "logo": true
+  }
+ ],
+ "events": [
+  {
+   "id": "e-7xo",
+   "title": "Массовая зарядка со звёздами спорта на площади Мира",
+   "startsAt": "2026-10-21T01:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7xm",
+   "series": null,
+   "source": "https://vk.com/wall-25159343_45238"
+  },
+  {
+   "id": "e-7xs",
+   "title": "«Забег единства» на 5 км через Вантовый мост",
+   "startsAt": "2026-10-22T01:00:00.000Z",
+   "sportId": "s-running",
+   "orgId": "o-7xq",
+   "series": null,
+   "source": "https://vk.com/wall-215620087_3533"
+  },
+  {
+   "id": "e-7xx",
+   "title": "Бесплатные тренировки по боксу и ОФП",
+   "startsAt": "2026-10-22T13:00:00.000Z",
+   "sportId": "s-boxing",
+   "orgId": "o-7xu",
+   "series": "series-7xw",
+   "source": "https://vk.com/wall-222226963_3118"
+  },
+  {
+   "id": "e-7xy",
+   "title": "Бесплатные тренировки по боксу и ОФП",
+   "startsAt": "2026-10-29T13:00:00.000Z",
+   "sportId": "s-boxing",
+   "orgId": "o-7xu",
+   "series": "series-7xw",
+   "source": "https://vk.com/wall-222226963_3118"
+  },
+  {
+   "id": "e-7y0",
+   "title": "Бесплатные тренировки по боксу и ОФП",
+   "startsAt": "2026-10-27T13:00:00.000Z",
+   "sportId": "s-boxing",
+   "orgId": "o-7xu",
+   "series": "series-7xz",
+   "source": "https://vk.com/wall-222226963_3118"
+  },
+  {
+   "id": "e-7y1",
+   "title": "Бесплатные тренировки по боксу и ОФП",
+   "startsAt": "2026-11-03T13:00:00.000Z",
+   "sportId": "s-boxing",
+   "orgId": "o-7xu",
+   "series": "series-7xz",
+   "source": "https://vk.com/wall-222226963_3118"
+  },
+  {
+   "id": "e-7y4",
+   "title": "Бесплатная тренировка по ММА и растяжке",
+   "startsAt": "2026-10-24T02:00:00.000Z",
+   "sportId": "s-martial",
+   "orgId": "o-7xu",
+   "series": "series-7y3",
+   "source": "https://vk.com/wall-222226963_3113"
+  },
+  {
+   "id": "e-7y5",
+   "title": "Бесплатная тренировка по ММА и растяжке",
+   "startsAt": "2026-10-31T02:00:00.000Z",
+   "sportId": "s-martial",
+   "orgId": "o-7xu",
+   "series": "series-7y3",
+   "source": "https://vk.com/wall-222226963_3113"
+  },
+  {
+   "id": "e-7y6",
+   "title": "Бесплатная тренировка по ММА и растяжке",
+   "startsAt": "2026-11-07T02:00:00.000Z",
+   "sportId": "s-martial",
+   "orgId": "o-7xu",
+   "series": "series-7y3",
+   "source": "https://vk.com/wall-222226963_3113"
+  },
+  {
+   "id": "e-7y7",
+   "title": "Бесплатная тренировка по ММА и растяжке",
+   "startsAt": "2026-11-14T02:00:00.000Z",
+   "sportId": "s-martial",
+   "orgId": "o-7xu",
+   "series": "series-7y3",
+   "source": "https://vk.com/wall-222226963_3113"
+  },
+  {
+   "id": "e-7yd",
+   "title": "Тренировка на боулдеринговом скалодроме «ROCKY»",
+   "startsAt": "2026-10-21T12:00:00.000Z",
+   "sportId": "s-7yb",
+   "orgId": "o-7y9",
+   "series": null,
+   "source": "https://vk.com/wall-240253061_39"
+  },
+  {
+   "id": "e-7yh",
+   "title": "Семейный футбол с детьми в «Твоём взлёте»",
+   "startsAt": "2026-10-21T12:00:00.000Z",
+   "sportId": "s-football",
+   "orgId": "o-7yf",
+   "series": null,
+   "source": "https://vk.com/wall-223197825_683"
+  },
+  {
+   "id": "e-7yi",
+   "title": "Семейный футбол с детьми в «Твоём взлёте»",
+   "startsAt": "2026-10-22T12:00:00.000Z",
+   "sportId": "s-football",
+   "orgId": "o-7yf",
+   "series": null,
+   "source": "https://vk.com/wall-223197825_683"
+  },
+  {
+   "id": "e-7ym",
+   "title": "Фестиваль «Магнит футбола»: игра с экс-игроками сборной",
+   "startsAt": "2026-10-23T03:00:00.000Z",
+   "sportId": "s-football",
+   "orgId": "o-7yk",
+   "series": null,
+   "source": "https://vk.com/wall-47136765_27512"
+  },
+  {
+   "id": "e-7yq",
+   "title": "Сборная игра в лазертаг на площадке «Город будущего»",
+   "startsAt": "2026-10-22T12:00:00.000Z",
+   "sportId": "s-7vh",
+   "orgId": "o-7yo",
+   "series": null,
+   "source": "https://vk.com/wall-46153570_29819"
+  },
+  {
+   "id": "e-7yu",
+   "title": "Мастер-класс по паделу для новичков и творческий вечер",
+   "startsAt": "2026-10-25T09:00:00.000Z",
+   "sportId": "s-padel",
+   "orgId": "o-7ys",
+   "series": null,
+   "source": "https://vk.com/wall-148620270_558"
+  },
+  {
+   "id": "e-7yy",
+   "title": "Мастер-класс «Вперёд в молодость»: суставная гимнастика и цигун",
+   "startsAt": "2026-10-23T10:00:00.000Z",
+   "sportId": "s-taichi",
+   "orgId": "o-7yw",
+   "series": null,
+   "source": "https://vk.com/wall-236260585_1687"
+  },
+  {
+   "id": "e-7z2",
+   "title": "Хэллоуин-тренировка в фитнес-центре «Гараж»",
+   "startsAt": "2026-10-25T10:00:00.000Z",
+   "sportId": "s-workout",
+   "orgId": "o-7z0",
+   "series": null,
+   "source": "https://vk.com/wall-7697677_12861"
+  }
+ ]
+}

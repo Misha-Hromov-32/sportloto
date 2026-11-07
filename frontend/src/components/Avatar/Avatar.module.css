@@ -1,0 +1,47 @@
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  object-fit: cover;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.person {
+  border-radius: var(--r-pill);
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+.org {
+  border-radius: var(--r-card);
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+}
+
+.stack {
+  display: inline-flex;
+  align-items: center;
+}
+
+.stack > * + * {
+  margin-left: -8px;
+}
+
+.stack > .avatar {
+  outline: 2px solid var(--surface);
+}
+
+.rest {
+  display: inline-grid;
+  place-items: center;
+  padding: 0 var(--s-2);
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: var(--fs-13);
+  font-weight: 700;
+  outline: 2px solid var(--surface);
+}

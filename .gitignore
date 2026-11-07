@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+
+# Окружение и локальные данные
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Локальная подготовка презентации
+/.presentation-build/
+
+# Ключи DKIM почтового сервера: только на сервере, не в репозитории
+/deploy/dkim/
+
+# Сборки для сдачи и отчёты проверок — результат сборки, не исходники
+/release/
+/eval/
+
+# Материалы сообществ VK и Telegram (карточки, обложки, контент-план) — только локально
+/social/
+# Скрипты ведения сообщества VK (публикации, графика, ключи администратора) — только локально, как и social/
+/scripts/build-vk-assets.ps1
+/scripts/rewrite-vk-style.ps1
+/scripts/set-vk-admin-token.ps1
+/scripts/set-vk-token.ps1
+/scripts/upload-vk-cover.py
+/scripts/vk-community.ps1
+
+# Локальная подготовка большого календаря: результаты и тестовые зависимости.
+/.calendar-test-deps/
+/calendar-output/
+/companion-output/
+/outputs/
+/calendar-live-reference.json
+/docs/research/
+/*calendar*.tar.gz
+/frontend-pagination-*.tar.gz
+/digest-scaling-sources.tar.gz
+
+# Служебный отчёт проверки файла презентации
+/docs/presentation/validation.json
